@@ -5,11 +5,11 @@ using System.Reflection;
 using System.Web.Http;
 using System.Web.Http.Dispatcher;
 using System.Web.Routing;
-using SxShWeb.App_Start.WebExt;
-using SxShWeb.Areas.Filters;
+using Web.App_Start.WebExt;
+using Web.Areas.Filters;
 
 
-namespace SxShWeb
+namespace Web
 {
     public static class WebApiConfig
     {

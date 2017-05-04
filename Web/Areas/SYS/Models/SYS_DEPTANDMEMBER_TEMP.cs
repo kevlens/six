@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SxShWeb.Areas.Models
+namespace Web.Areas.Models
 {
     public class SYS_DEPTANDMEMBER_TEMP
     {

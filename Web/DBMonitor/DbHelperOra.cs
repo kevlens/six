@@ -6,7 +6,7 @@ using System.Configuration;
 using Oracle.ManagedDataAccess.Client;
 using System.Web.Configuration;
 
-namespace SxShWeb
+namespace Web
 {
 	/// <summary>
     /// Copyright (C) Maticsoft

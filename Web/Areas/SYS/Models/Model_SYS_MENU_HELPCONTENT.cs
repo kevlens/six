@@ -6,7 +6,7 @@ using System.Web;
 using Common;
 using Model;
 
-namespace SxShWeb.Areas.Models
+namespace Web.Areas.Models
 {
     public partial class Model_SYS_MENU_HELPCONTENT
     {

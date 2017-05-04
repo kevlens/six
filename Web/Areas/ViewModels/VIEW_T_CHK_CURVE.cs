@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SxShWeb.Areas.ViewModels
+namespace Web.Areas.ViewModels
 {
      
     

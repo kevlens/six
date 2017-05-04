@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Model.ModelExt;
-using SxShWeb.Areas.ViewModels;
+using Web.Areas.ViewModels;
 
 
-namespace SxShWeb.Areas.Models
+namespace Web.Areas.Models
 {
     public partial class Model_SYS_INTELLIGENCE_DIC
     {

@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace SxShWeb
+namespace Web
 {
     public class RouteConfig
     {
@@ -19,7 +19,7 @@ namespace SxShWeb
                 name: "Default",
                 url: "{controller}/{action}/{id}/{*catchall}",
                 defaults: new { controller = "Home", action = "Login", id = UrlParameter.Optional },
-                namespaces: new string[] { "SxShWeb.Controllers" }
+                namespaces: new string[] { "Web.Controllers" }
 
             );
 
@@ -30,7 +30,7 @@ namespace SxShWeb
             //    name: "Default",
             //    url: "{controller}/{action}/{id}/{*catchall}",
             //    defaults: new { controller = "Home", action = "SYGWLogin", id = UrlParameter.Optional },
-            //    namespaces: new string[] { "SxShWeb.Controllers" }
+            //    namespaces: new string[] { "Web.Controllers" }
             //);
             #endregion
 

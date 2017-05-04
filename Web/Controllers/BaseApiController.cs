@@ -5,11 +5,11 @@ using System.Web;
 using System.Web.Http;
 using System.Web.Mvc;
 using Model;
-using SxShWeb.Areas;
+using Web.Areas;
 
 
 
-namespace SxShWeb.Controllers
+namespace Web.Controllers
 {
     public class BaseApiController : ApiController
     {

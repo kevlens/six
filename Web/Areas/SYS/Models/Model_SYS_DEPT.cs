@@ -8,7 +8,7 @@ using Common.Attributes;
 using Model;
 using Model.ModelExt;
 
-namespace SxShWeb.Areas.Models
+namespace Web.Areas.Models
 {
     public partial class Model_SYS_DEPT
     {

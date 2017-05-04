@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using Model;
 
-namespace SxShWeb.Areas.ViewModels
+namespace Web.Areas.ViewModels
 {
     public partial class VIEW_SYS_DEPT
     {

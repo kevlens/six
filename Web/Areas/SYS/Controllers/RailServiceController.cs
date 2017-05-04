@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Http;
 
-namespace SxShWeb.Areas.SYS.Controllers
+namespace Web.Areas.SYS.Controllers
 {
     public class RailServiceController : ApiController
     {

@@ -10,11 +10,11 @@ using AutoMapper;
 using Common;
 using Common.Attributes;
 using Model;
-using SxShWeb.Areas.Models;
-using SxShWeb.Areas.ViewModels;
-using SxShWeb.Controllers;
+using Web.Areas.Models;
+using Web.Areas.ViewModels;
+using Web.Controllers;
 
-namespace SxShWeb.Areas.SYS.Controllers
+namespace Web.Areas.SYS.Controllers
 {
     public class SYS_MEMBERController : BaseController
     {

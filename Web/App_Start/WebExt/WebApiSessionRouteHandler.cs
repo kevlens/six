@@ -6,7 +6,7 @@ using System.Web.Http.WebHost;
 using System.Web.Routing;
 using System.Web.SessionState;
 
-namespace SxShWeb.App_Start.WebExt
+namespace Web.App_Start.WebExt
 {
     public class SessionableControllerHandler : HttpControllerHandler, IRequiresSessionState
     {

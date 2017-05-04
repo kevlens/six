@@ -1,7 +1,7 @@
 ﻿using Common;
 using Model;
 using Oracle.ManagedDataAccess.Client;
-using SxShWeb.Areas;
+using Web.Areas;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -10,7 +10,7 @@ using System.Reflection;
 using System.Web;
 using System.Web.Configuration;
 
-namespace SxShWeb.DBMonitor
+namespace Web.DBMonitor
 {
     public class DBMonitorBase
     {

@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 using System.Web;
 using Common;
 using Model;
-using SxShWeb.Areas.Models;
+using Web.Areas.Models;
 
-namespace SxShWeb.Areas.Filters
+namespace Web.Areas.Filters
 {
     public class WebApiLoginHandler : DelegatingHandler
     {

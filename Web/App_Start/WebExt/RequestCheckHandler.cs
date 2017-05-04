@@ -5,7 +5,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SxShWeb.App_Start.WebExt
+namespace Web.App_Start.WebExt
 {
     public class RequestCheckHandler : DelegatingHandler
     {

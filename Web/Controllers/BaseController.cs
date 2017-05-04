@@ -8,10 +8,10 @@ using System.Web.Mvc;
 using Common;
 using Common.Attributes;
 using Model;
-using SxShWeb.Areas;
+using Web.Areas;
 
 
-namespace SxShWeb.Controllers
+namespace Web.Controllers
 {
     public class BaseController : Controller
     {

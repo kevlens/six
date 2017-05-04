@@ -5,13 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using Common.Attributes;
-using SxShWeb.Controllers;
+using Web.Controllers;
 using Common;
-using SxShWeb.Areas.Models;
+using Web.Areas.Models;
 using Model;
 using Model.ModelExt;
 
-namespace SxShWeb.Areas.SYS.Controllers
+namespace Web.Areas.SYS.Controllers
 {
     public class SYS_MENUController : BaseController
     {

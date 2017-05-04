@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SxShWeb.SMSService {
+namespace Web.SMSService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -103,12 +103,12 @@ namespace SxShWeb.SMSService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface FtsSoapChannel : SxShWeb.SMSService.FtsSoap, System.ServiceModel.IClientChannel {
+    public interface FtsSoapChannel : Web.SMSService.FtsSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FtsSoapClient : System.ServiceModel.ClientBase<SxShWeb.SMSService.FtsSoap>, SxShWeb.SMSService.FtsSoap {
+    public partial class FtsSoapClient : System.ServiceModel.ClientBase<Web.SMSService.FtsSoap>, Web.SMSService.FtsSoap {
         
         public FtsSoapClient() {
         }

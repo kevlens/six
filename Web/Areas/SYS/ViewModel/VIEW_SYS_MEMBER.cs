@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace SxShWeb.Areas.ViewModels
+namespace Web.Areas.ViewModels
 {
     public partial class VIEW_SYS_MEMBER
     {

@@ -1,9 +1,9 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Routing;
-using SxShWeb.App_Start.WebExt;
+using Web.App_Start.WebExt;
 
-namespace SxShWeb.Areas.SYS
+namespace Web.Areas.SYS
 {
     public class SYSAreaRegistration : AreaRegistration
     {
@@ -21,7 +21,7 @@ namespace SxShWeb.Areas.SYS
                 this.AreaName + "_default",
                 this.AreaName + "/{controller}/{action}/{id}/{*catchall}",
                 new { area = this.AreaName, controller = "Admin", action = "Index", id = UrlParameter.Optional },
-                namespaces: new string[] { "SxShWeb.Areas." + this.AreaName + ".Controllers" }
+                namespaces: new string[] { "Web.Areas." + this.AreaName + ".Controllers" }
             );
 
             RouteTable.Routes.MapHttpRoute(
@@ -31,7 +31,7 @@ namespace SxShWeb.Areas.SYS
                 {
                     action = RouteParameter.Optional,
                     id = RouteParameter.Optional,
-                    namespaceName = new string[] { "SxShWeb.Areas." + this.AreaName + ".Controllers" }
+                    namespaceName = new string[] { "Web.Areas." + this.AreaName + ".Controllers" }
                 },
                 null
             ).RouteHandler = new SessionStateRouteHandler();

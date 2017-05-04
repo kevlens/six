@@ -9,22 +9,23 @@ using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.SessionState;
-using SxShWeb.Areas.Filters;
+using Web.Areas.Filters;
 using Microsoft.AspNet.SignalR;
-using SxShWeb.DBMonitor;
+using Web.DBMonitor;
 using System.Collections;
 using Common;
 using System.Web.Configuration;
 using System.Configuration;
-using SxShWeb.Areas.Models;
+using Web.Areas.Models;
 
-namespace SxShWeb
+namespace Web
 {
     // 注意: 有关启用 IIS6 或 IIS7 经典模式的说明，
     // 请访问 http://go.microsoft.com/?LinkId=9394801
 
     public class MvcApplication : System.Web.HttpApplication
     {
+        
         public string ss = System.Environment.CurrentDirectory;
         protected void Application_Start()
         {

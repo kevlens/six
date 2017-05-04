@@ -1,8 +1,8 @@
 ﻿using System.Web;
 using System.Web.Mvc;
-using SxShWeb.Areas.Filters;
+using Web.Areas.Filters;
 
-namespace SxShWeb
+namespace Web
 {
     public class FilterConfig
     {

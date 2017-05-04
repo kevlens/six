@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SxShWeb.syService {
+namespace Web.syService {
     using System.Data;
     
     
@@ -39,12 +39,12 @@ namespace SxShWeb.syService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface WebServiceSoapChannel : SxShWeb.syService.WebServiceSoap, System.ServiceModel.IClientChannel {
+    public interface WebServiceSoapChannel : Web.syService.WebServiceSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class WebServiceSoapClient : System.ServiceModel.ClientBase<SxShWeb.syService.WebServiceSoap>, SxShWeb.syService.WebServiceSoap {
+    public partial class WebServiceSoapClient : System.ServiceModel.ClientBase<Web.syService.WebServiceSoap>, Web.syService.WebServiceSoap {
         
         public WebServiceSoapClient() {
         }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace SxShWeb.Areas.Filters
+namespace Web.Areas.Filters
 {
     public class JsonAttribute : ActionFilterAttribute
     {

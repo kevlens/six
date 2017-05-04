@@ -6,10 +6,10 @@ using System.Web;
 using System.Web.Mvc;
 using Common;
 using Model;
-using SxShWeb.Areas.Models;
-using SxShWeb.Controllers;
+using Web.Areas.Models;
+using Web.Controllers;
 
-namespace SxShWeb.Areas.Filters
+namespace Web.Areas.Filters
 {
     public class LoginValidateAttribute : AuthorizeAttribute
     {

@@ -10,13 +10,13 @@ using Common;
 using System.Transactions;
 using System.Threading.Tasks;
 using Model;
-using SxShWeb.Controllers;
-using SxShWeb.Areas.ViewModels;
+using Web.Controllers;
+using Web.Areas.ViewModels;
 using System.ComponentModel;
 using Newtonsoft.Json;
 using Model.ModelExt;
 
-namespace SxShWeb.Areas.SYS.Controllers
+namespace Web.Areas.SYS.Controllers
 {
     public class BaseInfoApiController : BaseApiController
     {

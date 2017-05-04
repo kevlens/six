@@ -7,7 +7,7 @@ using System.Configuration;
 using Oracle.ManagedDataAccess.Client;
 using Oracle.ManagedDataAccess.Types;
 
-namespace SxshWeb
+namespace Web
 {
     /// <summary>
     /// 数据访问基础类(基于Oracle)

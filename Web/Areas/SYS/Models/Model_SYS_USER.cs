@@ -7,9 +7,9 @@ using System.Transactions;
 using System.Web;
 using Common;
 using Model;
-using SxShWeb.Areas.ViewModels;
+using Web.Areas.ViewModels;
 
-namespace SxShWeb.Areas.Models
+namespace Web.Areas.Models
 {
     public partial class Model_SYS_USER
     {

@@ -7,14 +7,14 @@ using System.Web.Mvc;
 using Common;
 using Common.Attributes;
 using Model;
-using SxShWeb.Areas.Models;
+using Web.Areas.Models;
 using System.Configuration;
 using System.Linq.Expressions;
 using System.IO;
 using System.Management;
 
 
-namespace SxShWeb.Controllers
+namespace Web.Controllers
 {
     public class HomeController : BaseController
     {

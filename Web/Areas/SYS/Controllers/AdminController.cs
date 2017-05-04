@@ -7,14 +7,14 @@ using Common;
 using Model;
 using Common.Attributes;
 using System.ComponentModel;
-using SxShWeb.Controllers;
+using Web.Controllers;
 using Model.ModelExt;
-using SxShWeb.Areas.Models;
+using Web.Areas.Models;
 using System.Configuration;
 using System.Linq.Expressions;
 using System.Threading;
 
-namespace SxShWeb.Areas.SYS.Controllers
+namespace Web.Areas.SYS.Controllers
 {
     public class AdminController : BaseController
     {

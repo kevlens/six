@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SxShWeb.masService {
+namespace Web.masService {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -117,12 +117,12 @@ namespace SxShWeb.masService {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface FtsSoapChannel : SxShWeb.masService.FtsSoap, System.ServiceModel.IClientChannel {
+    public interface FtsSoapChannel : Web.masService.FtsSoap, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class FtsSoapClient : System.ServiceModel.ClientBase<SxShWeb.masService.FtsSoap>, SxShWeb.masService.FtsSoap {
+    public partial class FtsSoapClient : System.ServiceModel.ClientBase<Web.masService.FtsSoap>, Web.masService.FtsSoap {
         
         public FtsSoapClient() {
         }

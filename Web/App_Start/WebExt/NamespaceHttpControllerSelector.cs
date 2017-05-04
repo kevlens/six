@@ -9,7 +9,7 @@ using System.Web.Http;
 using System.Web.Http.Controllers;
 using System.Web.Http.Dispatcher;
 
-namespace SxShWeb.App_Start.WebExt
+namespace Web.App_Start.WebExt
 {
     public class NamespaceHttpControllerSelector : DefaultHttpControllerSelector
     {

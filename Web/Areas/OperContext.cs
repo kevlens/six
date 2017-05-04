@@ -9,7 +9,7 @@ using BLL;
 using IBLL;
 using Model;
 
-namespace SxShWeb.Areas
+namespace Web.Areas
 {
     public class OperContext
     {
