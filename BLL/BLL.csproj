@@ -79,11 +79,11 @@
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{e24b6730-9dbb-4d4e-9545-790643716f5d}</Project>
-      <Name>Common %28Common\Common%29</Name>
+      <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{f67bb47c-6def-48a8-a0ef-159f2cdedc46}</Project>
-      <Name>DAL %28DAL\DAL%29</Name>
+      <Name>DAL</Name>
     </ProjectReference>
     <ProjectReference Include="..\IBLL\IBLL.csproj">
       <Project>{69cabf19-735a-49d0-a140-3161e1645c49}</Project>
@@ -95,7 +95,7 @@
     </ProjectReference>
     <ProjectReference Include="..\Model\Model.csproj">
       <Project>{2cecdbc0-e7bc-4f03-8164-aa3a2e19d6a9}</Project>
-      <Name>Model %28Model\Model%29</Name>
+      <Name>Model</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
