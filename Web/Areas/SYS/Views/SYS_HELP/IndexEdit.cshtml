@@ -1,0 +1,178 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!--<1>.引用Jquery的Js文件-->
+    <script src="~/jquery-easyui-1.4/jquery.min.js" type="text/javascript"></script>
+    @*    <script src="~/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>*@
+    <!--<2>.引用Easy UI的Js文件-->
+    <script src="~/jquery-easyui-1.4/jquery.easyui.min.js" type="text/javascript"></script>
+    <!--<3>.导入Easy UI的主题Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/default/easyui.css" rel="stylesheet" type="text/css"
+        id="swicthstyle" />
+    <!--<4>.导入Easy UI的图标Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/icon.css" rel="stylesheet" type="text/css" />
+    <!--<5>.引用Easy UI的国际化文件         以下为让它显示中文-->
+    <script src="~/jquery-easyui-1.4/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <!--<6>.页面上加上UTF-8编码       防止jquery.easyui.min.js  内容乱码-->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!--<7>.easyui1.4BUG插件，防止查询为空是重复请求-->
+    <script src="~/Content/JS/jquery.easyui.patch.js"></script>
+    <script src="~/Content/JS/utils.js"></script>
+    <script src="~/Content/JS/ValidateJs.js"></script>
+    <script src="~/Content/JS/processingajaxmsg.js"></script>
+    <!--Json常量定义-->
+    <script src="~/Content/JS/Constant.js"></script>
+    <link href="~/Content/Css/base.css" rel="stylesheet" />
+    <link href="~/Content/Css/icon/icon.css" rel="stylesheet" />
+    <link href="~/Content/Css/page/index.css" rel="stylesheet" />
+
+    <title></title>
+    <script type="text/javascript" charset="utf-8" src="~/Content/ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/Content/ueditor/ueditor.all.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="~/Content/ueditor/lang/zh-cn/zh-cn.js"></script>
+    <link href="~/Content/ueditor/themes/default/css/ueditor.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="easyui-layout" fit="true" border="false">
+        <div region="center" border="false">
+            <form method="post" id="Myeditor">
+                <script id="editor" name="editor" type="text/plain" style="width: 99%; height: inherit;margin-left:5px">
+                </script>
+            </form>
+        </div>
+        <div region="north" border="false" style="float: left; overflow: hidden; padding: 3px;">
+            <form id="searchForm">
+                <table class="z-selectbar">
+                    <tr>
+                        <td>系统&nbsp;
+                        <input id="SysMenuID" name="SysMenuID" class="easyui-combobox" style="width: 220PX" />
+                            &nbsp;文档顺序&nbsp;
+                        <input id="ContentOrder" name="ContentOrder" class="easyui-combobox" style="width: 100PX"/>
+                            &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-search'" onclick="doSearch();">查询</a>
+                            &nbsp;<a href="javascript:void(0)" id="saveBut"  class="easyui-linkbutton" iconcls="icon-ok" onclick="doSave()">保 存</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+        ue.addListener("ready", function () {
+            ue.setContent('欢迎使用系统帮助文档在线编辑，请您选择要编辑的系统以及文档顺序 ^ ^');
+        });
+        var EmptyOrder = { "id": "0", "text": "新" };
+        BindSystem();
+        $('#ContentOrder').combobox({
+            data: '[]',
+            valueField: 'id',
+            textField: 'text',
+            editable: false
+        });
+        function BindSystem() {
+            //系统
+            $.ajax({
+                url: '/SYS/Admin/GetMyZeroMenu',
+                cache: false,
+                dataType: 'JSON',
+                type: 'get',
+                success: function (sysData) {
+                    $('#SysMenuID').combobox({
+                        data: sysData,
+                        valueField: 'id',
+                        textField: 'text',
+                        onSelect: function (item) {
+                            $.ajax({
+                                url: '/SYS/SYS_HELP/GetSysOrderByMenuID/' + item.id,
+                                cache: false,
+                                dataType: 'JSON',
+                                type: 'get',
+                                success: function (OrderData) {
+                                    OrderData.unshift(EmptyOrder);
+                                    var ContentOrder = $('#ContentOrder');
+                                    ContentOrder.combobox('clear');
+                                    ContentOrder.combobox('loadData', OrderData);
+                                }
+                            });
+                        }
+                    });
+                }
+            });
+        }
+        function doSearch() {
+            if ($('#searchForm').find('[name=SysMenuID]').val() == '' || $('#searchForm').find('[name=ContentOrder]').val() == '') {
+                $.alertMsg('请您选择系统，文档顺序', '操作提示', null);
+                return;
+            }
+            var MenuandOrder = $('#searchForm').find('[name=SysMenuID]').val() + '_' + $('#searchForm').find('[name=ContentOrder]').val();
+            $.ajax({
+                url: '/SYS/SYS_HELP/GetContentByMenuandOrder/' + MenuandOrder,
+                cache: false,
+                dataType: 'text',
+                type: 'get',
+                success: function (contentData) {
+                    ue.setContent(contentData);
+                }
+            });
+        }
+        function doSave() {
+            setSaveBtn(false);
+            if ($('#searchForm').find('[name=SysMenuID]').val() == '' || $('#searchForm').find('[name=ContentOrder]').val() == '') {
+                $.alertMsg('请您选择系统，文档顺序', '操作提示', null);
+                setSaveBtn(true);
+                return;
+            }
+            if (ue.hasContents()) { 
+                ue.sync();      
+                var MenuandOrder = $('#searchForm').find('[name=SysMenuID]').val() + '_' + $('#searchForm').find('[name=ContentOrder]').val();
+                $('#Myeditor').form('submit', {
+                    url: '/SYS/SYS_HELP/Save/' + MenuandOrder,
+                    cache: false,
+                    success: function (result) {
+                        setSaveBtn(true);
+                        var result = $.parseJSON(result);
+                        $.procAjaxMsg(result, function () {
+                            $.ajax({
+                                url: '/SYS/SYS_HELP/GetSysOrderByMenuID/' + $('#searchForm').find('[name=SysMenuID]').val(),
+                                cache: false,
+                                dataType: 'JSON',
+                                type: 'get',
+                                success: function (OrderData) {
+                                    OrderData.unshift(EmptyOrder);
+                                    var ContentOrder = $('#ContentOrder');
+                                    ContentOrder.combobox('clear');
+                                    ContentOrder.combobox('loadData', OrderData);
+                                }
+                            });
+                            $.alertMsg(result.Msg, '操作提示', null);
+                        }, function () {
+                            $.alertMsg(result.Msg, '操作提示', null);
+                        });
+                    }
+                });
+            }
+            
+        }
+        function setSaveBtn(isable) {
+            if (isable) {
+                $('#saveBut').linkbutton('enable');
+                $('#saveBut').linkbutton({
+                    iconCls: 'icon-ok',
+                    text: "保 存"
+                });
+            }
+            else {
+                $('#saveBut').linkbutton('disable');//禁用
+                $('#saveBut').linkbutton({
+                    iconCls: 'icon-ok',
+                    text: "保存中"
+                });
+            }
+        }
+    </script>
+</body>
+</html>

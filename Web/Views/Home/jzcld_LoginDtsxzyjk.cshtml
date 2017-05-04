@@ -1,0 +1,151 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<1>.引用Jquery的Js文件-->
+    <script src="~/jquery-easyui-1.4/jquery.min.js" type="text/javascript"></script>
+    <!--<2>.引用Easy UI的Js文件-->
+    <script src="~/jquery-easyui-1.4/jquery.easyui.min.js" type="text/javascript"></script>
+    <!--<3>.导入Easy UI的主题Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/default/easyui.css" rel="stylesheet" type="text/css"
+        id="swicthstyle" />
+    <!--<4>.导入Easy UI的图标Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/icon.css" rel="stylesheet" type="text/css" />
+    <!--<5>.引用Easy UI的国际化文件         以下为让它显示中文-->
+    <script src="~/jquery-easyui-1.4/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <!--<6>.页面上加上UTF-8编码       防止jquery.easyui.min.js  内容乱码-->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <script src="~/Content/JS/processingajaxmsg.js"></script>
+    <script src="~/Content/JS/ValidateJs.js"></script>
+    <link href="~/Content/Css/page/jzcld_LoginDtsxzyjk.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(function () {
+            document.oncontextmenu = function (e) {
+                return false; // 主页面不允许右键（兼容多浏览器）
+            }
+            $('#password').bind('keypress', function (event) {
+                if (event.keyCode == "13") {
+                    $("#loginBut").trigger("click");
+                }
+            });
+            Updated_Version();
+        });
+
+        function saveUser() {
+            $('#loginBut').linkbutton('disable');//禁用
+            $('#loginBut').linkbutton({
+                iconCls: 'icon-ok',
+                text: "登录中"
+            });
+            //判断密码强度
+            var pasword = $('#password').val();
+            var iseasyPasword = 'N';
+            if (pasword == '123456') {
+                iseasyPasword = 'Y';
+            }
+            $("#checkcode").val('zzzzz');
+            $('#form-body').form('submit', {
+                url: '/Home/LoginIn/' + iseasyPasword,
+                cache: false,
+                onSubmit: function () {
+                    if ($(this).form('validate')) {
+                        return true;
+                    } else {
+                        $('#loginBut').linkbutton('enable');
+                        $('#loginBut').linkbutton({
+                            iconCls: 'icon-ok',
+                            text: "登 录"
+                        });
+                        return false;
+                    }
+                },
+                success: function (result) {
+                    $('#loginBut').linkbutton('enable');
+                    $('#loginBut').linkbutton({
+                        iconCls: 'icon-ok',
+                        text: "登 录"
+                    });
+                    var result = $.parseJSON(result);
+                    //console.info(result);
+                    $.procAjaxMsg(result, function () {
+                        window.location.href = result.BackUrl;
+                    }, function () {
+                        $.alertMsg(result.Msg, '登录失败', null);
+                    })
+                }
+            });
+        }
+
+
+        //单击重新改变验证码
+        function ClickRemoveChangeCode() {
+            //获取到验证码的路径
+            var code = $("#imgCode").attr("src");
+            //然后重新给验证码的路径赋值
+            $("#imgCode").attr("src", code + "1");
+        }
+
+        function Updated_Version() {
+            var NewVersion = "201704140828";
+            var Version = localStorage.getItem("Version");
+            if (Version == "" || Version == null) {
+                localStorage.setItem("Version", NewVersion);
+            } else {
+                if (NewVersion != Version) {
+                    $('#loginBut').linkbutton('disable');//禁用
+                    $('#loginBut').linkbutton({
+                        iconCls: 'icon-ok',
+                        text: "请先清除缓冲"
+                    });
+                    $.alertMsg('请先清除缓冲,再刷新本页面登录!', '清除缓冲', null);
+                }
+            }
+            console.info("Version:" + localStorage.getItem("Version"));
+        }
+    </script>
+
+    <title>@ViewBag.title</title>
+</head>
+<body>
+    <div id="jplayer"></div>
+    <div id="ddbg" class="easyui-dialog" data-options="noheader: true,style:{borderWidth:0}">
+        <div id="ddform" class="easyui-dialog" data-options="noheader: true,buttons: $('#dlg-buttons'),shadow:false">
+            <form method="post" id="form-body">
+                <ul>
+                    <li>
+                        <label>账&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                        <input class="easyui-validatebox account form-textbox" type="text" name="username" maxlength="15" value="" data-options="required:true,validType:['length[3,15]']"></li>
+                    <li>
+                        <label>密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                        <input class="easyui-validatebox  password form-textbox" type="password" id="password" name="password" value="" maxlength="15" data-options="required:true,validType:['length[3,15]']"></li>
+                    <li style="display: none">
+                        <table style="width: 486px; height: 30px; border-collapse: collapse;">
+                            <tr>
+                                <td style="width: 172px; text-align: right;">验&nbsp;证&nbsp;码</td>
+                                <td style="width: 60px; text-align: center;">
+                                    <img src="/Home/CheckCode/1" id="imgCode" alt="单击可刷新" title="看不清,单击换一张" onclick="ClickRemoveChangeCode()" style="cursor: pointer;" /></td>
+                                <td style="text-align: left;">
+                                    <input class="easyui-validatebox checkcode form-textbox" id="checkcode" type="text" name="checkcode" value="" maxlength="5" data-options="required:true,validType:['length[5,5]'],invalidMessage:'验证码长度必须是5位'"></td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+            </form>
+            <div id="dlg-buttons" style="height: 26px;border-width:0px;">
+                <div style="float: left; margin-top: 5px;">
+                    推荐使用:
+        <a href="~/Content/UpLoad/Browser/Firefox.rar">火狐浏览器</a>
+                    <a href="~/Content/UpLoad/Browser/Chrome.rar">谷歌浏览器</a>
+                </div>
+                <div style="float: right;"><a href="javascript:void(0)" id="loginBut" class="easyui-linkbutton" iconcls="icon-ok" onclick="saveUser()">登 录</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,2255 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Model", "Model", "{FA8AFF0D-DABE-4C2E-A08D-1E33E9B705D0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Model", "Model\Model.csproj", "{2CECDBC0-E7BC-4F03-8164-AA3A2E19D6A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DAL", "DAL", "{0BFB1339-E8CE-4C11-84E4-F890773FA8F5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IDAL", "IDAL\IDAL.csproj", "{0C070F02-FAE1-42A1-958A-49A128A9DB78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{F67BB47C-6DEF-48A8-A0EF-159F2CDEDC46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{4BB8B154-C612-499C-96B2-3C05E24431AE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{E24B6730-9DBB-4D4E-9545-790643716F5D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BLL", "BLL", "{C0C3CB40-FEE9-4995-AFF1-50C8361C67BB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{09447503-DA07-4C5F-BF4B-F20AB4882558}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IBLL", "IBLL\IBLL.csproj", "{69CABF19-735A-49D0-A140-3161E1645C49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SxShWeb", "Web\SxShWeb.csproj", "{C6369BC0-DB6F-4E57-B130-68CEB4B112B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "packages", "packages", "{510737F6-9072-4923-B938-37E798459920}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Aspose.Cells.dll = packages\Aspose.Cells.dll
+		packages\Aspose.Words.dll = packages\Aspose.Words.dll
+		packages\AutoMapper.dll = packages\AutoMapper.dll
+		packages\AutoMapper.Net4.dll = packages\AutoMapper.Net4.dll
+		packages\EntityFramework.Extended.dll = packages\EntityFramework.Extended.dll
+		..\工务平台\Platforms\packages\log4net.dll = ..\工务平台\Platforms\packages\log4net.dll
+		packages\Microsoft.Office.Interop.Word.dll = packages\Microsoft.Office.Interop.Word.dll
+		packages\Oracle.DataAccess.dll = packages\Oracle.DataAccess.dll
+		packages\Oracle.ManagedDataAccess.dll = packages\Oracle.ManagedDataAccess.dll
+		packages\Oracle.ManagedDataAccessDTC.dll = packages\Oracle.ManagedDataAccessDTC.dll
+		packages\repositories.config = packages\repositories.config
+		packages\sxsh.Common.dll = packages\sxsh.Common.dll
+		packages\sxsh.Model.dll = packages\sxsh.Model.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetOpenAuth.AspNet.4.1.4.12333", "DotNetOpenAuth.AspNet.4.1.4.12333", "{869C7707-27A0-4C32-80CD-EF980DBA1BF4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.AspNet.4.1.4.12333\DotNetOpenAuth.AspNet.4.1.4.12333.nupkg = packages\DotNetOpenAuth.AspNet.4.1.4.12333\DotNetOpenAuth.AspNet.4.1.4.12333.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{D654C330-34E2-45DB-BAAA-6D3330F951CC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40-full", "net40-full", "{19CB6D52-21D5-4E44-A281-6487F719824D}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.dll = packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.dll
+		packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.xml = packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net40-full\DotNetOpenAuth.AspNet.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45-full", "net45-full", "{0BC47028-C0CA-4129-9E73-1F2E377B01C4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net45-full\DotNetOpenAuth.AspNet.dll = packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net45-full\DotNetOpenAuth.AspNet.dll
+		packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net45-full\DotNetOpenAuth.AspNet.xml = packages\DotNetOpenAuth.AspNet.4.1.4.12333\lib\net45-full\DotNetOpenAuth.AspNet.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetOpenAuth.Core.4.1.4.12333", "DotNetOpenAuth.Core.4.1.4.12333", "{87B61D49-CED1-4156-9507-B7591A77DBEF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.Core.4.1.4.12333\DotNetOpenAuth.Core.4.1.4.12333.nupkg = packages\DotNetOpenAuth.Core.4.1.4.12333\DotNetOpenAuth.Core.4.1.4.12333.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{3769145E-096D-4668-802C-9B85064B566B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.Core.4.1.4.12333\content\web.config.transform = packages\DotNetOpenAuth.Core.4.1.4.12333\content\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{9FD286CD-F09E-449D-8B6D-8F7233AF81AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35-full", "net35-full", "{4D0C9400-BD59-4516-AED1-ADB268A7A6AE}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.Core.dll = packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.Core.dll
+		packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.Core.xml = packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.Core.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40-full", "net40-full", "{CD79071C-35FD-49B7-92F2-FE32B8031DE7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.dll = packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.dll
+		packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.xml = packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.Core.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45-full", "net45-full", "{335204D9-8D49-43F9-933C-1A98341FA37D}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.Core.dll = packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.Core.dll
+		packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.Core.xml = packages\DotNetOpenAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.Core.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetOpenAuth.OAuth.Consumer.4.1.4.12333", "DotNetOpenAuth.OAuth.Consumer.4.1.4.12333", "{27F1430A-7E32-4A06-B62D-27884F23EFBF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333.nupkg = packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{6BF4EB86-288F-4213-ACD9-F883FCE75FF1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35-full", "net35-full", "{211D320B-782F-489D-9B2F-0DB3780255A6}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.Consumer.dll = packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.Consumer.dll
+		packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.Consumer.xml = packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.Consumer.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40-full", "net40-full", "{F8D26588-597D-425B-8F2E-4704EA9B4EF4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll = packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.dll
+		packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.xml = packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.Consumer.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45-full", "net45-full", "{337795E1-D9D9-4079-ACDB-847DB9C09E8A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll = packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.dll
+		packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.xml = packages\DotNetOpenAuth.OAuth.Consumer.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.Consumer.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetOpenAuth.OAuth.Core.4.1.4.12333", "DotNetOpenAuth.OAuth.Core.4.1.4.12333", "{D2E7BA24-662C-4DD2-839F-9DE5E948F520}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\DotNetOpenAuth.OAuth.Core.4.1.4.12333.nupkg = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\DotNetOpenAuth.OAuth.Core.4.1.4.12333.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{D6F20332-8B5D-4CC6-80BD-475AD6746D61}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\content\web.config.transform = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\content\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{96D0B2AF-7460-467D-8575-882F45EC2A1D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35-full", "net35-full", "{94C233CE-469E-4C83-9EE9-AFF64B2D8C97}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.dll = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.dll
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.xml = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OAuth.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40-full", "net40-full", "{5E8891D8-461A-4372-BC86-DD4AB1C0F8E7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.dll = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.dll
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.xml = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OAuth.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45-full", "net45-full", "{BD324CD5-8740-4060-B3A3-BA451C0C9529}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.dll = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.dll
+		packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.xml = packages\DotNetOpenAuth.OAuth.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OAuth.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetOpenAuth.OpenId.Core.4.1.4.12333", "DotNetOpenAuth.OpenId.Core.4.1.4.12333", "{D6429E54-7EE3-46F9-8498-A30316661E83}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\DotNetOpenAuth.OpenId.Core.4.1.4.12333.nupkg = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\DotNetOpenAuth.OpenId.Core.4.1.4.12333.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{5162FAB3-C15C-4CF9-9D75-59A1A8C7DF67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{26EC0DB1-1BFC-4829-8C8D-B79BAFF6DD4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35-full", "net35-full", "{F4DE660D-1ED0-4DA7-B285-9447A062F2B1}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\content\net35-full\web.config.transform = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\content\net35-full\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40-full", "net40-full", "{16EBB314-A177-41FE-94F4-407E43BAA1EB}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\content\net40-full\web.config.transform = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\content\net40-full\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45-full", "net45-full", "{B07EAF44-8D8E-46B5-AC3F-637A47AA3340}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\content\net45-full\web.config.transform = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\content\net45-full\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35-full", "net35-full", "{C94EF61F-0752-40B6-A732-D058C2D6BC16}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.xml
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Mono.Math.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Mono.Math.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Mono.Math.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Mono.Math.xml
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Org.Mentalis.Security.Cryptography.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Org.Mentalis.Security.Cryptography.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Org.Mentalis.Security.Cryptography.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net35-full\Org.Mentalis.Security.Cryptography.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40-full", "net40-full", "{AD5345E6-694E-49D5-90F9-E1CC3235CC0B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.xml
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Mono.Math.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Mono.Math.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Mono.Math.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Mono.Math.xml
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Org.Mentalis.Security.Cryptography.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Org.Mentalis.Security.Cryptography.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Org.Mentalis.Security.Cryptography.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net40-full\Org.Mentalis.Security.Cryptography.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45-full", "net45-full", "{9265591F-8BC2-4103-A474-C8E6C6ED0310}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.xml
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Mono.Math.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Mono.Math.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Mono.Math.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Mono.Math.xml
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Org.Mentalis.Security.Cryptography.dll = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Org.Mentalis.Security.Cryptography.dll
+		packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Org.Mentalis.Security.Cryptography.xml = packages\DotNetOpenAuth.OpenId.Core.4.1.4.12333\lib\net45-full\Org.Mentalis.Security.Cryptography.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333", "DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333", "{6FF1642F-32DE-4B20-B13B-BE05A50C4E19}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333.nupkg = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{29FB029A-CFFC-4A32-9BBC-9D2AA403A5A5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{BB051B28-F883-4149-9612-24D55862C4E7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\content\web.config.transform = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\content\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35-full", "net35-full", "{652326CF-F78A-4A60-ADA1-A5F4D7D4659E}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.RelyingParty.dll = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.RelyingParty.dll
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.RelyingParty.xml = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net35-full\DotNetOpenAuth.OpenId.RelyingParty.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40-full", "net40-full", "{DB7DFB78-654F-40F8-AEB0-288A37A6B7F5}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.dll
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.xml = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net40-full\DotNetOpenAuth.OpenId.RelyingParty.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45-full", "net45-full", "{0862F294-ADA4-4942-8E1D-C997D66F0D36}"
+	ProjectSection(SolutionItems) = preProject
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.dll
+		packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.xml = packages\DotNetOpenAuth.OpenId.RelyingParty.4.1.4.12333\lib\net45-full\DotNetOpenAuth.OpenId.RelyingParty.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework.5.0.0", "EntityFramework.5.0.0", "{5417987D-A3F1-448A-8F59-564E095067D7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.5.0.0\EntityFramework.5.0.0.nupkg = packages\EntityFramework.5.0.0\EntityFramework.5.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{F88C86E5-7561-441B-8F9A-5C790F925530}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.5.0.0\tools\about_EntityFramework.help.txt = packages\EntityFramework.5.0.0\tools\about_EntityFramework.help.txt
+		packages\EntityFramework.5.0.0\tools\EntityFramework.PowerShell.dll = packages\EntityFramework.5.0.0\tools\EntityFramework.PowerShell.dll
+		packages\EntityFramework.5.0.0\tools\EntityFramework.PowerShell.Utility.dll = packages\EntityFramework.5.0.0\tools\EntityFramework.PowerShell.Utility.dll
+		packages\EntityFramework.5.0.0\tools\EntityFramework.PS3.psd1 = packages\EntityFramework.5.0.0\tools\EntityFramework.PS3.psd1
+		packages\EntityFramework.5.0.0\tools\EntityFramework.psd1 = packages\EntityFramework.5.0.0\tools\EntityFramework.psd1
+		packages\EntityFramework.5.0.0\tools\EntityFramework.psm1 = packages\EntityFramework.5.0.0\tools\EntityFramework.psm1
+		packages\EntityFramework.5.0.0\tools\init.ps1 = packages\EntityFramework.5.0.0\tools\init.ps1
+		packages\EntityFramework.5.0.0\tools\install.ps1 = packages\EntityFramework.5.0.0\tools\install.ps1
+		packages\EntityFramework.5.0.0\tools\migrate.exe = packages\EntityFramework.5.0.0\tools\migrate.exe
+		packages\EntityFramework.5.0.0\tools\Redirect.config = packages\EntityFramework.5.0.0\tools\Redirect.config
+		packages\EntityFramework.5.0.0\tools\Redirect.VS11.config = packages\EntityFramework.5.0.0\tools\Redirect.VS11.config
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{34BF6A69-0472-4372-BD47-077810771F05}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{C0E84931-A0B1-45AC-964D-021165390BF4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll = packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll
+		packages\EntityFramework.5.0.0\lib\net45\EntityFramework.xml = packages\EntityFramework.5.0.0\lib\net45\EntityFramework.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{0255353F-2298-4CAD-9D5D-BE1A105E9E3C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll = packages\EntityFramework.5.0.0\lib\net40\EntityFramework.dll
+		packages\EntityFramework.5.0.0\lib\net40\EntityFramework.xml = packages\EntityFramework.5.0.0\lib\net40\EntityFramework.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{7A892706-752B-4ABB-9F36-B2EB33F43092}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.5.0.0\lib\net45\zh-Hans\EntityFramework.resources.dll = packages\EntityFramework.5.0.0\lib\net45\zh-Hans\EntityFramework.resources.dll
+		packages\EntityFramework.5.0.0\lib\net45\zh-Hans\EntityFramework.xml = packages\EntityFramework.5.0.0\lib\net45\zh-Hans\EntityFramework.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{45EBC9A2-0A15-47EC-9AC3-AB598DA6455C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.5.0.0\lib\net40\zh-Hans\EntityFramework.resources.dll = packages\EntityFramework.5.0.0\lib\net40\zh-Hans\EntityFramework.resources.dll
+		packages\EntityFramework.5.0.0\lib\net40\zh-Hans\EntityFramework.xml = packages\EntityFramework.5.0.0\lib\net40\zh-Hans\EntityFramework.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{58D0364E-9B15-4736-85C3-EED35DE49A5B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.5.0.0\Content\App.config.transform = packages\EntityFramework.5.0.0\Content\App.config.transform
+		packages\EntityFramework.5.0.0\Content\Web.config.transform = packages\EntityFramework.5.0.0\Content\Web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework.zh-Hans.5.0.0", "EntityFramework.zh-Hans.5.0.0", "{F954038E-F132-4D86-8EFD-D9C8CD2EFED8}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.zh-Hans.5.0.0\EntityFramework.zh-Hans.5.0.0.nupkg = packages\EntityFramework.zh-Hans.5.0.0\EntityFramework.zh-Hans.5.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{780FB624-3A8B-4984-9BEA-B98670A08E6C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{0B793072-4383-47FE-81D2-F5BA539F6A1B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{CFBAC64E-47AD-4990-AB53-3BC58AD97125}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{A171CB5A-12FA-4BBB-B310-CDD33B1F86B9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.zh-Hans.5.0.0\lib\net40\zh-Hans\EntityFramework.resources.dll = packages\EntityFramework.zh-Hans.5.0.0\lib\net40\zh-Hans\EntityFramework.resources.dll
+		packages\EntityFramework.zh-Hans.5.0.0\lib\net40\zh-Hans\EntityFramework.xml = packages\EntityFramework.zh-Hans.5.0.0\lib\net40\zh-Hans\EntityFramework.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{E188349C-0878-468F-A82A-B0CED1C56B85}"
+	ProjectSection(SolutionItems) = preProject
+		packages\EntityFramework.zh-Hans.5.0.0\lib\net45\zh-Hans\EntityFramework.resources.dll = packages\EntityFramework.zh-Hans.5.0.0\lib\net45\zh-Hans\EntityFramework.resources.dll
+		packages\EntityFramework.zh-Hans.5.0.0\lib\net45\zh-Hans\EntityFramework.xml = packages\EntityFramework.zh-Hans.5.0.0\lib\net45\zh-Hans\EntityFramework.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jQuery.1.7.1.1", "jQuery.1.7.1.1", "{21A67FE4-70E7-4C0A-8593-66CC100A9CB5}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.1.7.1.1\jQuery.1.7.1.1.nupkg = packages\jQuery.1.7.1.1\jQuery.1.7.1.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{8C935ECD-3BDC-4953-A885-1C6034339113}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.1.7.1.1\Tools\common.ps1 = packages\jQuery.1.7.1.1\Tools\common.ps1
+		packages\jQuery.1.7.1.1\Tools\install.ps1 = packages\jQuery.1.7.1.1\Tools\install.ps1
+		packages\jQuery.1.7.1.1\Tools\jquery-1.7.1.intellisense.js = packages\jQuery.1.7.1.1\Tools\jquery-1.7.1.intellisense.js
+		packages\jQuery.1.7.1.1\Tools\uninstall.ps1 = packages\jQuery.1.7.1.1\Tools\uninstall.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{636CBABD-D2D1-409C-A4D6-73AB55105FFB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{151F3D5D-EC79-41A9-8611-1A142A8F8147}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.1.7.1.1\Content\Scripts\jquery-1.7.1-vsdoc.js = packages\jQuery.1.7.1.1\Content\Scripts\jquery-1.7.1-vsdoc.js
+		packages\jQuery.1.7.1.1\Content\Scripts\jquery-1.7.1.js = packages\jQuery.1.7.1.1\Content\Scripts\jquery-1.7.1.js
+		packages\jQuery.1.7.1.1\Content\Scripts\jquery-1.7.1.min.js = packages\jQuery.1.7.1.1\Content\Scripts\jquery-1.7.1.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jQuery.1.8.2", "jQuery.1.8.2", "{78A27B2D-2355-47F7-A209-C2147C22AB28}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.1.8.2\jQuery.1.8.2.nupkg = packages\jQuery.1.8.2\jQuery.1.8.2.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{4EBDEDD5-8FB5-4A56-A62C-75BFFDD824CE}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.1.8.2\Tools\common.ps1 = packages\jQuery.1.8.2\Tools\common.ps1
+		packages\jQuery.1.8.2\Tools\install.ps1 = packages\jQuery.1.8.2\Tools\install.ps1
+		packages\jQuery.1.8.2\Tools\jquery-1.8.2.intellisense.js = packages\jQuery.1.8.2\Tools\jquery-1.8.2.intellisense.js
+		packages\jQuery.1.8.2\Tools\uninstall.ps1 = packages\jQuery.1.8.2\Tools\uninstall.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{8BA59D4E-E01D-47C7-B7AC-F26FC8E1CC58}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{50D85E15-DD70-4D90-BF7E-97477A2F5B63}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2-vsdoc.js = packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2-vsdoc.js
+		packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2.js = packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2.js
+		packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2.min.js = packages\jQuery.1.8.2\Content\Scripts\jquery-1.8.2.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jQuery.UI.Combined.1.8.20.1", "jQuery.UI.Combined.1.8.20.1", "{19BD63F0-0118-4B90-8650-E8727CDD691F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.20.1\jQuery.UI.Combined.1.8.20.1.nupkg = packages\jQuery.UI.Combined.1.8.20.1\jQuery.UI.Combined.1.8.20.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{69281C08-062A-4937-8BB9-1B33E81BF9C6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{8D8F2C47-C764-4267-8F01-00AC7D5C51C7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{BDBD7ABD-42CB-47F8-A62B-21E633BC8E95}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Scripts\jquery-ui-1.8.20.js = packages\jQuery.UI.Combined.1.8.20.1\Content\Scripts\jquery-ui-1.8.20.js
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Scripts\jquery-ui-1.8.20.min.js = packages\jQuery.UI.Combined.1.8.20.1\Content\Scripts\jquery-ui-1.8.20.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "themes", "themes", "{F80F45AE-630D-4782-B9E2-71C4EF549FCD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{B3D6EF9D-45E0-4DE2-B8F0-E8DCAD2310B4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery-ui.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery-ui.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.accordion.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.accordion.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.all.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.all.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.autocomplete.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.autocomplete.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.base.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.base.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.button.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.button.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.core.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.core.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.datepicker.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.datepicker.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.dialog.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.dialog.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.progressbar.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.progressbar.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.resizable.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.resizable.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.selectable.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.selectable.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.slider.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.slider.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.tabs.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.tabs.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.theme.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\jquery.ui.theme.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "minified", "minified", "{A1A6957F-5C4C-4FD3-ADA7-FC8CB9007CE9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery-ui.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery-ui.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.accordion.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.accordion.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.autocomplete.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.autocomplete.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.button.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.button.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.core.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.core.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.datepicker.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.datepicker.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.dialog.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.dialog.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.progressbar.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.progressbar.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.resizable.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.resizable.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.selectable.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.selectable.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.slider.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.slider.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.tabs.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.tabs.min.css
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.theme.min.css = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\jquery.ui.theme.min.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{812258D9-9514-4B95-9896-17DD0A0E83BF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_222222_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_222222_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_2e83ff_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_2e83ff_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_454545_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_454545_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_888888_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_888888_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_cd0a0a_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\images\ui-icons_cd0a0a_256x240.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{F2B3BB74-068E-4A19-B3C0-5CEB4AED7BAE}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_222222_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_222222_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_454545_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_454545_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_888888_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_888888_256x240.png
+		packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png = packages\jQuery.UI.Combined.1.8.20.1\Content\Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jQuery.UI.Combined.1.8.24", "jQuery.UI.Combined.1.8.24", "{875DDC67-BCB6-48B2-B6B1-D1D273431B06}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.24\jQuery.UI.Combined.1.8.24.nupkg = packages\jQuery.UI.Combined.1.8.24\jQuery.UI.Combined.1.8.24.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{53FB6BA5-0290-480B-94D5-29F1FDCED078}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.24\Tools\common.ps1 = packages\jQuery.UI.Combined.1.8.24\Tools\common.ps1
+		packages\jQuery.UI.Combined.1.8.24\Tools\install.ps1 = packages\jQuery.UI.Combined.1.8.24\Tools\install.ps1
+		packages\jQuery.UI.Combined.1.8.24\Tools\uninstall.ps1 = packages\jQuery.UI.Combined.1.8.24\Tools\uninstall.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{A829ED85-B1CE-4C34-8244-0C2E04CC053A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{1B1E8978-012E-4FD4-B4E3-E3A2A627B52A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{EF7793D5-F9FF-4AE4-984D-468B968A5D60}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.24\Content\Scripts\jquery-ui-1.8.24.js = packages\jQuery.UI.Combined.1.8.24\Content\Scripts\jquery-ui-1.8.24.js
+		packages\jQuery.UI.Combined.1.8.24\Content\Scripts\jquery-ui-1.8.24.min.js = packages\jQuery.UI.Combined.1.8.24\Content\Scripts\jquery-ui-1.8.24.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "themes", "themes", "{24364B25-EEF5-45AD-B9B5-1DE05BE2C922}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "base", "base", "{0C4EBDDE-7F4A-4087-83EF-F76DB30A3853}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery-ui.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery-ui.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.accordion.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.accordion.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.all.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.all.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.autocomplete.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.autocomplete.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.base.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.base.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.button.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.button.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.core.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.core.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.datepicker.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.datepicker.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.dialog.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.dialog.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.progressbar.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.progressbar.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.resizable.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.resizable.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.selectable.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.selectable.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.slider.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.slider.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.tabs.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.tabs.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.theme.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\jquery.ui.theme.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{0E6296E8-5290-41CB-A608-698548F20DC2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_222222_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_222222_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_2e83ff_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_2e83ff_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_454545_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_454545_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_888888_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_888888_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_cd0a0a_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\images\ui-icons_cd0a0a_256x240.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "minified", "minified", "{D266DBAC-48D3-453D-86BC-86F37E891C2B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery-ui.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery-ui.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.accordion.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.accordion.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.autocomplete.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.autocomplete.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.button.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.button.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.core.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.core.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.datepicker.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.datepicker.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.dialog.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.dialog.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.progressbar.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.progressbar.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.resizable.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.resizable.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.selectable.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.selectable.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.slider.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.slider.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.tabs.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.tabs.min.css
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.theme.min.css = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\jquery.ui.theme.min.css
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "images", "images", "{69A87C4F-48D0-4CFF-A9F8-09EABB25FF67}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_flat_0_aaaaaa_40x100.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_flat_75_ffffff_40x100.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_55_fbf9ee_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_65_ffffff_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_75_dadada_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_75_e6e6e6_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_glass_95_fef1ec_1x400.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-bg_highlight-soft_75_cccccc_1x100.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_222222_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_222222_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_2e83ff_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_454545_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_454545_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_888888_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_888888_256x240.png
+		packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png = packages\jQuery.UI.Combined.1.8.24\Content\Content\themes\base\minified\images\ui-icons_cd0a0a_256x240.png
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jQuery.Validation.1.9.0.1", "jQuery.Validation.1.9.0.1", "{5F2832E2-8476-403D-A602-E73FFB3A9AEF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.Validation.1.9.0.1\jQuery.Validation.1.9.0.1.nupkg = packages\jQuery.Validation.1.9.0.1\jQuery.Validation.1.9.0.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{50EBD227-64D9-42A2-986E-AFD4E9F0C714}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{3AA786B9-42E0-49B3-9889-AE6EAD86C6E1}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.Validation.1.9.0.1\Content\Scripts\jquery.validate-vsdoc.js = packages\jQuery.Validation.1.9.0.1\Content\Scripts\jquery.validate-vsdoc.js
+		packages\jQuery.Validation.1.9.0.1\Content\Scripts\jquery.validate.js = packages\jQuery.Validation.1.9.0.1\Content\Scripts\jquery.validate.js
+		packages\jQuery.Validation.1.9.0.1\Content\Scripts\jquery.validate.min.js = packages\jQuery.Validation.1.9.0.1\Content\Scripts\jquery.validate.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jQuery.Validation.1.10.0", "jQuery.Validation.1.10.0", "{F77E703B-6D3B-4486-805F-CFBC9807F8E0}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.Validation.1.10.0\jQuery.Validation.1.10.0.nupkg = packages\jQuery.Validation.1.10.0\jQuery.Validation.1.10.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{680D9CA5-D0E4-4A98-BF93-43F30B087AB3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{5F651604-1E43-4E2F-9340-46F9CBF3DB0F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jQuery.Validation.1.10.0\Content\Scripts\jquery.validate-vsdoc.js = packages\jQuery.Validation.1.10.0\Content\Scripts\jquery.validate-vsdoc.js
+		packages\jQuery.Validation.1.10.0\Content\Scripts\jquery.validate.js = packages\jQuery.Validation.1.10.0\Content\Scripts\jquery.validate.js
+		packages\jQuery.Validation.1.10.0\Content\Scripts\jquery.validate.min.js = packages\jQuery.Validation.1.10.0\Content\Scripts\jquery.validate.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "knockoutjs.2.1.0", "knockoutjs.2.1.0", "{5D3D8E09-D543-4BD5-856C-4CBE0CB31C94}"
+	ProjectSection(SolutionItems) = preProject
+		packages\knockoutjs.2.1.0\knockoutjs.2.1.0.nupkg = packages\knockoutjs.2.1.0\knockoutjs.2.1.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{C6738486-778B-4727-9DB9-B4411C2BDEB8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{5ADDC3EE-8F7E-4416-966D-33363DD0E299}"
+	ProjectSection(SolutionItems) = preProject
+		packages\knockoutjs.2.1.0\Content\Scripts\knockout-2.1.0.debug.js = packages\knockoutjs.2.1.0\Content\Scripts\knockout-2.1.0.debug.js
+		packages\knockoutjs.2.1.0\Content\Scripts\knockout-2.1.0.js = packages\knockoutjs.2.1.0\Content\Scripts\knockout-2.1.0.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "knockoutjs.2.2.0", "knockoutjs.2.2.0", "{96327496-54E4-46C3-B597-1C9B03EB0041}"
+	ProjectSection(SolutionItems) = preProject
+		packages\knockoutjs.2.2.0\knockoutjs.2.2.0.nupkg = packages\knockoutjs.2.2.0\knockoutjs.2.2.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{759D6670-DBA8-4E03-A7FB-4771B310F8C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{98509967-79B7-4FE3-9B11-E2BB6F581FF8}"
+	ProjectSection(SolutionItems) = preProject
+		packages\knockoutjs.2.2.0\Content\Scripts\knockout-2.2.0.debug.js = packages\knockoutjs.2.2.0\Content\Scripts\knockout-2.2.0.debug.js
+		packages\knockoutjs.2.2.0\Content\Scripts\knockout-2.2.0.js = packages\knockoutjs.2.2.0\Content\Scripts\knockout-2.2.0.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Mvc.4.0.20710.0", "Microsoft.AspNet.Mvc.4.0.20710.0", "{61EA03A6-061F-4E01-9938-EACF0C41833A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Mvc.4.0.20710.0\Microsoft.AspNet.Mvc.4.0.20710.0.nupkg = packages\Microsoft.AspNet.Mvc.4.0.20710.0\Microsoft.AspNet.Mvc.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{1F1D2DB2-1175-4537-91D7-B8FEEEEBDCCC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{224B79A7-9999-4DAA-8F28-0E9CC252ACB4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll = packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.dll
+		packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.xml = packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\System.Web.Mvc.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{E2DDA415-9CCF-44D8-9FF4-84C50317A529}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.resources.dll = packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.resources.dll
+		packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.xml = packages\Microsoft.AspNet.Mvc.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0", "Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0", "{30942FC3-D013-4C20-8033-376061197ED2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0.nupkg = packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{403DFF54-FFC1-4290-8A73-B4E61C3D8143}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{5FCB2D9E-3B97-4CB7-837F-68656487193C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll = packages\Microsoft.AspNet.Mvc.FixedDisplayModes.1.0.0\lib\net40\Microsoft.Web.Mvc.FixedDisplayModes.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0", "Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0", "{A2485410-321B-4026-A90B-DBCCEDD79A95}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0.nupkg = packages\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{3EFA73E9-592E-431C-A321-15CE6D970CD3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{45F580EC-08FC-4974-89B5-17F02D8534A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{588C2025-9B0C-4A57-94B5-6A325162BB0C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.resources.dll = packages\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.resources.dll
+		packages\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.xml = packages\Microsoft.AspNet.Mvc.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Mvc.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Providers.Core.1.1", "Microsoft.AspNet.Providers.Core.1.1", "{6DB88B2F-A655-4197-8E6A-955A5B08B32F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.1.1\Microsoft.AspNet.Providers.Core.1.1.nupkg = packages\Microsoft.AspNet.Providers.Core.1.1\Microsoft.AspNet.Providers.Core.1.1.nupkg
+		packages\Microsoft.AspNet.Providers.Core.1.1\readme.html = packages\Microsoft.AspNet.Providers.Core.1.1\readme.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{36799FC0-F538-4CCA-B826-EB5605F6AD19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{4A663429-DA3E-4A52-B81E-90FFCE2D32E4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll = packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\System.Web.Providers.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{415F38E5-EE2D-4479-B100-59651348C93B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\zh-Hans\System.Web.Providers.resources.dll = packages\Microsoft.AspNet.Providers.Core.1.1\lib\net40\zh-Hans\System.Web.Providers.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Providers.Core.1.2", "Microsoft.AspNet.Providers.Core.1.2", "{6B884C8E-208C-40A8-9895-6B1601B1A269}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.1.2\Microsoft.AspNet.Providers.Core.1.2.nupkg = packages\Microsoft.AspNet.Providers.Core.1.2\Microsoft.AspNet.Providers.Core.1.2.nupkg
+		packages\Microsoft.AspNet.Providers.Core.1.2\readme.html = packages\Microsoft.AspNet.Providers.Core.1.2\readme.html
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{57DBEA13-9CCC-4C1A-8C0D-D7FB04AC47CB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{06EB75AD-23FA-4B33-9550-97019D505E2A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll = packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\System.Web.Providers.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{E4EA8EB1-886C-4AE9-A1B3-8E5CDC6A42E7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\zh-Hans\System.Web.Providers.resources.dll = packages\Microsoft.AspNet.Providers.Core.1.2\lib\net40\zh-Hans\System.Web.Providers.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Providers.Core.zh-Hans.1.1", "Microsoft.AspNet.Providers.Core.zh-Hans.1.1", "{C49AEC2A-FF97-4779-9CB6-383597F57AE2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.1\Microsoft.AspNet.Providers.Core.zh-Hans.1.1.nupkg = packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.1\Microsoft.AspNet.Providers.Core.zh-Hans.1.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{8E4ED756-2E49-4F55-AD6C-1CCC0F8DCBFA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{5CA05EFC-40B6-4AAA-99B8-C9027C651F5C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{8E8F794C-561D-4636-B443-FFDFC4BA5BC7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.1\lib\net40\zh-Hans\System.Web.Providers.resources.dll = packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.1\lib\net40\zh-Hans\System.Web.Providers.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Providers.Core.zh-Hans.1.2", "Microsoft.AspNet.Providers.Core.zh-Hans.1.2", "{F1678A18-5BC6-421E-818C-CDB0FEB2774C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.2\Microsoft.AspNet.Providers.Core.zh-Hans.1.2.nupkg = packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.2\Microsoft.AspNet.Providers.Core.zh-Hans.1.2.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{B6AB15D0-2AAC-4491-B285-77659E3946B9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{688DB307-597E-4156-A315-8C692B6ED377}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{C0F98D68-AA5E-4198-9C0C-C43BD12BFB10}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.2\lib\net40\zh-Hans\System.Web.Providers.resources.dll = packages\Microsoft.AspNet.Providers.Core.zh-Hans.1.2\lib\net40\zh-Hans\System.Web.Providers.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Providers.LocalDB.1.1", "Microsoft.AspNet.Providers.LocalDB.1.1", "{BE86300D-6A2E-4453-B651-BA9E134ED44F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.LocalDB.1.1\Microsoft.AspNet.Providers.LocalDB.1.1.nupkg = packages\Microsoft.AspNet.Providers.LocalDB.1.1\Microsoft.AspNet.Providers.LocalDB.1.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{4A1E2E8E-79E6-4A0A-8E64-6D4B79BC6FF9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.LocalDB.1.1\tools\Install.ps1 = packages\Microsoft.AspNet.Providers.LocalDB.1.1\tools\Install.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{0A62E4D0-B351-4D77-97DE-0A0C1839BAC4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Providers.LocalDB.1.1\content\web.config.transform = packages\Microsoft.AspNet.Providers.LocalDB.1.1\content\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Razor.2.0.20710.0", "Microsoft.AspNet.Razor.2.0.20710.0", "{63249002-D2B1-468A-B506-07AFF6DE8F43}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.2.0.20710.0\Microsoft.AspNet.Razor.2.0.20710.0.nupkg = packages\Microsoft.AspNet.Razor.2.0.20710.0\Microsoft.AspNet.Razor.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{0C293E29-3495-4B19-8484-399017E40F7B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{82267F1A-5C92-4A6C-BD97-9ED86E179674}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll = packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll
+		packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.xml = packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{1CB4DEB7-8577-4D49-B40C-1CF56B5F3BAC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll = packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll
+		packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\zh-Hans\system.web.razor.xml = packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\zh-Hans\system.web.razor.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Razor.2.0.20715.0", "Microsoft.AspNet.Razor.2.0.20715.0", "{A15C0422-C25A-47AF-9A83-E3010A2B7DE7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.2.0.20715.0\Microsoft.AspNet.Razor.2.0.20715.0.nupkg = packages\Microsoft.AspNet.Razor.2.0.20715.0\Microsoft.AspNet.Razor.2.0.20715.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{88D329BF-2731-4E4F-85C9-1C9FA7B707A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{5A5947D9-E40C-41DB-BC5D-C9DE940BC31F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll = packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.dll
+		packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.xml = packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\System.Web.Razor.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{7D0ED82C-B1DA-4937-A7B3-E499842CC32D}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll = packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll
+		packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\zh-Hans\system.web.razor.xml = packages\Microsoft.AspNet.Razor.2.0.20715.0\lib\net40\zh-Hans\system.web.razor.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0", "Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0", "{98619467-8797-4C57-A22D-E466D3784628}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0.nupkg = packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{64B761E6-F1C2-4B36-AC73-DEF538ED63B4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{0B9FC8D9-3B8F-4779-9243-D698506C9980}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{50317A05-7908-4644-BF42-B73854CC644B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll = packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll
+		packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.razor.xml = packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.razor.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0", "Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0", "{2F89D69B-AA56-43B6-881C-8B7A54CC41AF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0.nupkg = packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{09009EF1-EECA-4A27-941E-9B7CF8270DC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{475B15BA-4090-43AE-85AE-43B9908499A1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{E54F6D5A-2080-4578-84D0-6E04F55A59C1}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll = packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0\lib\net40\zh-Hans\System.Web.Razor.resources.dll
+		packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0\lib\net40\zh-Hans\system.web.razor.xml = packages\Microsoft.AspNet.Razor.zh-Hans.2.0.20715.0\lib\net40\zh-Hans\system.web.razor.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.SignalR.2.1.2", "Microsoft.AspNet.SignalR.2.1.2", "{DDA49507-B391-4CB5-B1D1-D37743B4E64C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR.2.1.2\Microsoft.AspNet.SignalR.2.1.2.nupkg = packages\Microsoft.AspNet.SignalR.2.1.2\Microsoft.AspNet.SignalR.2.1.2.nupkg
+		packages\Microsoft.AspNet.SignalR.2.1.2\readme.txt = packages\Microsoft.AspNet.SignalR.2.1.2\readme.txt
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.SignalR.Core.2.1.2", "Microsoft.AspNet.SignalR.Core.2.1.2", "{1CD1045A-EE61-4045-AF0B-6B1EF3ECF23B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR.Core.2.1.2\Microsoft.AspNet.SignalR.Core.2.1.2.nupkg = packages\Microsoft.AspNet.SignalR.Core.2.1.2\Microsoft.AspNet.SignalR.Core.2.1.2.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{FD78EE67-8BAE-4182-9528-A35818B01899}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{C8E2FA96-61CF-4EB6-96E2-554798D0ABDF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll = packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.dll
+		packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.xml = packages\Microsoft.AspNet.SignalR.Core.2.1.2\lib\net45\Microsoft.AspNet.SignalR.Core.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.SignalR.JS.2.1.2", "Microsoft.AspNet.SignalR.JS.2.1.2", "{12C66237-2819-4C22-8ACE-D908334DF891}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR.JS.2.1.2\Microsoft.AspNet.SignalR.JS.2.1.2.nupkg = packages\Microsoft.AspNet.SignalR.JS.2.1.2\Microsoft.AspNet.SignalR.JS.2.1.2.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{6C14D2F8-5719-4DFA-B2D9-43019F6B71FA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{6BA8E8F4-DC2B-4C00-B2A2-9C593FC88C0D}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR.JS.2.1.2\content\Scripts\jquery.signalR-2.1.2.js = packages\Microsoft.AspNet.SignalR.JS.2.1.2\content\Scripts\jquery.signalR-2.1.2.js
+		packages\Microsoft.AspNet.SignalR.JS.2.1.2\content\Scripts\jquery.signalR-2.1.2.min.js = packages\Microsoft.AspNet.SignalR.JS.2.1.2\content\Scripts\jquery.signalR-2.1.2.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.SignalR.SystemWeb.2.1.2", "Microsoft.AspNet.SignalR.SystemWeb.2.1.2", "{58126FEB-6D8B-43CB-AE40-53967E99766A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\Microsoft.AspNet.SignalR.SystemWeb.2.1.2.nupkg = packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\Microsoft.AspNet.SignalR.SystemWeb.2.1.2.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{55494074-197F-45B6-83B3-4560C0613DD2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{06D7E50A-60D8-4D22-8403-2C4264256317}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll = packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.dll
+		packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.XML = packages\Microsoft.AspNet.SignalR.SystemWeb.2.1.2\lib\net45\Microsoft.AspNet.SignalR.SystemWeb.XML
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.SignalR1.00", "Microsoft.AspNet.SignalR1.00", "{8489C9F5-15F0-421D-B058-0FA1D4EDBFEF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.SignalR1.00\Microsoft.AspNet.SignalR.Core.dll = packages\Microsoft.AspNet.SignalR1.00\Microsoft.AspNet.SignalR.Core.dll
+		packages\Microsoft.AspNet.SignalR1.00\Microsoft.AspNet.SignalR.Owin.dll = packages\Microsoft.AspNet.SignalR1.00\Microsoft.AspNet.SignalR.Owin.dll
+		packages\Microsoft.AspNet.SignalR1.00\Microsoft.AspNet.SignalR.SystemWeb.dll = packages\Microsoft.AspNet.SignalR1.00\Microsoft.AspNet.SignalR.SystemWeb.dll
+		packages\Microsoft.AspNet.SignalR1.00\Microsoft.Owin.Host.SystemWeb.dll = packages\Microsoft.AspNet.SignalR1.00\Microsoft.Owin.Host.SystemWeb.dll
+		packages\Microsoft.AspNet.SignalR1.00\Owin.dll = packages\Microsoft.AspNet.SignalR1.00\Owin.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Web.Optimization.1.0.0", "Microsoft.AspNet.Web.Optimization.1.0.0", "{D6638CC2-4620-4310-82B6-4D09991C9670}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Web.Optimization.1.0.0\Microsoft.AspNet.Web.Optimization.1.0.0.nupkg = packages\Microsoft.AspNet.Web.Optimization.1.0.0\Microsoft.AspNet.Web.Optimization.1.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{CBE5E251-EC0F-4300-A09D-83B692C6D2C0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{C2CC0965-6BE3-4D7F-BFF9-0A923C0D2E42}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll = packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\System.Web.Optimization.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{EBAEEAAF-9E7A-4BC2-B705-A7C0DAF66C31}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\zh-Hans\System.Web.Optimization.resources.dll = packages\Microsoft.AspNet.Web.Optimization.1.0.0\lib\net40\zh-Hans\System.Web.Optimization.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0", "Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0", "{E099879B-452A-4B94-BB72-1DAFBE725C2A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0\Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0.nupkg = packages\Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0\Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{42D12D5F-2A81-43C2-931B-5EF643CEF908}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{D4412BA0-09F1-4EC8-8765-C50F250C9ECF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{2EFEF3DB-2FB1-46B1-A70B-6459D5EE1513}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0\lib\net40\zh-Hans\System.Web.Optimization.resources.dll = packages\Microsoft.AspNet.Web.Optimization.zh-Hans.1.0.0\lib\net40\zh-Hans\System.Web.Optimization.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.4.0.20710.0", "Microsoft.AspNet.WebApi.4.0.20710.0", "{FB940EDE-3FDE-4366-AE96-11FAFD963071}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.4.0.20710.0\Microsoft.AspNet.WebApi.4.0.20710.0.nupkg = packages\Microsoft.AspNet.WebApi.4.0.20710.0\Microsoft.AspNet.WebApi.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.Client.4.0.20710.0", "Microsoft.AspNet.WebApi.Client.4.0.20710.0", "{20519CC5-DD3B-4AD7-BB03-661D77036AA3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\Microsoft.AspNet.WebApi.Client.4.0.20710.0.nupkg = packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\Microsoft.AspNet.WebApi.Client.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{4E4CF8D6-372F-486E-A217-79562C8C9C4A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{F411A6C0-E04E-47DD-B3EE-2431BD0FD552}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll = packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.dll
+		packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.xml = packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\System.Net.Http.Formatting.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{39F0FA0A-50CD-4C10-8A5D-146C2746D628}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.resources.dll = packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.resources.dll
+		packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.xml = packages\Microsoft.AspNet.WebApi.Client.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0", "Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0", "{6308410F-DFA1-4CBC-916A-F201405CBCA3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0.nupkg = packages\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{E184F5D8-DF76-4A42-AB95-9050FE857E42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{8FFA3746-6548-460B-82CF-B41E21A2A312}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{19FE97FA-6FA0-40EF-B853-9EF6C20E1A2F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.resources.dll = packages\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.resources.dll
+		packages\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.xml = packages\Microsoft.AspNet.WebApi.Client.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Net.Http.Formatting.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.Core.4.0.20710.0", "Microsoft.AspNet.WebApi.Core.4.0.20710.0", "{6024DC62-5FA2-4632-B5F8-2440BA3651DF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\Microsoft.AspNet.WebApi.Core.4.0.20710.0.nupkg = packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\Microsoft.AspNet.WebApi.Core.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "content", "content", "{19D37812-0D59-4C08-BA11-19856259A6E6}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\content\web.config.transform = packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\content\web.config.transform
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{2C9E5620-0B85-46FD-B83C-2E2A67772413}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{F4C95B49-686A-47AA-B3F4-673C3706DA08}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll = packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.dll
+		packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.xml = packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\System.Web.Http.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{A638C6A1-1B0D-42B6-817F-BB657F8954D3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.resources.dll = packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.resources.dll
+		packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.xml = packages\Microsoft.AspNet.WebApi.Core.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0", "Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0", "{EAD13207-3D2A-4281-83A2-528373EBE052}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0.nupkg = packages\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{40DF1603-A621-480F-B6FE-9365B7AA4BC3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{83742576-0549-4B6F-801C-B01C915E6FC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{F5CE6D73-4F34-4A43-8C2E-554595D1EF22}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.resources.dll = packages\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.resources.dll
+		packages\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.xml = packages\Microsoft.AspNet.WebApi.Core.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.OData.4.0.0", "Microsoft.AspNet.WebApi.OData.4.0.0", "{ED4C1516-8B69-48F4-B632-0C7394493AAC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.OData.4.0.0\Microsoft.AspNet.WebApi.OData.4.0.0.nupkg = packages\Microsoft.AspNet.WebApi.OData.4.0.0\Microsoft.AspNet.WebApi.OData.4.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{39E577D8-EC7E-42B2-AB6B-433F7EDA2991}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{528CFEB6-7AA6-474E-AC9E-60D1D58DBFC1}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\System.Web.Http.OData.dll = packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\System.Web.Http.OData.dll
+		packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\System.Web.Http.Odata.xml = packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\System.Web.Http.Odata.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{6E81A869-FDB2-4471-B473-1451713D0D8C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.resources.dll = packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.resources.dll
+		packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.xml = packages\Microsoft.AspNet.WebApi.OData.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0", "Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0", "{5D098858-1D68-4CA3-83CC-F4C60A55D756}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0.nupkg = packages\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{1343F31A-E302-4823-9478-84B2AD53F282}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{683166DF-6A0E-475B-8E5B-1D5D8B260F18}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{E50314DA-AA60-4D05-B542-DB1124FDA073}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.resources.dll = packages\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.resources.dll
+		packages\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.xml = packages\Microsoft.AspNet.WebApi.OData.zh-Hans.4.0.0\lib\net40\zh-Hans\System.Web.Http.OData.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.WebHost.4.0.20710.0", "Microsoft.AspNet.WebApi.WebHost.4.0.20710.0", "{0FE0BCB8-31AC-42D9-AC29-93ED53A7F25B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0.nupkg = packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{A34B7463-513D-46A9-8C3D-C9958DC9FAA3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{30A777B8-F0B3-47AA-A87C-CC7D46B6B9EC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll = packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.dll
+		packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.xml = packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\System.Web.Http.WebHost.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{DF599714-834E-4ADD-8EA4-899CDA98CDA9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.resources.dll = packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.resources.dll
+		packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.xml = packages\Microsoft.AspNet.WebApi.WebHost.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0", "Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0", "{F4BE8573-EB43-4192-949E-A62129874228}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0.nupkg = packages\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{D2019C28-6D3B-467F-BCFC-1601D2F094AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{5E768EE2-839E-457F-A38F-A7754FCFEEED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{1D8F6172-4FF9-421C-A901-AF9D9B002C11}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.resources.dll = packages\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.resources.dll
+		packages\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.xml = packages\Microsoft.AspNet.WebApi.WebHost.zh-Hans.4.0.20710.0\lib\net40\zh-Hans\System.Web.Http.WebHost.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.2.0.20710.0", "Microsoft.AspNet.WebPages.2.0.20710.0", "{4972C357-ED67-4E73-AA6F-E10CC4AAA076}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\Microsoft.AspNet.WebPages.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.2.0.20710.0\Microsoft.AspNet.WebPages.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{74CF5A5B-8BB3-454E-AAB7-E159D72EDDC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{A27AA824-CBE3-43F6-A4E1-336E92818BC2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.xml
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.xml
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.xml
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{5C135DBE-9C55-44DF-A483-A047066DB617}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.Helpers.resources.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.Helpers.resources.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.helpers.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.helpers.xml
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Deployment.resources.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.deployment.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.deployment.xml
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Razor.resources.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Razor.resources.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.razor.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.razor.xml
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.resources.dll = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.resources.dll
+		packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.xml = packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.Data.2.0.20710.0", "Microsoft.AspNet.WebPages.Data.2.0.20710.0", "{13165DD3-5FED-4DBC-8D4A-457C908DF0F8}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\Microsoft.AspNet.WebPages.Data.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\Microsoft.AspNet.WebPages.Data.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{C78FBCB5-680E-4FA8-B77A-40D2564A39C5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{085F6366-3BEA-4543-8B1E-DC3A098CB8C3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll = packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll
+		packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.xml = packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{063E8F2B-66C5-4A26-BDCE-42698E622437}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.Data.resources.dll = packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.Data.resources.dll
+		packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\zh-Hans\webmatrix.data.xml = packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\zh-Hans\webmatrix.data.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0", "Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0", "{15C04ECD-CA31-465A-84C2-2F87BE6E1F51}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{EED4C92B-ACC0-4047-B10B-FF00702EDDB7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{4E5A7327-F42F-4978-84EE-FA4CCC1656BD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{F145DE65-2D59-4E4F-9CDC-F69055A9B16F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.Data.resources.dll = packages\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.Data.resources.dll
+		packages\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\webmatrix.data.xml = packages\Microsoft.AspNet.WebPages.Data.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\webmatrix.data.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.OAuth.2.0.20710.0", "Microsoft.AspNet.WebPages.OAuth.2.0.20710.0", "{6FF0E3AE-271E-4A16-B2FC-0ABCDAEBF7CC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{17EDE380-9619-49C5-B004-C731FEDCE4AB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{21E2432F-13CF-402F-8F30-60050FC58C6C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll = packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.dll
+		packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.xml = packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\Microsoft.Web.WebPages.OAuth.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{95F93499-0CED-4721-A040-87D38BE01392}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.resources.dll = packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.resources.dll
+		packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.xml = packages\Microsoft.AspNet.WebPages.OAuth.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0", "Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0", "{0AA546EB-D42A-4221-BACE-24A2405822AF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{D63D2EEB-8D71-4B58-BF7C-CD08C7886D54}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{B76C303A-6325-4E45-BA44-81498860C4C2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{6D4D533F-41A6-4FF8-B4CA-E9DB86E75690}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.resources.dll = packages\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.resources.dll
+		packages\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.xml = packages\Microsoft.AspNet.WebPages.OAuth.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\Microsoft.Web.WebPages.OAuth.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.WebData.2.0.20710.0", "Microsoft.AspNet.WebPages.WebData.2.0.20710.0", "{5985E783-1414-4340-BCA6-D0D1F9C50E16}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\Microsoft.AspNet.WebPages.WebData.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\Microsoft.AspNet.WebPages.WebData.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{49EA8AB1-AB25-45D9-9C0D-F9BE19043308}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{ECBE1F07-4906-40CE-BA91-7D826898A4E8}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll = packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.dll
+		packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.xml = packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\WebMatrix.WebData.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{55B4A49F-10A2-4CA7-99A8-D3F19F50903E}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.resources.dll = packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.resources.dll
+		packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.xml = packages\Microsoft.AspNet.WebPages.WebData.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0", "Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0", "{BF73F964-BE87-44C3-88E7-79E61949A887}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{39052EAE-22EF-4835-919E-13FF9B2CF5F5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{21B6BED9-9E8A-4433-9335-31A106D21654}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{F17A1EB1-507D-4832-AE41-52FB72FE9037}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.resources.dll = packages\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.resources.dll
+		packages\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.xml = packages\Microsoft.AspNet.WebPages.WebData.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\WebMatrix.WebData.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0", "Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0", "{334172B4-64A2-47F2-93BF-0DEBFB8D7023}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0.nupkg = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{72457ADF-B7D5-4DC2-B4C2-F675365E3F1F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{F03676AB-834C-4B4E-9AB6-866E6771E397}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{002F0A85-0FB4-4B88-9F73-B8E8C400A7EE}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.Helpers.resources.dll = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.Helpers.resources.dll
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.helpers.xml = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.helpers.xml
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Deployment.resources.dll = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Deployment.resources.dll
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.deployment.xml = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.deployment.xml
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Razor.resources.dll = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.Razor.resources.dll
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.razor.xml = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.razor.xml
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.resources.dll = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Web.WebPages.resources.dll
+		packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.xml = packages\Microsoft.AspNet.WebPages.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\system.web.webpages.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Data.Edm.5.2.0", "Microsoft.Data.Edm.5.2.0", "{946C3636-6029-4D6F-8EF8-E5A4DD75DFD2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\Microsoft.Data.Edm.5.2.0.nupkg = packages\Microsoft.Data.Edm.5.2.0\Microsoft.Data.Edm.5.2.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{3C3E7C5A-84B4-4100-81AD-EC7037533EF4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{AC08ED44-6FFB-4193-A3A9-8E9368F400DA}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.dll
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.xml = packages\Microsoft.Data.Edm.5.2.0\lib\net40\Microsoft.Data.Edm.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sl4", "sl4", "{E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\Microsoft.Data.Edm.SL.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\Microsoft.Data.Edm.SL.dll
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\Microsoft.Data.Edm.SL.xml = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\Microsoft.Data.Edm.SL.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hant", "zh-Hant", "{0828F2F8-C188-41BB-9AA8-F4F2AF0F9640}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\zh-Hant\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\zh-Hant\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{3EC2D139-549F-4854-90CB-67663FA219DD}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\zh-Hans\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\zh-Hans\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{E490D9A7-3448-4535-BE5F-2CBC4F6D2C9A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\ru\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\ru\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ko", "ko", "{0B4A21D1-F767-4A77-AC5D-2FB51680A4AC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\ko\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\ko\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{38513F9D-DF24-40CC-8C44-3E4E3BC89DC2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\ja\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\ja\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "it", "it", "{BCE164AB-F20B-4625-969D-7F6D694A8B5C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\it\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\it\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fr", "fr", "{71B735C5-3D64-4B9A-A759-C4B41508F8CB}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\fr\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\fr\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "es", "es", "{B9E96C2A-6A11-417B-AE83-7EBDBAE3E3B3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\es\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\es\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{7AD9F4EB-7B18-46C8-BB34-0C87A72474E3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\sl4\de\Microsoft.Data.Edm.SL.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\sl4\de\Microsoft.Data.Edm.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hant", "zh-Hant", "{FAB0383D-13FC-4FEB-9C93-A91FF6468575}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\zh-Hant\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\zh-Hant\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{F08088E6-29DC-4A3D-BF81-F6B826EAF86A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\zh-Hans\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\zh-Hans\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{55AB3FF2-6AA3-4CEF-AA8C-7E440C0761D5}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\ru\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\ru\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ko", "ko", "{C1BCEFEF-6EA5-4A3C-99B0-A36F5C9CC2A7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\ko\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\ko\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{51C97E1B-28D4-4090-8452-EA430AABFC30}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\ja\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\ja\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "it", "it", "{C874D010-8E01-4F8C-AE2E-732865371C1E}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\it\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\it\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fr", "fr", "{1F143B52-719E-4600-9FFA-39715009157A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\fr\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\fr\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "es", "es", "{142A57E9-80B5-454C-BCC2-913BBEEDF3F6}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\es\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\es\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{ED56D999-3A54-4F2E-920F-5A2CC0A27840}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.Edm.5.2.0\lib\net40\de\Microsoft.Data.Edm.resources.dll = packages\Microsoft.Data.Edm.5.2.0\lib\net40\de\Microsoft.Data.Edm.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Data.OData.5.2.0", "Microsoft.Data.OData.5.2.0", "{39F30F4B-4A01-45E1-BF81-EF62FC21EDC4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\Microsoft.Data.OData.5.2.0.nupkg = packages\Microsoft.Data.OData.5.2.0\Microsoft.Data.OData.5.2.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{E179A48D-F3A4-4F0A-A1A9-E0409E661447}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.dll
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.xml = packages\Microsoft.Data.OData.5.2.0\lib\net40\Microsoft.Data.OData.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sl4", "sl4", "{7DD37176-E3E0-4CA0-84C0-80904BA81321}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\Microsoft.Data.OData.SL.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\Microsoft.Data.OData.SL.dll
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\Microsoft.Data.OData.SL.xml = packages\Microsoft.Data.OData.5.2.0\lib\sl4\Microsoft.Data.OData.SL.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hant", "zh-Hant", "{98D36F86-AF34-4560-A17B-79660D27CBE3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\zh-Hant\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\zh-Hant\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{6297260F-E197-4978-80E8-0D862A8E705A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\zh-Hans\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\zh-Hans\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{ED742AFE-6E04-468A-B184-740C29C62C39}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\ru\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\ru\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ko", "ko", "{8DA0C849-BFD2-4892-B7C7-15A7FA33B770}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\ko\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\ko\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{EC793E39-EE9C-4443-95FB-CC9E8993BDB3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\ja\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\ja\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "it", "it", "{6696FF34-2F65-4CCD-8524-144695BE1F9F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\it\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\it\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fr", "fr", "{A1F5BAA7-1261-49CD-B3AF-61E1D1C158EF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\fr\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\fr\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "es", "es", "{252A178C-BFA9-4EF3-9963-37C07544F706}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\es\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\es\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{D39A1E5C-9E6A-4499-81DB-7828BA703CD9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\net40\de\Microsoft.Data.OData.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\net40\de\Microsoft.Data.OData.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hant", "zh-Hant", "{FA8BD7BE-EBC6-4325-A9DB-43F961499BD9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\zh-Hant\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\zh-Hant\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{759FFF46-CF3E-458F-A929-E2F792ED0F29}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\zh-Hans\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\zh-Hans\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{21600825-EA38-47C6-9472-3B871D46AC62}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\ru\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\ru\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ko", "ko", "{3CF83881-EEE3-493E-9B0A-24C82DDC185B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\ko\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\ko\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{6911704C-D433-46D5-9079-8D4D2768933E}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\ja\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\ja\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "it", "it", "{1DBD958E-31FA-4BE8-943E-9002EB11BB28}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\it\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\it\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fr", "fr", "{C20008F0-F0BA-4789-A1FF-1C8E9DE22C23}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\fr\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\fr\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "es", "es", "{5EF5EF69-EB3D-4873-B36A-4228DA3F5EB9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\es\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\es\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{9B96477C-FD40-41BC-B903-AB338FFAC5E3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Data.OData.5.2.0\lib\sl4\de\Microsoft.Data.OData.SL.resources.dll = packages\Microsoft.Data.OData.5.2.0\lib\sl4\de\Microsoft.Data.OData.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0", "Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0", "{BED33352-414A-4ED4-82FA-C32B7C3FB944}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0.nupkg = packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{82F2BCE9-2172-4503-BC81-81F03D6C0139}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{51EB7ABB-F609-42DF-90D8-D01D06782009}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0\Content\Scripts\jquery.unobtrusive-ajax.js = packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0\Content\Scripts\jquery.unobtrusive-ajax.js
+		packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0\Content\Scripts\jquery.unobtrusive-ajax.min.js = packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.20710.0\Content\Scripts\jquery.unobtrusive-ajax.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0", "Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0", "{F2E06A31-E19E-45D2-9896-1B4AB42E37C4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0.nupkg = packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{10662961-9A4A-455C-A3DC-6585EAF25978}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{0FFA7D25-B562-4BED-B565-3E1E8261A459}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0\Content\Scripts\jquery.unobtrusive-ajax.js = packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0\Content\Scripts\jquery.unobtrusive-ajax.js
+		packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0\Content\Scripts\jquery.unobtrusive-ajax.min.js = packages\Microsoft.jQuery.Unobtrusive.Ajax.2.0.30116.0\Content\Scripts\jquery.unobtrusive-ajax.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0", "Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0", "{BCB9552B-53F2-44A4-8552-B4B6C508F766}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0.nupkg = packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{7A8996A2-BC3B-4C41-AEA5-CDFA28C762B2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{C46167E2-A8D8-47BE-A65E-78C6F2D5EADD}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0\Content\Scripts\jquery.validate.unobtrusive.js = packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0\Content\Scripts\jquery.validate.unobtrusive.js
+		packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0\Content\Scripts\jquery.validate.unobtrusive.min.js = packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.20710.0\Content\Scripts\jquery.validate.unobtrusive.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0", "Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0", "{2841F6B6-F4AD-4B83-8D80-1C14475B9DC0}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0.nupkg = packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{B33F8CBC-3D3A-4D2F-A0B9-634B54AF762F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{2843B9E5-1FEC-483B-9063-6832FA5244D9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0\Content\Scripts\jquery.validate.unobtrusive.js = packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0\Content\Scripts\jquery.validate.unobtrusive.js
+		packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0\Content\Scripts\jquery.validate.unobtrusive.min.js = packages\Microsoft.jQuery.Unobtrusive.Validation.2.0.30116.0\Content\Scripts\jquery.validate.unobtrusive.min.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Net.Http.2.0.20710.0", "Microsoft.Net.Http.2.0.20710.0", "{D68AD787-5946-47F5-A3AA-8D77CFB4D0E9}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Net.Http.2.0.20710.0\Microsoft.Net.Http.2.0.20710.0.nupkg = packages\Microsoft.Net.Http.2.0.20710.0\Microsoft.Net.Http.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{E0014D17-5401-4801-AB24-DA1F050F71F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{1B924AF2-EB51-4A26-B604-E400B2410434}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.dll
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.dll
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.xml = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.WebRequest.xml
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.xml = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\System.Net.Http.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{F84E8A9D-A737-4D19-B772-3D272C22638B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net45\_._ = packages\Microsoft.Net.Http.2.0.20710.0\lib\net45\_._
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{BD40A824-7876-4953-AE80-76F21E5927FB}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.resources.dll = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.resources.dll
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.resources.dll = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.resources.dll
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.xml = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.xml
+		packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.xml = packages\Microsoft.Net.Http.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Net.Http.zh-Hans.2.0.20710.0", "Microsoft.Net.Http.zh-Hans.2.0.20710.0", "{645D5AF1-0E25-4615-9468-D767DBF6FEAC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\Microsoft.Net.Http.zh-Hans.2.0.20710.0.nupkg = packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\Microsoft.Net.Http.zh-Hans.2.0.20710.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{660845E4-9AA1-40D1-81E8-2B49C6D9145D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{1414A24C-EBDC-4480-96F0-E66C537351EF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{B486EDCC-AF8B-41DC-AEC3-F76B0F502356}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.resources.dll = packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.resources.dll
+		packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.resources.dll = packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.resources.dll
+		packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.xml = packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.WebRequest.xml
+		packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.xml = packages\Microsoft.Net.Http.zh-Hans.2.0.20710.0\lib\net40\zh-Hans\System.Net.Http.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Owin.2.0.1", "Microsoft.Owin.2.0.1", "{82B72F81-21C2-4BB8-8440-7035E7711A42}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.2.0.1\Microsoft.Owin.2.0.1.nupkg = packages\Microsoft.Owin.2.0.1\Microsoft.Owin.2.0.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{E2A5769A-EAB5-4DDF-B19C-79F18B4196FE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{CEE41061-9FBA-4184-8918-0E49C7802FED}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.2.0.1\lib\net40\Microsoft.Owin.dll = packages\Microsoft.Owin.2.0.1\lib\net40\Microsoft.Owin.dll
+		packages\Microsoft.Owin.2.0.1\lib\net40\Microsoft.Owin.XML = packages\Microsoft.Owin.2.0.1\lib\net40\Microsoft.Owin.XML
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{D5DFB3AF-1B3A-471F-B917-AC2D9C7BBD57}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.dll = packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.dll
+		packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.XML = packages\Microsoft.Owin.2.0.1\lib\net45\Microsoft.Owin.XML
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Owin.Host.SystemWeb.2.0.1", "Microsoft.Owin.Host.SystemWeb.2.0.1", "{891A8F82-ABA5-4116-846E-A47143E07A8A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.Host.SystemWeb.2.0.1\Microsoft.Owin.Host.SystemWeb.2.0.1.nupkg = packages\Microsoft.Owin.Host.SystemWeb.2.0.1\Microsoft.Owin.Host.SystemWeb.2.0.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{775087CF-F956-4D9B-9BB7-663F9920FD0B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{52574A14-2CD5-42F3-8D5C-2ABB6239C226}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net40\Microsoft.Owin.Host.SystemWeb.dll = packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net40\Microsoft.Owin.Host.SystemWeb.dll
+		packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net40\Microsoft.Owin.Host.SystemWeb.xml = packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net40\Microsoft.Owin.Host.SystemWeb.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{DB62660A-4B96-4A1F-B5E9-90DC49A0E82A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll = packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll
+		packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.xml = packages\Microsoft.Owin.Host.SystemWeb.2.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Owin.Security.2.0.1", "Microsoft.Owin.Security.2.0.1", "{0ADB67F5-2BBC-4B9E-BD20-C1BC3A5895B1}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.Security.2.0.1\Microsoft.Owin.Security.2.0.1.nupkg = packages\Microsoft.Owin.Security.2.0.1\Microsoft.Owin.Security.2.0.1.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{FF00A6BF-E205-4598-9C1D-71B0D7A8C95B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{87CDF9A6-F9BA-423A-A145-20F617D0B1BB}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.dll = packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.dll
+		packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.XML = packages\Microsoft.Owin.Security.2.0.1\lib\net45\Microsoft.Owin.Security.XML
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microsoft.Web.Infrastructure.1.0.0.0", "Microsoft.Web.Infrastructure.1.0.0.0", "{5BAE14A5-53A5-4760-8C3E-50EF441548B8}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg = packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{BF63D6D9-7530-4598-AAE3-492AEE2ABE9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{E70B0EF8-92C1-4814-B990-5A45E651B925}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll = packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modernizr.2.5.3", "Modernizr.2.5.3", "{C3F32FB2-DEE4-4DA7-B2FB-C62DD553102C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Modernizr.2.5.3\Modernizr.2.5.3.nupkg = packages\Modernizr.2.5.3\Modernizr.2.5.3.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{8B823EE8-91D8-4659-AE38-BCE2F7F71D64}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{9C951B71-2904-4173-86CA-E5D664F9FD7C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Modernizr.2.5.3\Content\Scripts\modernizr-2.5.3.js = packages\Modernizr.2.5.3\Content\Scripts\modernizr-2.5.3.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Modernizr.2.6.2", "Modernizr.2.6.2", "{5817E70E-102A-4C99-9C3F-30D08A180330}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Modernizr.2.6.2\Modernizr.2.6.2.nupkg = packages\Modernizr.2.6.2\Modernizr.2.6.2.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{96E91A06-448D-4B35-8390-69059C296371}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Modernizr.2.6.2\Tools\common.ps1 = packages\Modernizr.2.6.2\Tools\common.ps1
+		packages\Modernizr.2.6.2\Tools\install.ps1 = packages\Modernizr.2.6.2\Tools\install.ps1
+		packages\Modernizr.2.6.2\Tools\uninstall.ps1 = packages\Modernizr.2.6.2\Tools\uninstall.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Content", "Content", "{FB006C20-74A4-44BF-A7FD-E19946470FAA}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{CDFA4146-95C2-4AC1-9F81-67D86E4A7D94}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Modernizr.2.6.2\Content\Scripts\modernizr-2.6.2.js = packages\Modernizr.2.6.2\Content\Scripts\modernizr-2.6.2.js
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Newtonsoft.Json.4.5.11", "Newtonsoft.Json.4.5.11", "{A9B1DF3D-25D1-4F81-AAA2-E52ED72A217E}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\Newtonsoft.Json.4.5.11.nupkg = packages\Newtonsoft.Json.4.5.11\Newtonsoft.Json.4.5.11.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "winrt45", "winrt45", "{2B53CF79-E3A5-40B9-A007-BA4F54ED4E0F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\winrt45\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\winrt45\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\winrt45\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\winrt45\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sl4-windowsphone71", "sl4-windowsphone71", "{9055F480-090C-477E-A02A-8542BF272532}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\sl4-windowsphone71\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\sl4-windowsphone71\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\sl4-windowsphone71\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\sl4-windowsphone71\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sl4", "sl4", "{7EEBC624-1F00-45B1-A50F-FA41DB38ED6B}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\sl4\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\sl4\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\sl4\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\sl4\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sl3-wp", "sl3-wp", "{EA97FF67-A4AB-464F-90C9-EBBBA6F8773F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\sl3-wp\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\sl3-wp\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\sl3-wp\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\sl3-wp\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portable-net40+sl4+wp7+win8", "portable-net40+sl4+wp7+win8", "{043FCBA1-1271-45D8-877B-357EE6BAEB83}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\portable-net40+sl4+wp7+win8\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{6DD51E52-29FA-41D2-8997-17F702D492C8}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\net40\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35", "net35", "{9A7C612D-4FBD-4999-887F-560BB28A4C02}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\net35\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\net35\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\net35\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\net35\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net20", "net20", "{632A3446-1C52-48AC-83F8-D2E4DFF686C4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.4.5.11\lib\net20\Newtonsoft.Json.dll = packages\Newtonsoft.Json.4.5.11\lib\net20\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.4.5.11\lib\net20\Newtonsoft.Json.xml = packages\Newtonsoft.Json.4.5.11\lib\net20\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Newtonsoft.Json.6.0.4", "Newtonsoft.Json.6.0.4", "{A4620DD4-3AA2-4C94-A3CC-91A55B5D0E93}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\Newtonsoft.Json.6.0.4.nupkg = packages\Newtonsoft.Json.6.0.4\Newtonsoft.Json.6.0.4.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{377CB6B7-8BE1-4B8B-A7B7-A0256F2536F3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\tools\install.ps1 = packages\Newtonsoft.Json.6.0.4\tools\install.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portable-net45+wp80+win8+wpa81", "portable-net45+wp80+win8+wpa81", "{069333E8-C651-4288-A77D-876D3559071F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll = packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.xml = packages\Newtonsoft.Json.6.0.4\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "portable-net40+sl5+wp80+win8+wpa81", "portable-net40+sl5+wp80+win8+wpa81", "{101C0DCE-79BF-4F12-9898-5EF718650CF2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll = packages\Newtonsoft.Json.6.0.4\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.6.0.4\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.xml = packages\Newtonsoft.Json.6.0.4\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "netcore45", "netcore45", "{8360B18D-CADC-41D7-8715-5CE30CFCA0E3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll = packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.xml = packages\Newtonsoft.Json.6.0.4\lib\netcore45\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net45", "net45", "{65443504-CC4E-406A-9091-79E234D32DC8}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll = packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.xml = packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{4C03C773-5E7E-4DF0-958A-B3EFD60DF2D2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll = packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.xml = packages\Newtonsoft.Json.6.0.4\lib\net40\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net35", "net35", "{8C9A2950-6C54-4C94-A874-0F77EF4E63F3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\lib\net35\Newtonsoft.Json.dll = packages\Newtonsoft.Json.6.0.4\lib\net35\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.6.0.4\lib\net35\Newtonsoft.Json.xml = packages\Newtonsoft.Json.6.0.4\lib\net35\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net20", "net20", "{16C5B6D9-D7F1-4E81-B45E-EFF756539FD4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Newtonsoft.Json.6.0.4\lib\net20\Newtonsoft.Json.dll = packages\Newtonsoft.Json.6.0.4\lib\net20\Newtonsoft.Json.dll
+		packages\Newtonsoft.Json.6.0.4\lib\net20\Newtonsoft.Json.xml = packages\Newtonsoft.Json.6.0.4\lib\net20\Newtonsoft.Json.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Owin.1.0", "Owin.1.0", "{D2D6300D-48D6-40AE-AB42-2471A2DDFCA3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Owin.1.0\Owin.1.0.nupkg = packages\Owin.1.0\Owin.1.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{BC6ED85F-780B-4D37-8F81-61671BA3EDC4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{D4698FBD-BC66-439F-A0D7-34F4C42AD5EC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Owin.1.0\lib\net40\Owin.dll = packages\Owin.1.0\lib\net40\Owin.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System.Spatial.5.2.0", "System.Spatial.5.2.0", "{8F8D3F67-6E18-4916-81CD-98C007E7E87A}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\System.Spatial.5.2.0.nupkg = packages\System.Spatial.5.2.0\System.Spatial.5.2.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{DC15E135-87E4-4A62-86C2-0A2CCE1CE8AF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "net40", "net40", "{9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll = packages\System.Spatial.5.2.0\lib\net40\System.Spatial.dll
+		packages\System.Spatial.5.2.0\lib\net40\System.Spatial.xml = packages\System.Spatial.5.2.0\lib\net40\System.Spatial.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "sl4", "sl4", "{51127AA6-2DD4-404C-B58B-15E67E579E72}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\System.Spatial.SL.dll = packages\System.Spatial.5.2.0\lib\sl4\System.Spatial.SL.dll
+		packages\System.Spatial.5.2.0\lib\sl4\System.Spatial.SL.xml = packages\System.Spatial.5.2.0\lib\sl4\System.Spatial.SL.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hant", "zh-Hant", "{C3863590-7F55-436E-837B-C075280E5110}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\zh-Hant\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\zh-Hant\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{4B8D9478-2587-4D58-BA83-83E80F946DCF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\zh-Hans\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\zh-Hans\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{2CC0ACC4-F874-450C-8FAE-A4C161D2451C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\ru\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\ru\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ko", "ko", "{43C40657-EE64-4514-A836-81676773A1D2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\ko\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\ko\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{AA7F8359-9CCD-474D-AC91-79DF66E39011}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\ja\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\ja\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "it", "it", "{7399A303-35BD-40AF-AE27-18D6C809F5F6}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\it\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\it\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fr", "fr", "{8E1D0AB7-CC92-4432-A9A2-C7CC0722F3F7}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\fr\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\fr\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "es", "es", "{316C08C4-AA19-45D9-8221-658C98E96C66}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\es\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\es\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{7C998AB3-4743-4E0B-9D18-3B77D9E8E516}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\sl4\de\System.Spatial.SL.resources.dll = packages\System.Spatial.5.2.0\lib\sl4\de\System.Spatial.SL.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hant", "zh-Hant", "{38935745-DECF-46E0-AF07-6E52E794FA4D}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\zh-Hant\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\zh-Hant\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "zh-Hans", "zh-Hans", "{D9F06C27-54BF-4B9E-BA77-4FDC34316972}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\zh-Hans\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\zh-Hans\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ru", "ru", "{B69D4FEE-31E3-43C0-BE8C-FF25B5B8992E}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\ru\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\ru\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ko", "ko", "{9F5ED76E-8FF7-45DE-B229-2854CD6BA587}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\ko\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\ko\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ja", "ja", "{6EFDE5FB-40D3-4950-AE6E-9753730D0AAF}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\ja\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\ja\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "it", "it", "{5A157ADD-A9EA-40E0-9E20-8399A501B151}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\it\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\it\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "fr", "fr", "{2DFB13F0-0229-4DF8-B6BF-178ECF9BDBC2}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\fr\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\fr\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "es", "es", "{70B6CCAF-0A72-4414-B321-A818C03D951F}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\es\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\es\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "de", "de", "{00E0557E-A5E9-4C16-AF81-E7EA61B4D06D}"
+	ProjectSection(SolutionItems) = preProject
+		packages\System.Spatial.5.2.0\lib\net40\de\System.Spatial.resources.dll = packages\System.Spatial.5.2.0\lib\net40\de\System.Spatial.resources.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebGrease.1.1.0", "WebGrease.1.1.0", "{FB3F22D9-9C68-48AD-B15F-A4DFD733DF48}"
+	ProjectSection(SolutionItems) = preProject
+		packages\WebGrease.1.1.0\WebGrease.1.1.0.nupkg = packages\WebGrease.1.1.0\WebGrease.1.1.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{D4F32913-ABFC-47CD-9E32-EE6ACB5D9DCC}"
+	ProjectSection(SolutionItems) = preProject
+		packages\WebGrease.1.1.0\tools\WG.exe = packages\WebGrease.1.1.0\tools\WG.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{69C3ABBE-DBB4-46D6-9DF2-47C3E62B34BA}"
+	ProjectSection(SolutionItems) = preProject
+		packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll = packages\WebGrease.1.1.0\lib\Antlr3.Runtime.dll
+		packages\WebGrease.1.1.0\lib\WebGrease.dll = packages\WebGrease.1.1.0\lib\WebGrease.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebGrease.1.3.0", "WebGrease.1.3.0", "{734CE21E-7AE2-4DFA-9616-3611623BE7E4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\WebGrease.1.3.0\WebGrease.1.3.0.nupkg = packages\WebGrease.1.3.0\WebGrease.1.3.0.nupkg
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tools", "tools", "{AD4BE391-0905-4882-848B-44E14376E082}"
+	ProjectSection(SolutionItems) = preProject
+		packages\WebGrease.1.3.0\tools\WG.exe = packages\WebGrease.1.3.0\tools\WG.exe
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "lib", "lib", "{B55D22A0-23CC-4917-8159-47E07943D2D4}"
+	ProjectSection(SolutionItems) = preProject
+		packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll = packages\WebGrease.1.3.0\lib\Antlr3.Runtime.dll
+		packages\WebGrease.1.3.0\lib\WebGrease.dll = packages\WebGrease.1.3.0\lib\WebGrease.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Highcharts.4.0.3", "Highcharts.4.0.3", "{CF8F7B8C-41CD-4F45-B8D0-515B98FF4065}"
+	ProjectSection(SolutionItems) = preProject
+		packages\Highcharts.4.0.3\Highcharts_Export_.Net.dll = packages\Highcharts.4.0.3\Highcharts_Export_.Net.dll
+		packages\Highcharts.4.0.3\itextsharp.dll = packages\Highcharts.4.0.3\itextsharp.dll
+		packages\Highcharts.4.0.3\Svg.dll = packages\Highcharts.4.0.3\Svg.dll
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "jquery-autocomplete", "jquery-autocomplete", "{5C06551E-E0B4-4261-AA5D-0D50C472316C}"
+	ProjectSection(SolutionItems) = preProject
+		packages\jquery-autocomplete\jquery.autocomplete.css = packages\jquery-autocomplete\jquery.autocomplete.css
+		packages\jquery-autocomplete\jquery.autocomplete.min.js = packages\jquery-autocomplete\jquery.autocomplete.min.js
+		packages\jquery-autocomplete\jquery.autocomplete.pack.js = packages\jquery-autocomplete\jquery.autocomplete.pack.js
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2CECDBC0-E7BC-4F03-8164-AA3A2E19D6A9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CECDBC0-E7BC-4F03-8164-AA3A2E19D6A9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CECDBC0-E7BC-4F03-8164-AA3A2E19D6A9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CECDBC0-E7BC-4F03-8164-AA3A2E19D6A9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C070F02-FAE1-42A1-958A-49A128A9DB78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C070F02-FAE1-42A1-958A-49A128A9DB78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C070F02-FAE1-42A1-958A-49A128A9DB78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C070F02-FAE1-42A1-958A-49A128A9DB78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F67BB47C-6DEF-48A8-A0EF-159F2CDEDC46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F67BB47C-6DEF-48A8-A0EF-159F2CDEDC46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F67BB47C-6DEF-48A8-A0EF-159F2CDEDC46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F67BB47C-6DEF-48A8-A0EF-159F2CDEDC46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E24B6730-9DBB-4D4E-9545-790643716F5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E24B6730-9DBB-4D4E-9545-790643716F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E24B6730-9DBB-4D4E-9545-790643716F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E24B6730-9DBB-4D4E-9545-790643716F5D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09447503-DA07-4C5F-BF4B-F20AB4882558}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09447503-DA07-4C5F-BF4B-F20AB4882558}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09447503-DA07-4C5F-BF4B-F20AB4882558}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09447503-DA07-4C5F-BF4B-F20AB4882558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69CABF19-735A-49D0-A140-3161E1645C49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69CABF19-735A-49D0-A140-3161E1645C49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69CABF19-735A-49D0-A140-3161E1645C49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69CABF19-735A-49D0-A140-3161E1645C49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6369BC0-DB6F-4E57-B130-68CEB4B112B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6369BC0-DB6F-4E57-B130-68CEB4B112B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6369BC0-DB6F-4E57-B130-68CEB4B112B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6369BC0-DB6F-4E57-B130-68CEB4B112B2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2CECDBC0-E7BC-4F03-8164-AA3A2E19D6A9} = {FA8AFF0D-DABE-4C2E-A08D-1E33E9B705D0}
+		{0C070F02-FAE1-42A1-958A-49A128A9DB78} = {0BFB1339-E8CE-4C11-84E4-F890773FA8F5}
+		{F67BB47C-6DEF-48A8-A0EF-159F2CDEDC46} = {0BFB1339-E8CE-4C11-84E4-F890773FA8F5}
+		{E24B6730-9DBB-4D4E-9545-790643716F5D} = {4BB8B154-C612-499C-96B2-3C05E24431AE}
+		{09447503-DA07-4C5F-BF4B-F20AB4882558} = {C0C3CB40-FEE9-4995-AFF1-50C8361C67BB}
+		{69CABF19-735A-49D0-A140-3161E1645C49} = {C0C3CB40-FEE9-4995-AFF1-50C8361C67BB}
+		{869C7707-27A0-4C32-80CD-EF980DBA1BF4} = {510737F6-9072-4923-B938-37E798459920}
+		{D654C330-34E2-45DB-BAAA-6D3330F951CC} = {869C7707-27A0-4C32-80CD-EF980DBA1BF4}
+		{19CB6D52-21D5-4E44-A281-6487F719824D} = {D654C330-34E2-45DB-BAAA-6D3330F951CC}
+		{0BC47028-C0CA-4129-9E73-1F2E377B01C4} = {D654C330-34E2-45DB-BAAA-6D3330F951CC}
+		{87B61D49-CED1-4156-9507-B7591A77DBEF} = {510737F6-9072-4923-B938-37E798459920}
+		{3769145E-096D-4668-802C-9B85064B566B} = {87B61D49-CED1-4156-9507-B7591A77DBEF}
+		{9FD286CD-F09E-449D-8B6D-8F7233AF81AC} = {87B61D49-CED1-4156-9507-B7591A77DBEF}
+		{4D0C9400-BD59-4516-AED1-ADB268A7A6AE} = {9FD286CD-F09E-449D-8B6D-8F7233AF81AC}
+		{CD79071C-35FD-49B7-92F2-FE32B8031DE7} = {9FD286CD-F09E-449D-8B6D-8F7233AF81AC}
+		{335204D9-8D49-43F9-933C-1A98341FA37D} = {9FD286CD-F09E-449D-8B6D-8F7233AF81AC}
+		{27F1430A-7E32-4A06-B62D-27884F23EFBF} = {510737F6-9072-4923-B938-37E798459920}
+		{6BF4EB86-288F-4213-ACD9-F883FCE75FF1} = {27F1430A-7E32-4A06-B62D-27884F23EFBF}
+		{211D320B-782F-489D-9B2F-0DB3780255A6} = {6BF4EB86-288F-4213-ACD9-F883FCE75FF1}
+		{F8D26588-597D-425B-8F2E-4704EA9B4EF4} = {6BF4EB86-288F-4213-ACD9-F883FCE75FF1}
+		{337795E1-D9D9-4079-ACDB-847DB9C09E8A} = {6BF4EB86-288F-4213-ACD9-F883FCE75FF1}
+		{D2E7BA24-662C-4DD2-839F-9DE5E948F520} = {510737F6-9072-4923-B938-37E798459920}
+		{D6F20332-8B5D-4CC6-80BD-475AD6746D61} = {D2E7BA24-662C-4DD2-839F-9DE5E948F520}
+		{96D0B2AF-7460-467D-8575-882F45EC2A1D} = {D2E7BA24-662C-4DD2-839F-9DE5E948F520}
+		{94C233CE-469E-4C83-9EE9-AFF64B2D8C97} = {96D0B2AF-7460-467D-8575-882F45EC2A1D}
+		{5E8891D8-461A-4372-BC86-DD4AB1C0F8E7} = {96D0B2AF-7460-467D-8575-882F45EC2A1D}
+		{BD324CD5-8740-4060-B3A3-BA451C0C9529} = {96D0B2AF-7460-467D-8575-882F45EC2A1D}
+		{D6429E54-7EE3-46F9-8498-A30316661E83} = {510737F6-9072-4923-B938-37E798459920}
+		{5162FAB3-C15C-4CF9-9D75-59A1A8C7DF67} = {D6429E54-7EE3-46F9-8498-A30316661E83}
+		{26EC0DB1-1BFC-4829-8C8D-B79BAFF6DD4A} = {D6429E54-7EE3-46F9-8498-A30316661E83}
+		{F4DE660D-1ED0-4DA7-B285-9447A062F2B1} = {26EC0DB1-1BFC-4829-8C8D-B79BAFF6DD4A}
+		{16EBB314-A177-41FE-94F4-407E43BAA1EB} = {26EC0DB1-1BFC-4829-8C8D-B79BAFF6DD4A}
+		{B07EAF44-8D8E-46B5-AC3F-637A47AA3340} = {26EC0DB1-1BFC-4829-8C8D-B79BAFF6DD4A}
+		{C94EF61F-0752-40B6-A732-D058C2D6BC16} = {5162FAB3-C15C-4CF9-9D75-59A1A8C7DF67}
+		{AD5345E6-694E-49D5-90F9-E1CC3235CC0B} = {5162FAB3-C15C-4CF9-9D75-59A1A8C7DF67}
+		{9265591F-8BC2-4103-A474-C8E6C6ED0310} = {5162FAB3-C15C-4CF9-9D75-59A1A8C7DF67}
+		{6FF1642F-32DE-4B20-B13B-BE05A50C4E19} = {510737F6-9072-4923-B938-37E798459920}
+		{29FB029A-CFFC-4A32-9BBC-9D2AA403A5A5} = {6FF1642F-32DE-4B20-B13B-BE05A50C4E19}
+		{BB051B28-F883-4149-9612-24D55862C4E7} = {6FF1642F-32DE-4B20-B13B-BE05A50C4E19}
+		{652326CF-F78A-4A60-ADA1-A5F4D7D4659E} = {29FB029A-CFFC-4A32-9BBC-9D2AA403A5A5}
+		{DB7DFB78-654F-40F8-AEB0-288A37A6B7F5} = {29FB029A-CFFC-4A32-9BBC-9D2AA403A5A5}
+		{0862F294-ADA4-4942-8E1D-C997D66F0D36} = {29FB029A-CFFC-4A32-9BBC-9D2AA403A5A5}
+		{5417987D-A3F1-448A-8F59-564E095067D7} = {510737F6-9072-4923-B938-37E798459920}
+		{F88C86E5-7561-441B-8F9A-5C790F925530} = {5417987D-A3F1-448A-8F59-564E095067D7}
+		{34BF6A69-0472-4372-BD47-077810771F05} = {5417987D-A3F1-448A-8F59-564E095067D7}
+		{C0E84931-A0B1-45AC-964D-021165390BF4} = {34BF6A69-0472-4372-BD47-077810771F05}
+		{0255353F-2298-4CAD-9D5D-BE1A105E9E3C} = {34BF6A69-0472-4372-BD47-077810771F05}
+		{7A892706-752B-4ABB-9F36-B2EB33F43092} = {C0E84931-A0B1-45AC-964D-021165390BF4}
+		{45EBC9A2-0A15-47EC-9AC3-AB598DA6455C} = {0255353F-2298-4CAD-9D5D-BE1A105E9E3C}
+		{58D0364E-9B15-4736-85C3-EED35DE49A5B} = {5417987D-A3F1-448A-8F59-564E095067D7}
+		{F954038E-F132-4D86-8EFD-D9C8CD2EFED8} = {510737F6-9072-4923-B938-37E798459920}
+		{780FB624-3A8B-4984-9BEA-B98670A08E6C} = {F954038E-F132-4D86-8EFD-D9C8CD2EFED8}
+		{0B793072-4383-47FE-81D2-F5BA539F6A1B} = {780FB624-3A8B-4984-9BEA-B98670A08E6C}
+		{CFBAC64E-47AD-4990-AB53-3BC58AD97125} = {780FB624-3A8B-4984-9BEA-B98670A08E6C}
+		{A171CB5A-12FA-4BBB-B310-CDD33B1F86B9} = {0B793072-4383-47FE-81D2-F5BA539F6A1B}
+		{E188349C-0878-468F-A82A-B0CED1C56B85} = {CFBAC64E-47AD-4990-AB53-3BC58AD97125}
+		{21A67FE4-70E7-4C0A-8593-66CC100A9CB5} = {510737F6-9072-4923-B938-37E798459920}
+		{8C935ECD-3BDC-4953-A885-1C6034339113} = {21A67FE4-70E7-4C0A-8593-66CC100A9CB5}
+		{636CBABD-D2D1-409C-A4D6-73AB55105FFB} = {21A67FE4-70E7-4C0A-8593-66CC100A9CB5}
+		{151F3D5D-EC79-41A9-8611-1A142A8F8147} = {636CBABD-D2D1-409C-A4D6-73AB55105FFB}
+		{78A27B2D-2355-47F7-A209-C2147C22AB28} = {510737F6-9072-4923-B938-37E798459920}
+		{4EBDEDD5-8FB5-4A56-A62C-75BFFDD824CE} = {78A27B2D-2355-47F7-A209-C2147C22AB28}
+		{8BA59D4E-E01D-47C7-B7AC-F26FC8E1CC58} = {78A27B2D-2355-47F7-A209-C2147C22AB28}
+		{50D85E15-DD70-4D90-BF7E-97477A2F5B63} = {8BA59D4E-E01D-47C7-B7AC-F26FC8E1CC58}
+		{19BD63F0-0118-4B90-8650-E8727CDD691F} = {510737F6-9072-4923-B938-37E798459920}
+		{69281C08-062A-4937-8BB9-1B33E81BF9C6} = {19BD63F0-0118-4B90-8650-E8727CDD691F}
+		{8D8F2C47-C764-4267-8F01-00AC7D5C51C7} = {69281C08-062A-4937-8BB9-1B33E81BF9C6}
+		{BDBD7ABD-42CB-47F8-A62B-21E633BC8E95} = {69281C08-062A-4937-8BB9-1B33E81BF9C6}
+		{F80F45AE-630D-4782-B9E2-71C4EF549FCD} = {8D8F2C47-C764-4267-8F01-00AC7D5C51C7}
+		{B3D6EF9D-45E0-4DE2-B8F0-E8DCAD2310B4} = {F80F45AE-630D-4782-B9E2-71C4EF549FCD}
+		{A1A6957F-5C4C-4FD3-ADA7-FC8CB9007CE9} = {B3D6EF9D-45E0-4DE2-B8F0-E8DCAD2310B4}
+		{812258D9-9514-4B95-9896-17DD0A0E83BF} = {B3D6EF9D-45E0-4DE2-B8F0-E8DCAD2310B4}
+		{F2B3BB74-068E-4A19-B3C0-5CEB4AED7BAE} = {A1A6957F-5C4C-4FD3-ADA7-FC8CB9007CE9}
+		{875DDC67-BCB6-48B2-B6B1-D1D273431B06} = {510737F6-9072-4923-B938-37E798459920}
+		{53FB6BA5-0290-480B-94D5-29F1FDCED078} = {875DDC67-BCB6-48B2-B6B1-D1D273431B06}
+		{A829ED85-B1CE-4C34-8244-0C2E04CC053A} = {875DDC67-BCB6-48B2-B6B1-D1D273431B06}
+		{1B1E8978-012E-4FD4-B4E3-E3A2A627B52A} = {A829ED85-B1CE-4C34-8244-0C2E04CC053A}
+		{EF7793D5-F9FF-4AE4-984D-468B968A5D60} = {A829ED85-B1CE-4C34-8244-0C2E04CC053A}
+		{24364B25-EEF5-45AD-B9B5-1DE05BE2C922} = {1B1E8978-012E-4FD4-B4E3-E3A2A627B52A}
+		{0C4EBDDE-7F4A-4087-83EF-F76DB30A3853} = {24364B25-EEF5-45AD-B9B5-1DE05BE2C922}
+		{0E6296E8-5290-41CB-A608-698548F20DC2} = {0C4EBDDE-7F4A-4087-83EF-F76DB30A3853}
+		{D266DBAC-48D3-453D-86BC-86F37E891C2B} = {0C4EBDDE-7F4A-4087-83EF-F76DB30A3853}
+		{69A87C4F-48D0-4CFF-A9F8-09EABB25FF67} = {D266DBAC-48D3-453D-86BC-86F37E891C2B}
+		{5F2832E2-8476-403D-A602-E73FFB3A9AEF} = {510737F6-9072-4923-B938-37E798459920}
+		{50EBD227-64D9-42A2-986E-AFD4E9F0C714} = {5F2832E2-8476-403D-A602-E73FFB3A9AEF}
+		{3AA786B9-42E0-49B3-9889-AE6EAD86C6E1} = {50EBD227-64D9-42A2-986E-AFD4E9F0C714}
+		{F77E703B-6D3B-4486-805F-CFBC9807F8E0} = {510737F6-9072-4923-B938-37E798459920}
+		{680D9CA5-D0E4-4A98-BF93-43F30B087AB3} = {F77E703B-6D3B-4486-805F-CFBC9807F8E0}
+		{5F651604-1E43-4E2F-9340-46F9CBF3DB0F} = {680D9CA5-D0E4-4A98-BF93-43F30B087AB3}
+		{5D3D8E09-D543-4BD5-856C-4CBE0CB31C94} = {510737F6-9072-4923-B938-37E798459920}
+		{C6738486-778B-4727-9DB9-B4411C2BDEB8} = {5D3D8E09-D543-4BD5-856C-4CBE0CB31C94}
+		{5ADDC3EE-8F7E-4416-966D-33363DD0E299} = {C6738486-778B-4727-9DB9-B4411C2BDEB8}
+		{96327496-54E4-46C3-B597-1C9B03EB0041} = {510737F6-9072-4923-B938-37E798459920}
+		{759D6670-DBA8-4E03-A7FB-4771B310F8C2} = {96327496-54E4-46C3-B597-1C9B03EB0041}
+		{98509967-79B7-4FE3-9B11-E2BB6F581FF8} = {759D6670-DBA8-4E03-A7FB-4771B310F8C2}
+		{61EA03A6-061F-4E01-9938-EACF0C41833A} = {510737F6-9072-4923-B938-37E798459920}
+		{1F1D2DB2-1175-4537-91D7-B8FEEEEBDCCC} = {61EA03A6-061F-4E01-9938-EACF0C41833A}
+		{224B79A7-9999-4DAA-8F28-0E9CC252ACB4} = {1F1D2DB2-1175-4537-91D7-B8FEEEEBDCCC}
+		{E2DDA415-9CCF-44D8-9FF4-84C50317A529} = {224B79A7-9999-4DAA-8F28-0E9CC252ACB4}
+		{30942FC3-D013-4C20-8033-376061197ED2} = {510737F6-9072-4923-B938-37E798459920}
+		{403DFF54-FFC1-4290-8A73-B4E61C3D8143} = {30942FC3-D013-4C20-8033-376061197ED2}
+		{5FCB2D9E-3B97-4CB7-837F-68656487193C} = {403DFF54-FFC1-4290-8A73-B4E61C3D8143}
+		{A2485410-321B-4026-A90B-DBCCEDD79A95} = {510737F6-9072-4923-B938-37E798459920}
+		{3EFA73E9-592E-431C-A321-15CE6D970CD3} = {A2485410-321B-4026-A90B-DBCCEDD79A95}
+		{45F580EC-08FC-4974-89B5-17F02D8534A9} = {3EFA73E9-592E-431C-A321-15CE6D970CD3}
+		{588C2025-9B0C-4A57-94B5-6A325162BB0C} = {45F580EC-08FC-4974-89B5-17F02D8534A9}
+		{6DB88B2F-A655-4197-8E6A-955A5B08B32F} = {510737F6-9072-4923-B938-37E798459920}
+		{36799FC0-F538-4CCA-B826-EB5605F6AD19} = {6DB88B2F-A655-4197-8E6A-955A5B08B32F}
+		{4A663429-DA3E-4A52-B81E-90FFCE2D32E4} = {36799FC0-F538-4CCA-B826-EB5605F6AD19}
+		{415F38E5-EE2D-4479-B100-59651348C93B} = {4A663429-DA3E-4A52-B81E-90FFCE2D32E4}
+		{6B884C8E-208C-40A8-9895-6B1601B1A269} = {510737F6-9072-4923-B938-37E798459920}
+		{57DBEA13-9CCC-4C1A-8C0D-D7FB04AC47CB} = {6B884C8E-208C-40A8-9895-6B1601B1A269}
+		{06EB75AD-23FA-4B33-9550-97019D505E2A} = {57DBEA13-9CCC-4C1A-8C0D-D7FB04AC47CB}
+		{E4EA8EB1-886C-4AE9-A1B3-8E5CDC6A42E7} = {06EB75AD-23FA-4B33-9550-97019D505E2A}
+		{C49AEC2A-FF97-4779-9CB6-383597F57AE2} = {510737F6-9072-4923-B938-37E798459920}
+		{8E4ED756-2E49-4F55-AD6C-1CCC0F8DCBFA} = {C49AEC2A-FF97-4779-9CB6-383597F57AE2}
+		{5CA05EFC-40B6-4AAA-99B8-C9027C651F5C} = {8E4ED756-2E49-4F55-AD6C-1CCC0F8DCBFA}
+		{8E8F794C-561D-4636-B443-FFDFC4BA5BC7} = {5CA05EFC-40B6-4AAA-99B8-C9027C651F5C}
+		{F1678A18-5BC6-421E-818C-CDB0FEB2774C} = {510737F6-9072-4923-B938-37E798459920}
+		{B6AB15D0-2AAC-4491-B285-77659E3946B9} = {F1678A18-5BC6-421E-818C-CDB0FEB2774C}
+		{688DB307-597E-4156-A315-8C692B6ED377} = {B6AB15D0-2AAC-4491-B285-77659E3946B9}
+		{C0F98D68-AA5E-4198-9C0C-C43BD12BFB10} = {688DB307-597E-4156-A315-8C692B6ED377}
+		{BE86300D-6A2E-4453-B651-BA9E134ED44F} = {510737F6-9072-4923-B938-37E798459920}
+		{4A1E2E8E-79E6-4A0A-8E64-6D4B79BC6FF9} = {BE86300D-6A2E-4453-B651-BA9E134ED44F}
+		{0A62E4D0-B351-4D77-97DE-0A0C1839BAC4} = {BE86300D-6A2E-4453-B651-BA9E134ED44F}
+		{63249002-D2B1-468A-B506-07AFF6DE8F43} = {510737F6-9072-4923-B938-37E798459920}
+		{0C293E29-3495-4B19-8484-399017E40F7B} = {63249002-D2B1-468A-B506-07AFF6DE8F43}
+		{82267F1A-5C92-4A6C-BD97-9ED86E179674} = {0C293E29-3495-4B19-8484-399017E40F7B}
+		{1CB4DEB7-8577-4D49-B40C-1CF56B5F3BAC} = {82267F1A-5C92-4A6C-BD97-9ED86E179674}
+		{A15C0422-C25A-47AF-9A83-E3010A2B7DE7} = {510737F6-9072-4923-B938-37E798459920}
+		{88D329BF-2731-4E4F-85C9-1C9FA7B707A8} = {A15C0422-C25A-47AF-9A83-E3010A2B7DE7}
+		{5A5947D9-E40C-41DB-BC5D-C9DE940BC31F} = {88D329BF-2731-4E4F-85C9-1C9FA7B707A8}
+		{7D0ED82C-B1DA-4937-A7B3-E499842CC32D} = {5A5947D9-E40C-41DB-BC5D-C9DE940BC31F}
+		{98619467-8797-4C57-A22D-E466D3784628} = {510737F6-9072-4923-B938-37E798459920}
+		{64B761E6-F1C2-4B36-AC73-DEF538ED63B4} = {98619467-8797-4C57-A22D-E466D3784628}
+		{0B9FC8D9-3B8F-4779-9243-D698506C9980} = {64B761E6-F1C2-4B36-AC73-DEF538ED63B4}
+		{50317A05-7908-4644-BF42-B73854CC644B} = {0B9FC8D9-3B8F-4779-9243-D698506C9980}
+		{2F89D69B-AA56-43B6-881C-8B7A54CC41AF} = {510737F6-9072-4923-B938-37E798459920}
+		{09009EF1-EECA-4A27-941E-9B7CF8270DC3} = {2F89D69B-AA56-43B6-881C-8B7A54CC41AF}
+		{475B15BA-4090-43AE-85AE-43B9908499A1} = {09009EF1-EECA-4A27-941E-9B7CF8270DC3}
+		{E54F6D5A-2080-4578-84D0-6E04F55A59C1} = {475B15BA-4090-43AE-85AE-43B9908499A1}
+		{DDA49507-B391-4CB5-B1D1-D37743B4E64C} = {510737F6-9072-4923-B938-37E798459920}
+		{1CD1045A-EE61-4045-AF0B-6B1EF3ECF23B} = {510737F6-9072-4923-B938-37E798459920}
+		{FD78EE67-8BAE-4182-9528-A35818B01899} = {1CD1045A-EE61-4045-AF0B-6B1EF3ECF23B}
+		{C8E2FA96-61CF-4EB6-96E2-554798D0ABDF} = {FD78EE67-8BAE-4182-9528-A35818B01899}
+		{12C66237-2819-4C22-8ACE-D908334DF891} = {510737F6-9072-4923-B938-37E798459920}
+		{6C14D2F8-5719-4DFA-B2D9-43019F6B71FA} = {12C66237-2819-4C22-8ACE-D908334DF891}
+		{6BA8E8F4-DC2B-4C00-B2A2-9C593FC88C0D} = {6C14D2F8-5719-4DFA-B2D9-43019F6B71FA}
+		{58126FEB-6D8B-43CB-AE40-53967E99766A} = {510737F6-9072-4923-B938-37E798459920}
+		{55494074-197F-45B6-83B3-4560C0613DD2} = {58126FEB-6D8B-43CB-AE40-53967E99766A}
+		{06D7E50A-60D8-4D22-8403-2C4264256317} = {55494074-197F-45B6-83B3-4560C0613DD2}
+		{8489C9F5-15F0-421D-B058-0FA1D4EDBFEF} = {510737F6-9072-4923-B938-37E798459920}
+		{D6638CC2-4620-4310-82B6-4D09991C9670} = {510737F6-9072-4923-B938-37E798459920}
+		{CBE5E251-EC0F-4300-A09D-83B692C6D2C0} = {D6638CC2-4620-4310-82B6-4D09991C9670}
+		{C2CC0965-6BE3-4D7F-BFF9-0A923C0D2E42} = {CBE5E251-EC0F-4300-A09D-83B692C6D2C0}
+		{EBAEEAAF-9E7A-4BC2-B705-A7C0DAF66C31} = {C2CC0965-6BE3-4D7F-BFF9-0A923C0D2E42}
+		{E099879B-452A-4B94-BB72-1DAFBE725C2A} = {510737F6-9072-4923-B938-37E798459920}
+		{42D12D5F-2A81-43C2-931B-5EF643CEF908} = {E099879B-452A-4B94-BB72-1DAFBE725C2A}
+		{D4412BA0-09F1-4EC8-8765-C50F250C9ECF} = {42D12D5F-2A81-43C2-931B-5EF643CEF908}
+		{2EFEF3DB-2FB1-46B1-A70B-6459D5EE1513} = {D4412BA0-09F1-4EC8-8765-C50F250C9ECF}
+		{FB940EDE-3FDE-4366-AE96-11FAFD963071} = {510737F6-9072-4923-B938-37E798459920}
+		{20519CC5-DD3B-4AD7-BB03-661D77036AA3} = {510737F6-9072-4923-B938-37E798459920}
+		{4E4CF8D6-372F-486E-A217-79562C8C9C4A} = {20519CC5-DD3B-4AD7-BB03-661D77036AA3}
+		{F411A6C0-E04E-47DD-B3EE-2431BD0FD552} = {4E4CF8D6-372F-486E-A217-79562C8C9C4A}
+		{39F0FA0A-50CD-4C10-8A5D-146C2746D628} = {F411A6C0-E04E-47DD-B3EE-2431BD0FD552}
+		{6308410F-DFA1-4CBC-916A-F201405CBCA3} = {510737F6-9072-4923-B938-37E798459920}
+		{E184F5D8-DF76-4A42-AB95-9050FE857E42} = {6308410F-DFA1-4CBC-916A-F201405CBCA3}
+		{8FFA3746-6548-460B-82CF-B41E21A2A312} = {E184F5D8-DF76-4A42-AB95-9050FE857E42}
+		{19FE97FA-6FA0-40EF-B853-9EF6C20E1A2F} = {8FFA3746-6548-460B-82CF-B41E21A2A312}
+		{6024DC62-5FA2-4632-B5F8-2440BA3651DF} = {510737F6-9072-4923-B938-37E798459920}
+		{19D37812-0D59-4C08-BA11-19856259A6E6} = {6024DC62-5FA2-4632-B5F8-2440BA3651DF}
+		{2C9E5620-0B85-46FD-B83C-2E2A67772413} = {6024DC62-5FA2-4632-B5F8-2440BA3651DF}
+		{F4C95B49-686A-47AA-B3F4-673C3706DA08} = {2C9E5620-0B85-46FD-B83C-2E2A67772413}
+		{A638C6A1-1B0D-42B6-817F-BB657F8954D3} = {F4C95B49-686A-47AA-B3F4-673C3706DA08}
+		{EAD13207-3D2A-4281-83A2-528373EBE052} = {510737F6-9072-4923-B938-37E798459920}
+		{40DF1603-A621-480F-B6FE-9365B7AA4BC3} = {EAD13207-3D2A-4281-83A2-528373EBE052}
+		{83742576-0549-4B6F-801C-B01C915E6FC4} = {40DF1603-A621-480F-B6FE-9365B7AA4BC3}
+		{F5CE6D73-4F34-4A43-8C2E-554595D1EF22} = {83742576-0549-4B6F-801C-B01C915E6FC4}
+		{ED4C1516-8B69-48F4-B632-0C7394493AAC} = {510737F6-9072-4923-B938-37E798459920}
+		{39E577D8-EC7E-42B2-AB6B-433F7EDA2991} = {ED4C1516-8B69-48F4-B632-0C7394493AAC}
+		{528CFEB6-7AA6-474E-AC9E-60D1D58DBFC1} = {39E577D8-EC7E-42B2-AB6B-433F7EDA2991}
+		{6E81A869-FDB2-4471-B473-1451713D0D8C} = {528CFEB6-7AA6-474E-AC9E-60D1D58DBFC1}
+		{5D098858-1D68-4CA3-83CC-F4C60A55D756} = {510737F6-9072-4923-B938-37E798459920}
+		{1343F31A-E302-4823-9478-84B2AD53F282} = {5D098858-1D68-4CA3-83CC-F4C60A55D756}
+		{683166DF-6A0E-475B-8E5B-1D5D8B260F18} = {1343F31A-E302-4823-9478-84B2AD53F282}
+		{E50314DA-AA60-4D05-B542-DB1124FDA073} = {683166DF-6A0E-475B-8E5B-1D5D8B260F18}
+		{0FE0BCB8-31AC-42D9-AC29-93ED53A7F25B} = {510737F6-9072-4923-B938-37E798459920}
+		{A34B7463-513D-46A9-8C3D-C9958DC9FAA3} = {0FE0BCB8-31AC-42D9-AC29-93ED53A7F25B}
+		{30A777B8-F0B3-47AA-A87C-CC7D46B6B9EC} = {A34B7463-513D-46A9-8C3D-C9958DC9FAA3}
+		{DF599714-834E-4ADD-8EA4-899CDA98CDA9} = {30A777B8-F0B3-47AA-A87C-CC7D46B6B9EC}
+		{F4BE8573-EB43-4192-949E-A62129874228} = {510737F6-9072-4923-B938-37E798459920}
+		{D2019C28-6D3B-467F-BCFC-1601D2F094AD} = {F4BE8573-EB43-4192-949E-A62129874228}
+		{5E768EE2-839E-457F-A38F-A7754FCFEEED} = {D2019C28-6D3B-467F-BCFC-1601D2F094AD}
+		{1D8F6172-4FF9-421C-A901-AF9D9B002C11} = {5E768EE2-839E-457F-A38F-A7754FCFEEED}
+		{4972C357-ED67-4E73-AA6F-E10CC4AAA076} = {510737F6-9072-4923-B938-37E798459920}
+		{74CF5A5B-8BB3-454E-AAB7-E159D72EDDC4} = {4972C357-ED67-4E73-AA6F-E10CC4AAA076}
+		{A27AA824-CBE3-43F6-A4E1-336E92818BC2} = {74CF5A5B-8BB3-454E-AAB7-E159D72EDDC4}
+		{5C135DBE-9C55-44DF-A483-A047066DB617} = {A27AA824-CBE3-43F6-A4E1-336E92818BC2}
+		{13165DD3-5FED-4DBC-8D4A-457C908DF0F8} = {510737F6-9072-4923-B938-37E798459920}
+		{C78FBCB5-680E-4FA8-B77A-40D2564A39C5} = {13165DD3-5FED-4DBC-8D4A-457C908DF0F8}
+		{085F6366-3BEA-4543-8B1E-DC3A098CB8C3} = {C78FBCB5-680E-4FA8-B77A-40D2564A39C5}
+		{063E8F2B-66C5-4A26-BDCE-42698E622437} = {085F6366-3BEA-4543-8B1E-DC3A098CB8C3}
+		{15C04ECD-CA31-465A-84C2-2F87BE6E1F51} = {510737F6-9072-4923-B938-37E798459920}
+		{EED4C92B-ACC0-4047-B10B-FF00702EDDB7} = {15C04ECD-CA31-465A-84C2-2F87BE6E1F51}
+		{4E5A7327-F42F-4978-84EE-FA4CCC1656BD} = {EED4C92B-ACC0-4047-B10B-FF00702EDDB7}
+		{F145DE65-2D59-4E4F-9CDC-F69055A9B16F} = {4E5A7327-F42F-4978-84EE-FA4CCC1656BD}
+		{6FF0E3AE-271E-4A16-B2FC-0ABCDAEBF7CC} = {510737F6-9072-4923-B938-37E798459920}
+		{17EDE380-9619-49C5-B004-C731FEDCE4AB} = {6FF0E3AE-271E-4A16-B2FC-0ABCDAEBF7CC}
+		{21E2432F-13CF-402F-8F30-60050FC58C6C} = {17EDE380-9619-49C5-B004-C731FEDCE4AB}
+		{95F93499-0CED-4721-A040-87D38BE01392} = {21E2432F-13CF-402F-8F30-60050FC58C6C}
+		{0AA546EB-D42A-4221-BACE-24A2405822AF} = {510737F6-9072-4923-B938-37E798459920}
+		{D63D2EEB-8D71-4B58-BF7C-CD08C7886D54} = {0AA546EB-D42A-4221-BACE-24A2405822AF}
+		{B76C303A-6325-4E45-BA44-81498860C4C2} = {D63D2EEB-8D71-4B58-BF7C-CD08C7886D54}
+		{6D4D533F-41A6-4FF8-B4CA-E9DB86E75690} = {B76C303A-6325-4E45-BA44-81498860C4C2}
+		{5985E783-1414-4340-BCA6-D0D1F9C50E16} = {510737F6-9072-4923-B938-37E798459920}
+		{49EA8AB1-AB25-45D9-9C0D-F9BE19043308} = {5985E783-1414-4340-BCA6-D0D1F9C50E16}
+		{ECBE1F07-4906-40CE-BA91-7D826898A4E8} = {49EA8AB1-AB25-45D9-9C0D-F9BE19043308}
+		{55B4A49F-10A2-4CA7-99A8-D3F19F50903E} = {ECBE1F07-4906-40CE-BA91-7D826898A4E8}
+		{BF73F964-BE87-44C3-88E7-79E61949A887} = {510737F6-9072-4923-B938-37E798459920}
+		{39052EAE-22EF-4835-919E-13FF9B2CF5F5} = {BF73F964-BE87-44C3-88E7-79E61949A887}
+		{21B6BED9-9E8A-4433-9335-31A106D21654} = {39052EAE-22EF-4835-919E-13FF9B2CF5F5}
+		{F17A1EB1-507D-4832-AE41-52FB72FE9037} = {21B6BED9-9E8A-4433-9335-31A106D21654}
+		{334172B4-64A2-47F2-93BF-0DEBFB8D7023} = {510737F6-9072-4923-B938-37E798459920}
+		{72457ADF-B7D5-4DC2-B4C2-F675365E3F1F} = {334172B4-64A2-47F2-93BF-0DEBFB8D7023}
+		{F03676AB-834C-4B4E-9AB6-866E6771E397} = {72457ADF-B7D5-4DC2-B4C2-F675365E3F1F}
+		{002F0A85-0FB4-4B88-9F73-B8E8C400A7EE} = {F03676AB-834C-4B4E-9AB6-866E6771E397}
+		{946C3636-6029-4D6F-8EF8-E5A4DD75DFD2} = {510737F6-9072-4923-B938-37E798459920}
+		{3C3E7C5A-84B4-4100-81AD-EC7037533EF4} = {946C3636-6029-4D6F-8EF8-E5A4DD75DFD2}
+		{AC08ED44-6FFB-4193-A3A9-8E9368F400DA} = {3C3E7C5A-84B4-4100-81AD-EC7037533EF4}
+		{E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A} = {3C3E7C5A-84B4-4100-81AD-EC7037533EF4}
+		{0828F2F8-C188-41BB-9AA8-F4F2AF0F9640} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{3EC2D139-549F-4854-90CB-67663FA219DD} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{E490D9A7-3448-4535-BE5F-2CBC4F6D2C9A} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{0B4A21D1-F767-4A77-AC5D-2FB51680A4AC} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{38513F9D-DF24-40CC-8C44-3E4E3BC89DC2} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{BCE164AB-F20B-4625-969D-7F6D694A8B5C} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{71B735C5-3D64-4B9A-A759-C4B41508F8CB} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{B9E96C2A-6A11-417B-AE83-7EBDBAE3E3B3} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{7AD9F4EB-7B18-46C8-BB34-0C87A72474E3} = {E0DBFBAA-0CBA-4A68-934D-7B3E047AFC7A}
+		{FAB0383D-13FC-4FEB-9C93-A91FF6468575} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{F08088E6-29DC-4A3D-BF81-F6B826EAF86A} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{55AB3FF2-6AA3-4CEF-AA8C-7E440C0761D5} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{C1BCEFEF-6EA5-4A3C-99B0-A36F5C9CC2A7} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{51C97E1B-28D4-4090-8452-EA430AABFC30} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{C874D010-8E01-4F8C-AE2E-732865371C1E} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{1F143B52-719E-4600-9FFA-39715009157A} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{142A57E9-80B5-454C-BCC2-913BBEEDF3F6} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{ED56D999-3A54-4F2E-920F-5A2CC0A27840} = {AC08ED44-6FFB-4193-A3A9-8E9368F400DA}
+		{39F30F4B-4A01-45E1-BF81-EF62FC21EDC4} = {510737F6-9072-4923-B938-37E798459920}
+		{E179A48D-F3A4-4F0A-A1A9-E0409E661447} = {39F30F4B-4A01-45E1-BF81-EF62FC21EDC4}
+		{AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA} = {E179A48D-F3A4-4F0A-A1A9-E0409E661447}
+		{7DD37176-E3E0-4CA0-84C0-80904BA81321} = {E179A48D-F3A4-4F0A-A1A9-E0409E661447}
+		{98D36F86-AF34-4560-A17B-79660D27CBE3} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{6297260F-E197-4978-80E8-0D862A8E705A} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{ED742AFE-6E04-468A-B184-740C29C62C39} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{8DA0C849-BFD2-4892-B7C7-15A7FA33B770} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{EC793E39-EE9C-4443-95FB-CC9E8993BDB3} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{6696FF34-2F65-4CCD-8524-144695BE1F9F} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{A1F5BAA7-1261-49CD-B3AF-61E1D1C158EF} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{252A178C-BFA9-4EF3-9963-37C07544F706} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{D39A1E5C-9E6A-4499-81DB-7828BA703CD9} = {AE0A310F-493E-4B9B-BC0E-B7AA1FB467FA}
+		{FA8BD7BE-EBC6-4325-A9DB-43F961499BD9} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{759FFF46-CF3E-458F-A929-E2F792ED0F29} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{21600825-EA38-47C6-9472-3B871D46AC62} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{3CF83881-EEE3-493E-9B0A-24C82DDC185B} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{6911704C-D433-46D5-9079-8D4D2768933E} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{1DBD958E-31FA-4BE8-943E-9002EB11BB28} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{C20008F0-F0BA-4789-A1FF-1C8E9DE22C23} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{5EF5EF69-EB3D-4873-B36A-4228DA3F5EB9} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{9B96477C-FD40-41BC-B903-AB338FFAC5E3} = {7DD37176-E3E0-4CA0-84C0-80904BA81321}
+		{BED33352-414A-4ED4-82FA-C32B7C3FB944} = {510737F6-9072-4923-B938-37E798459920}
+		{82F2BCE9-2172-4503-BC81-81F03D6C0139} = {BED33352-414A-4ED4-82FA-C32B7C3FB944}
+		{51EB7ABB-F609-42DF-90D8-D01D06782009} = {82F2BCE9-2172-4503-BC81-81F03D6C0139}
+		{F2E06A31-E19E-45D2-9896-1B4AB42E37C4} = {510737F6-9072-4923-B938-37E798459920}
+		{10662961-9A4A-455C-A3DC-6585EAF25978} = {F2E06A31-E19E-45D2-9896-1B4AB42E37C4}
+		{0FFA7D25-B562-4BED-B565-3E1E8261A459} = {10662961-9A4A-455C-A3DC-6585EAF25978}
+		{BCB9552B-53F2-44A4-8552-B4B6C508F766} = {510737F6-9072-4923-B938-37E798459920}
+		{7A8996A2-BC3B-4C41-AEA5-CDFA28C762B2} = {BCB9552B-53F2-44A4-8552-B4B6C508F766}
+		{C46167E2-A8D8-47BE-A65E-78C6F2D5EADD} = {7A8996A2-BC3B-4C41-AEA5-CDFA28C762B2}
+		{2841F6B6-F4AD-4B83-8D80-1C14475B9DC0} = {510737F6-9072-4923-B938-37E798459920}
+		{B33F8CBC-3D3A-4D2F-A0B9-634B54AF762F} = {2841F6B6-F4AD-4B83-8D80-1C14475B9DC0}
+		{2843B9E5-1FEC-483B-9063-6832FA5244D9} = {B33F8CBC-3D3A-4D2F-A0B9-634B54AF762F}
+		{D68AD787-5946-47F5-A3AA-8D77CFB4D0E9} = {510737F6-9072-4923-B938-37E798459920}
+		{E0014D17-5401-4801-AB24-DA1F050F71F9} = {D68AD787-5946-47F5-A3AA-8D77CFB4D0E9}
+		{1B924AF2-EB51-4A26-B604-E400B2410434} = {E0014D17-5401-4801-AB24-DA1F050F71F9}
+		{F84E8A9D-A737-4D19-B772-3D272C22638B} = {E0014D17-5401-4801-AB24-DA1F050F71F9}
+		{BD40A824-7876-4953-AE80-76F21E5927FB} = {1B924AF2-EB51-4A26-B604-E400B2410434}
+		{645D5AF1-0E25-4615-9468-D767DBF6FEAC} = {510737F6-9072-4923-B938-37E798459920}
+		{660845E4-9AA1-40D1-81E8-2B49C6D9145D} = {645D5AF1-0E25-4615-9468-D767DBF6FEAC}
+		{1414A24C-EBDC-4480-96F0-E66C537351EF} = {660845E4-9AA1-40D1-81E8-2B49C6D9145D}
+		{B486EDCC-AF8B-41DC-AEC3-F76B0F502356} = {1414A24C-EBDC-4480-96F0-E66C537351EF}
+		{82B72F81-21C2-4BB8-8440-7035E7711A42} = {510737F6-9072-4923-B938-37E798459920}
+		{E2A5769A-EAB5-4DDF-B19C-79F18B4196FE} = {82B72F81-21C2-4BB8-8440-7035E7711A42}
+		{CEE41061-9FBA-4184-8918-0E49C7802FED} = {E2A5769A-EAB5-4DDF-B19C-79F18B4196FE}
+		{D5DFB3AF-1B3A-471F-B917-AC2D9C7BBD57} = {E2A5769A-EAB5-4DDF-B19C-79F18B4196FE}
+		{891A8F82-ABA5-4116-846E-A47143E07A8A} = {510737F6-9072-4923-B938-37E798459920}
+		{775087CF-F956-4D9B-9BB7-663F9920FD0B} = {891A8F82-ABA5-4116-846E-A47143E07A8A}
+		{52574A14-2CD5-42F3-8D5C-2ABB6239C226} = {775087CF-F956-4D9B-9BB7-663F9920FD0B}
+		{DB62660A-4B96-4A1F-B5E9-90DC49A0E82A} = {775087CF-F956-4D9B-9BB7-663F9920FD0B}
+		{0ADB67F5-2BBC-4B9E-BD20-C1BC3A5895B1} = {510737F6-9072-4923-B938-37E798459920}
+		{FF00A6BF-E205-4598-9C1D-71B0D7A8C95B} = {0ADB67F5-2BBC-4B9E-BD20-C1BC3A5895B1}
+		{87CDF9A6-F9BA-423A-A145-20F617D0B1BB} = {FF00A6BF-E205-4598-9C1D-71B0D7A8C95B}
+		{5BAE14A5-53A5-4760-8C3E-50EF441548B8} = {510737F6-9072-4923-B938-37E798459920}
+		{BF63D6D9-7530-4598-AAE3-492AEE2ABE9A} = {5BAE14A5-53A5-4760-8C3E-50EF441548B8}
+		{E70B0EF8-92C1-4814-B990-5A45E651B925} = {BF63D6D9-7530-4598-AAE3-492AEE2ABE9A}
+		{C3F32FB2-DEE4-4DA7-B2FB-C62DD553102C} = {510737F6-9072-4923-B938-37E798459920}
+		{8B823EE8-91D8-4659-AE38-BCE2F7F71D64} = {C3F32FB2-DEE4-4DA7-B2FB-C62DD553102C}
+		{9C951B71-2904-4173-86CA-E5D664F9FD7C} = {8B823EE8-91D8-4659-AE38-BCE2F7F71D64}
+		{5817E70E-102A-4C99-9C3F-30D08A180330} = {510737F6-9072-4923-B938-37E798459920}
+		{96E91A06-448D-4B35-8390-69059C296371} = {5817E70E-102A-4C99-9C3F-30D08A180330}
+		{FB006C20-74A4-44BF-A7FD-E19946470FAA} = {5817E70E-102A-4C99-9C3F-30D08A180330}
+		{CDFA4146-95C2-4AC1-9F81-67D86E4A7D94} = {FB006C20-74A4-44BF-A7FD-E19946470FAA}
+		{A9B1DF3D-25D1-4F81-AAA2-E52ED72A217E} = {510737F6-9072-4923-B938-37E798459920}
+		{C4E9037F-BA48-44A8-AF52-AC7A485BC1D5} = {A9B1DF3D-25D1-4F81-AAA2-E52ED72A217E}
+		{2B53CF79-E3A5-40B9-A007-BA4F54ED4E0F} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{9055F480-090C-477E-A02A-8542BF272532} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{7EEBC624-1F00-45B1-A50F-FA41DB38ED6B} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{EA97FF67-A4AB-464F-90C9-EBBBA6F8773F} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{043FCBA1-1271-45D8-877B-357EE6BAEB83} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{6DD51E52-29FA-41D2-8997-17F702D492C8} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{9A7C612D-4FBD-4999-887F-560BB28A4C02} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{632A3446-1C52-48AC-83F8-D2E4DFF686C4} = {C4E9037F-BA48-44A8-AF52-AC7A485BC1D5}
+		{A4620DD4-3AA2-4C94-A3CC-91A55B5D0E93} = {510737F6-9072-4923-B938-37E798459920}
+		{377CB6B7-8BE1-4B8B-A7B7-A0256F2536F3} = {A4620DD4-3AA2-4C94-A3CC-91A55B5D0E93}
+		{2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF} = {A4620DD4-3AA2-4C94-A3CC-91A55B5D0E93}
+		{069333E8-C651-4288-A77D-876D3559071F} = {2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}
+		{101C0DCE-79BF-4F12-9898-5EF718650CF2} = {2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}
+		{8360B18D-CADC-41D7-8715-5CE30CFCA0E3} = {2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}
+		{65443504-CC4E-406A-9091-79E234D32DC8} = {2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}
+		{4C03C773-5E7E-4DF0-958A-B3EFD60DF2D2} = {2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}
+		{8C9A2950-6C54-4C94-A874-0F77EF4E63F3} = {2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}
+		{16C5B6D9-D7F1-4E81-B45E-EFF756539FD4} = {2A18F7CD-776C-4D9F-AF21-7C08DBE13FBF}
+		{D2D6300D-48D6-40AE-AB42-2471A2DDFCA3} = {510737F6-9072-4923-B938-37E798459920}
+		{BC6ED85F-780B-4D37-8F81-61671BA3EDC4} = {D2D6300D-48D6-40AE-AB42-2471A2DDFCA3}
+		{D4698FBD-BC66-439F-A0D7-34F4C42AD5EC} = {BC6ED85F-780B-4D37-8F81-61671BA3EDC4}
+		{8F8D3F67-6E18-4916-81CD-98C007E7E87A} = {510737F6-9072-4923-B938-37E798459920}
+		{DC15E135-87E4-4A62-86C2-0A2CCE1CE8AF} = {8F8D3F67-6E18-4916-81CD-98C007E7E87A}
+		{9EE49AC5-2624-4CEB-AD18-26ACE168A4C3} = {DC15E135-87E4-4A62-86C2-0A2CCE1CE8AF}
+		{51127AA6-2DD4-404C-B58B-15E67E579E72} = {DC15E135-87E4-4A62-86C2-0A2CCE1CE8AF}
+		{C3863590-7F55-436E-837B-C075280E5110} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{4B8D9478-2587-4D58-BA83-83E80F946DCF} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{2CC0ACC4-F874-450C-8FAE-A4C161D2451C} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{43C40657-EE64-4514-A836-81676773A1D2} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{AA7F8359-9CCD-474D-AC91-79DF66E39011} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{7399A303-35BD-40AF-AE27-18D6C809F5F6} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{8E1D0AB7-CC92-4432-A9A2-C7CC0722F3F7} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{316C08C4-AA19-45D9-8221-658C98E96C66} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{7C998AB3-4743-4E0B-9D18-3B77D9E8E516} = {51127AA6-2DD4-404C-B58B-15E67E579E72}
+		{38935745-DECF-46E0-AF07-6E52E794FA4D} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{D9F06C27-54BF-4B9E-BA77-4FDC34316972} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{B69D4FEE-31E3-43C0-BE8C-FF25B5B8992E} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{9F5ED76E-8FF7-45DE-B229-2854CD6BA587} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{6EFDE5FB-40D3-4950-AE6E-9753730D0AAF} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{5A157ADD-A9EA-40E0-9E20-8399A501B151} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{2DFB13F0-0229-4DF8-B6BF-178ECF9BDBC2} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{70B6CCAF-0A72-4414-B321-A818C03D951F} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{00E0557E-A5E9-4C16-AF81-E7EA61B4D06D} = {9EE49AC5-2624-4CEB-AD18-26ACE168A4C3}
+		{FB3F22D9-9C68-48AD-B15F-A4DFD733DF48} = {510737F6-9072-4923-B938-37E798459920}
+		{D4F32913-ABFC-47CD-9E32-EE6ACB5D9DCC} = {FB3F22D9-9C68-48AD-B15F-A4DFD733DF48}
+		{69C3ABBE-DBB4-46D6-9DF2-47C3E62B34BA} = {FB3F22D9-9C68-48AD-B15F-A4DFD733DF48}
+		{734CE21E-7AE2-4DFA-9616-3611623BE7E4} = {510737F6-9072-4923-B938-37E798459920}
+		{AD4BE391-0905-4882-848B-44E14376E082} = {734CE21E-7AE2-4DFA-9616-3611623BE7E4}
+		{B55D22A0-23CC-4917-8159-47E07943D2D4} = {734CE21E-7AE2-4DFA-9616-3611623BE7E4}
+		{CF8F7B8C-41CD-4F45-B8D0-515B98FF4065} = {510737F6-9072-4923-B938-37E798459920}
+		{5C06551E-E0B4-4261-AA5D-0D50C472316C} = {510737F6-9072-4923-B938-37E798459920}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,221 @@
+﻿@{
+    ViewBag.Title = "人员管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function loadExt(viewModel, funcName) {
+        if (funcName == "afterLoad") {
+            var Eobject = [{
+                "id": "0",
+                "text": "正常"
+            }, {
+                "id": "1",
+                "text": "故障"
+            }]
+            viewModel.extE(Eobject);
+            loadGrid(viewModel.urls.list());
+            //$('#intelligence').combobox({
+            //    data: viewModel.extB(),
+            //    valueField: 'DIC_ID',
+            //    textField: 'DIC_NAME'
+            //});
+        }
+    }
+    function loadGrid(listurl) {
+        $('#data_grid').datagrid({
+            url: listurl,
+            pagination: true,
+            pageSize: 20,
+            pageList: [10, 20, 30, 40, 50],
+            fit: true,
+            fitColumns: true,
+            nowrap: false,
+            rownumbers: true,
+            singleSelect: true,
+            border: 0,
+            idField: 'MEMBER_ID',
+            sortName: 'deptcode',
+            sortOrder: 'desc',
+            columns: [[
+         {
+             title: '部门',
+             field: 'deptname',
+             width: 150,
+             //sortable: true,
+             align: 'left',
+             formatter: function (value, row, index) {
+                 if (value) {
+                     return utils.formatString('{0}<span class="{1}" style="display:inline-block;vertical-align:middle;width:16px;height:16px;"></span>{2}', utils.replaceString(row.deptcode), row.depticon, value);
+                 }
+             }
+         },
+          {
+              title: '姓名',
+              field: 'name',
+              width: 100,
+              //sortable: true,
+              align: 'center'
+          }, {
+              title: '手机号',
+              field: 'mobile',
+              width: 100,
+              //sortable: true,
+              align: 'center'
+          }, {
+              title: '定位手机',
+              field: 'loctionflag',
+              width: 80,
+              //sortable: true,
+              align: 'center',
+              formatter: function (value, row, index) {
+                  if (value) {
+                      return utils.formatString('{0}', value == "1" ? "是" : "否");
+                  }
+              }
+          }
+          , {
+              title: '手机状态',
+              field: 'state',
+              width: 80,
+              align: 'center',
+              formatter: function (value, row, index) {
+                  if (value) {
+                      return utils.formatString('{0}', value == "1" ? "故障" : "正常");
+                  }
+              }
+          }
+          , {
+              title: '资质',
+              field: 'intelligence',
+              width: 100,
+              //sortable: true,
+              align: 'center'
+          }
+          , {
+              title: '级别',
+              field: 'poslevel',
+              width: 100,
+              //sortable: true,
+              align: 'center'
+          }
+         , {
+             title: '职务',
+             field: 'job',
+             width: 100,
+             //sortable: true,
+             align: 'center'
+         }, {
+             title: '联系方式',
+             field: 'phone',
+             width: 100,
+             //sortable: true,
+             align: 'center'
+         }, {
+             title: '操作时间',
+             field: 'update',
+             width: 150,
+             //sortable: true,
+             align: 'center',
+             formatter: function (str) {
+                 if (str) {
+                     return str.replace('T', ' ');
+                 }
+             }
+         }, {
+             title: '操作员',
+             field: 'upuser',
+             width: 100,
+             //sortable: true,
+             align: 'center'
+         }
+            ]]
+        });
+
+    }
+
+
+</script>
+
+<div class="easyui-layout" data-options="fit:true,border:false">
+    <div data-options="region:'north',border:false" style="float: left; overflow: hidden; padding: 3px;">
+        <table class="z-selectbar">
+            <tr>
+                <td>&nbsp;部门&nbsp;<input style="width: 320px" data-bind="combotreeSource: extA, combotreeValue: searchForm.DEPT_CODE" />
+                    &nbsp;手机号码&nbsp;
+                            <input data-bind="textboxValue: searchForm.MOBILE"  style="width: 100px" />
+                    <span id="s-toolbar"></span>
+                </td>
+            </tr>
+        </table>
+        <div id="z-toolbar" class="z-toolbar"></div>
+    </div>
+
+    <div data-options="region:'center',border:false" style="border-top: 1px solid #8db2e3">
+        <table id="data_grid"></table>
+    </div>
+</div>
+
+<div id="data_add" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,maximizable:false,collapsible:false,resizable:false,title:'人员管理'" style="width: 600px; height: 500px;">
+    <div class="easyui-layout" data-options="fit:true">
+        <form id="DataForm" method="post">
+            <div data-options="region:'center',border:false" style="padding: 10px;">
+                <table class="nrgl_down_tab">
+                    <tr>
+                        <th style="width: 80px">所在部门</th>
+                        <td>
+                            <input style="width: 320px" data-bind="combotreeSource: extA, combotreeValue: addForm.DEPT_CODE, easyuiOptions: { required: true }" /></td>
+                    </tr>
+                    <tr>
+                        <th>人员姓名</th>
+                        <td>
+                            <input style="width: 145px;" data-bind="textboxValue: addForm.NAME, easyuiOptions: { required: true, validType: ['length[2,15]'] }" />
+                            <input data-bind="value: addForm.MEMBER_ID" type="hidden" /></td>
+                    </tr>
+                    <tr>
+                        <th>手机号码</th>
+                        <td>
+                            <input style="width: 145px;" data-bind="textboxValue: addForm.MOBILE, easyuiOptions: { required: true, validType: ['numberCheckSub'] }" />&nbsp;<input type="checkbox" data-bind="checked: addForm.LOCATION_FLAG_EXT" />是定位手机 </td>
+                    </tr>
+                    <tr>
+                        <th>手机状态</th>
+                        <td>
+                            <input  style="width: 145px" data-bind="comboboxSource: extE, comboboxValue: addForm.MOBILE_STATE, easyuiOptions: { valueField: 'id', textField: 'text', editable: false }" /></td>
+                    </tr>
+                    <tr>
+                        <th style="width: 80px">资质</th>
+                        <td>
+                            <input id="intelligence" style="width: 145px" data-bind="comboboxSource: extB, comboboxValue: addForm.INTELLIGENCE, easyuiOptions: { required: true,valueField:'DIC_ID',textField:'DIC_NAME',editable:false }" /></td>
+                    </tr>
+                    <tr>
+                        <th style="width: 80px">级别</th>
+                        <td>
+                            <input id="posLevel" style="width: 145px" data-bind="comboboxSource: extC, comboboxValue: addForm.POS_LEVEL, easyuiOptions: { required: true, valueField: 'DIC_ID', textField: 'DIC_NAME', editable: false }" />
+                          @*   <input id="posLevel" style="width: 145px" data-bind="combotreeSource: extC, combotreeValue: addForm.POS_LEVEL, easyuiOptions: { required: false }"/>*@
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>工作职务</th>
+                        <td>
+                            <input style="width: 145px;" data-bind="textboxValue: addForm.JOB, easyuiOptions: { validType: ['length[0,20]'] }" /></td>
+                    </tr>
+                    <tr>
+                        <th>联系方式</th>
+                        <td>
+                            <input style="width: 145px;" data-bind="textboxValue: addForm.PHONE, easyuiOptions: { validType: ['numberCheckSub', 'length[0,20]'] }" /></td>
+                    </tr>
+                    <tr>
+                        <th>人员备注</th>
+                        <td style="height: 70px;">
+                            <input style="width: 300px; height: 60px;" data-bind="textboxValue: addForm.NOTE, easyuiOptions: { validType: ['length[0,100]'] }" multiline="true" aria-multiline="True" />
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div id="v-toolbar" data-options="region:'south',border:false" style="text-align: right; height: 35px; padding: 4px; padding-right: 10px; border-top: 1px solid #ccc;">
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

@@ -1,0 +1,457 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <!--<1>.引用Jquery的Js文件-->
+    <script src="~/jquery-easyui-1.4/jquery.min.js" type="text/javascript"></script>
+
+    <!--<2>.引用Easy UI的Js文件-->
+
+    <script src="~/jquery-easyui-1.4/jquery.easyui.min.js" type="text/javascript"></script>
+
+    <!--<3>.导入Easy UI的主题Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/default/easyui.css" rel="stylesheet" type="text/css"
+        id="swicthstyle" />
+    <!--<4>.导入Easy UI的图标Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/icon.css" rel="stylesheet" type="text/css" />
+    <!--<5>.引用Easy UI的国际化文件         以下为让它显示中文-->
+
+    <script src="~/jquery-easyui-1.4/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+
+    <!--<6>.页面上加上UTF-8编码       防止jquery.easyui.min.js  内容乱码-->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+    <link href="~/Content/Css/base.css" rel="stylesheet" />
+    <link href="~/Content/Css/icon/icon.css" rel="stylesheet" />
+    <link href="~/Content/Css/page/index.css" rel="stylesheet" />
+    <script src="~/Content/JS/utils.js"></script>
+    <script src="~/Content/JS/ValidateJs.js"></script>
+
+    <script src="~/Content/JS/index.js"></script>
+    <script src="~/Content/JS/processingajaxmsg.js"></script>
+    <script src="~/Scripts/GIS/mapjs/myjs/toolbar.js"></script>
+    @*<script src="~/Scripts/GIS/mapjs/myjs/jgxLoader.js" type="text/javascript"></script>*@
+
+    <style type="text/css">
+        .progressbar {
+            border-color: #fff;
+        }
+    </style>
+    <script>
+        function updownLine(e) {
+
+            //var url = '/api/ENFORCEMENT/ENFORCEMENT_BDATA_ONLINE/Save';
+            var name = "作业记录仪";
+            var isonline = "上线";
+            if (e.t == "6") {
+                //url = '/api/RAILCAR/RAILCAR_BDATA_ONLINE/Save';
+                name = "轨道车";
+            }
+            if (e.isonline == "0") {
+                isonline = "下线";
+            }
+
+            // 消息将显示在顶部中间
+            $.messager.show({
+                title: e.name + name + isonline,
+                msg: '部门:' + e.dpt + '<br>线名:' + e.line + '<br>行别:' + e.dire + '<br>里程:' + e.pos + '<br>时间:' + e.tm,
+                showType: 'show',
+                width: 300,
+                height: 200,
+                timeout: 0,
+                draggable: true,
+                style: {
+                    right: '',
+                    timeout: 0,
+                    top: 300,// document.body.scrollTop + document.documentElement.scrollTop,
+                    bottom: ''
+                }
+            });
+
+        }
+        $(function () {
+            if ($(window).width() > 1200 && IsPC() == undefined) {
+                //以下两行为锦旗车辆段专用，其他局屏蔽，同时屏蔽index.js486行的changeLogoandSoOnBySelect('', menustr);方法
+                @*var logo = '@ViewBag.logo';
+                if (logo != "") {
+                    $('.head-left').css('background', 'url(/Content/images/logo/logo_' + logo + '.png) no-repeat left');
+                }*@
+            }
+            else {
+                $('#head-left').removeClass('head-left')
+            }
+
+            if (IsPC() != undefined) {
+                setActiveStyleSheet(true);
+            }
+            else {
+                setActiveStyleSheet(false);
+            }
+            $('#usr').html("@ViewBag.CurrentUser");
+            document.oncontextmenu = function (e) {
+                return false; // 主页面不允许右键（兼容多浏览器）
+            }
+            $(window).bind("resize", resizeWindow);
+            function resizeWindow(e) {
+                if (/webkit/.test(navigator.userAgent.toLowerCase())) {//google
+                    var newWindowHeight = $(window).height() + parent.$('#north').height() - 50;
+                    var newWindowWidth = $(window).width() + parent.$('#west').width();
+
+                } else {//firefox,ie
+                    var newWindowHeight = $(window).height() - 30;
+                    var newWindowWidth = $(window).width() - $("#orgdiv").width() - 10;
+
+                }
+                $('#mydlgWarn').window('move', {
+                    left: window.innerWidth - $('#mydlgWarn').window('options').width,
+                    top: window.innerHeight - $('#mydlgWarn').window('options').height,
+                });
+            }
+            var isEasyPasWord = "@ViewBag.IsEasyPasWord";
+            if (isEasyPasWord == 'Y') {
+                $.messager.confirm('请确认', '当前为初始密码,是否立即更改？', function (b) {
+                    if (b) {
+                        $('#changePass').click();
+                    }
+                });
+            }
+            //$.messager.progress({
+            //    title: '请稍后',
+            //    msg: '正在加载GIS数据，请稍等...',
+            //    interval: 0,
+            //    text: ''
+            //});
+
+            var isWarnTab = "@ViewBag.warntab";
+            
+            //广州专用，其他局屏蔽
+            //var url = '/JOB/JOB_PLANOverRangeTime/Warngz/';
+            //SearchWarn('两端防护', url);
+
+            //url = '/RAIL/RAIL_RECORD_SAMPWARN/Warn/';
+            //SearchWarn('断轨终端故障报警', url, 'RAIL_RECORD_SAMPWARN');
+
+
+            $('#mytabWarn').tabs({
+                onSelect: function (title, index) {
+                    if (soundstr.indexOf(title) > -1) {
+                        $(this).find('.icon-sound').removeClass('icon-sound').addClass('icon-sound_mute');
+                    } else {
+                        $(this).find('.icon-sound_mute').removeClass('icon-sound_mute').addClass('icon-sound');
+                    }
+                },
+                tools: [{ id: 'sound_but', iconCls: 'icon-sound', handler: setSound }]
+            });
+            if (isWarnTab != "") {
+                $("#mytabWarn").tabs('select', 0);
+            }
+        });
+
+        var soundstr = "";
+        function setSound() {
+            var tabtitle = $('#mytabWarn').tabs('getSelected').panel('options').title;
+
+            var audio = document.getElementById(tabtitle).contentWindow.document.getElementById('autoplay');
+            if (audio != null) {
+                if ($(this).find('.icon-sound').length) {
+                    $(this).find('.icon-sound').removeClass('icon-sound').addClass('icon-sound_mute');
+                    audio.loop = false;
+                    audio.pause();
+                    if (soundstr.indexOf(tabtitle) == -1) {
+                        soundstr += tabtitle;
+                    }
+                } else if ($(this).find('.icon-sound_mute').length) {
+                    $(this).find('.icon-sound_mute').removeClass('icon-sound_mute').addClass('icon-sound');
+                    audio.loop = true;
+                    audio.play();
+                    soundstr = soundstr.replace(tabtitle, "");
+                }
+            } else {
+                if (soundstr.indexOf(tabtitle) == -1) {
+                    soundstr += tabtitle;
+                }
+                $(this).find('.icon-sound').removeClass('icon-sound').addClass('icon-sound_mute');
+            }
+        };
+        function setSoundOpen(tabtitle) {
+
+            soundstr = soundstr.replace(tabtitle, "");
+            $('#mytabWarn').tabs({
+                tools: [{ id: 'sound_but', iconCls: 'icon-sound', handler: setSound }]
+            });
+            $(this).find('.icon-sound_mute').removeClass('icon-sound_mute').addClass('icon-sound');
+        }
+        function SearchWarn(title, url) {
+            addTab(title, url);
+            //$("#mytabWarn").attr('src', url);
+            var tabcount = $('#mytabWarn').tabs('tabs').length;
+            if (tabcount == 1) {
+                $('#mydlgWarn').window({
+                    left: document.body.clientWidth - 480,
+                    top: document.body.clientHeight - 260,
+                    onCollapse: function () {
+                        $('#mydlgWarn').window('resize', {
+                            left: document.body.clientWidth - 180,
+                            top: document.body.clientHeight - 30,
+                            width: 180,
+                            height: 30
+                        })
+                    },
+                    onExpand: function () {
+                        $('#mydlgWarn').window('resize', {
+                            left: document.body.clientWidth - 480,
+                            top: document.body.clientHeight - 260,
+                            width: 480,
+                            height: 260
+                        })
+                    }
+                });
+                $('#mydlgWarn').dialog('setTitle', '报警信息').dialog("open");
+            }
+        }
+        function addTab(title, url) {
+            soundstr = soundstr.replace(title, "");
+            $(this).find('.icon-sound_mute').removeClass('icon-sound_mute').addClass('icon-sound');
+            if ($('#mytabWarn').tabs('exists', title)) {
+                $("#mytabWarn").tabs('select', title);
+                var tab = $('#mytabWarn').tabs('getSelected');
+                $("#mytabWarn").tabs('update', {
+                    tab: tab,
+                    options: {
+                        title: title,
+                        content: '<iframe scrolling="auto" id="warn" frameborder="0" src="' + url + '" style="width:100%;height:100%;"></iframe>',
+                        closable: false
+                    }
+                });
+            } else {
+                var content = '<iframe scrolling="auto" id="' + title + '" frameborder="0"  src="' + url + '" style="width:100%;height:100%;"></iframe>';
+                $('#mytabWarn').tabs('add', {
+                    title: title,
+                    content: content,
+                    closable: false
+                });
+            }
+        }
+        function test() {
+            window.frames['GIS'].setColor(1);
+        }
+        function dg() {
+            //  window.frames['GIS'].clear();
+            $.get('/SYS/Admin/dg/18335130414_01', function (data) { });
+        }
+        function clearRain() {
+            $.get('/SYS/Admin/ClearRain/15110304911', function (data) { });
+            //15110304911
+        }
+        function clearGW() {
+            $.get('/SYS/Admin/ClearGW/15110304911', function (data) { });
+        }
+
+        function showLoading() {
+            $.messager.progress({ title: '请稍后', msg: '正在处理数据，请稍等...', interval: 0, text: '' });
+        }
+        function hideLoading() {
+            $.messager.progress('close');
+        }
+
+        function Bro() {
+            var res;
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+						"SymbianOS", "Windows Phone",
+						"iPad", "iPod"];
+            var flag = false;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    res = Agents[v];
+                    break;
+                }
+            }
+
+            return res;
+        }
+        function IsPC() {
+            var res;
+            var userAgentInfo = navigator.userAgent;
+            var Agents = ["Android", "iPhone",
+						"SymbianOS", "Windows Phone",
+						"iPad", "iPod"];
+            var flag = false;
+            for (var v = 0; v < Agents.length; v++) {
+                if (userAgentInfo.indexOf(Agents[v]) > 0) {
+                    res = Agents[v];
+                    break;
+                }
+            }
+            //loadCss(flag);
+            return res;
+        }
+
+        function setActiveStyleSheet(flag) {
+            loadCss(flag);
+
+        }
+        function loadCss(flag) {
+            var cssTag = document.getElementById('loadCss');
+            var head = document.getElementsByTagName('head').item(0);
+            if (cssTag) head.removeChild(cssTag);
+            var css = document.createElement('link');
+            if (flag) {
+                css.href = "/Content/Css/page/indexPhone.css";
+                //alert(css.href);
+            }
+            else {
+                css.href = "/Content/Css/page/index.css";
+                //alert(css.href);
+            }
+            css.rel = 'stylesheet';
+            css.type = 'text/css';
+            css.id = 'loadCss';
+            head.appendChild(css);
+        }
+        function docfileview(swfname, docname) {
+            if (swfname && swfname.length > 0) {
+                $('#file_doc')[0].src = swfname;
+                $('#file_preview').dialog("open").dialog('setTitle', docname);
+            } else {
+                $.alertMsg('查看失败，原因如下:未发现相应的文件.', '操作提示', null);
+            }
+        }
+        function showncwarn() {
+            $('#ncWarn').window("open").dialog('setTitle', '报警规则');
+        }
+        function dg() {
+            $.get('/SYS/Admin/Dg/jgj-xd', function (data) { });
+        }
+        function hf() {
+            $.get('/SYS/Admin/Hf/jgj-xd', function (data) { });
+        }
+        function zc() {
+            $.get('/SYS/Admin/Zc/jgj-xd', function (data) { });
+        }
+        function gate(id) {
+            $.get('/SYS/Admin/Gate/' + id, function (data) { });
+        }
+    </script>
+
+    <title>@ViewBag.Title</title>
+</head>
+<body class="easyui-layout" id="my_body">
+    <div region="north" class="head-north" split="false" border="false">
+        <span class="head-left"></span>
+        <span class="list-right"></span>
+        <span class="list-center">
+            <span id="MenuOne" style="float: left;"></span>
+            <span style="float: right;">
+                @*<a href="javascript:void(0)" class="easyui-linkbutton" id="homepage" plain="true" title="首页" data-options="iconCls:'icon-homepage'">首页</a>*@
+                <a href="javascript:void(0)" class="easyui-menubutton" id="homepage" plain="true" title="业务模块" data-options="iconCls:'icon-homepage',menu:'#NavSystem'">业务模块</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" id="helpdoc" plain="true" title="帮助文档" data-options="iconCls:'icon-note'">帮助<input id="hdSysMenuArea" type="hidden" /></a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" id="changePass" plain="true" title="修改密码" data-options="iconCls:'icon-key'">修改密码</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" id="loginOut" plain="true" title="安全退出" data-options="iconCls:'icon-user_go'">安全退出</a>
+
+            </span>
+        </span>
+        <span class="list-left"></span>
+    </div>
+    <div id="west" data-options="region:'west',split:true,title:'导航',collapsed:true" style="width: 160px; padding: 0px;" border="true">
+        <div id="MenuTree"></div>
+    </div>
+    <div id="mainPanle" region="center" border="true" border="false" style="background: #eee; overflow-y: hidden">
+        <div id="tabs" class="easyui-tabs" fit="true" border="false" style="overflow-y: hidden">
+        </div>
+    </div>
+    <div id="mydlgWarn" class="easyui-window" data-options="modal:false,closed:true,minimizable:false,maximizable:false,collapsible:true,resizable:false,draggable:false,closable:false" style="width: 480px; height: 260px;">
+        <div id="mytabWarn" class="easyui-tabs" border="false">
+        </div>
+        @*        <iframe id="mytabWarn" scrolling="auto" frameborder="0" src="" style="width: 100%; height: 98%;"></iframe>*@
+    </div>
+    <div region="south" class="head-south">
+        <div style="color: #15428B; margin: 0px; padding: 0px; line-height: 23px; font-weight: bold;">
+            <span style="margin-left: 5px;">当前用户名:@ViewBag.CurrentUser</span>
+            <span style="margin-left: 400px">Copyright &copy; 2014 山西世恒铁路技术有限公司 <a href="#" onclick="dg()">All</a> <a href="#" onclick="hf()">Rights</a> <a href="#" onclick="zc()">Reserved</a>
+                <a href="#" onclick="gate('授权1')">授权</a>&nbsp;<a href="#" onclick="gate('开门')">开门</a>&nbsp;<a href="#" onclick="gate('关门')">关门</a>&nbsp;<a href="#" onclick="gate('进门')">进人</a>&nbsp;<a href="#" onclick="gate('出门')">出人</a></span>
+        </div>
+    </div>
+    <!--修改密码窗口-->
+    <div id="editpass" class="easyui-window" title="修改密码" data-options="modal:true,closed:true,iconCls:'icon-save',minimizable:false,maximizable:false,collapsible:false" style="width: 500px; height: 300px; padding: 10px;">
+        <div class="easyui-layout" fit="true">
+            <form id="form-pass" method="post">
+                <div region="center" border="false" style="padding: 10px; background: #fff; border: 1px solid #ccc;">
+                    <table cellpadding="3" style="width: 100%">
+                        <tr>
+                            <td style="width: 30%">原始密码：</td>
+                            <td style="width: 70%">
+                                <input id="txtoldpass" name="txtoldpass" type="password" class="easyui-textbox" maxlength="25" data-options="required:true,validType:['length[3,25]']" style="width: 50%" /></td>
+                        </tr>
+                        <tr>
+                            <td>新 密 &nbsp;码：</td>
+                            <td>
+                                <input id="txtnewpass" name="txtnewpass" type="password" class="easyui-textbox" maxlength="25" data-options="required:true,validType:['length[8,25]','isRegisterPassWord']" style="width: 50%" />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>密码强度:
+                            </td>
+                            <td>
+                                <table style="width: 50%">
+                                    <tr>
+                                        <td id="weak" style="width: 30%"></td>
+                                        <td id="middle" style="width: 30%"></td>
+                                        <td id="strength" style="width: 30%"></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>确认密码：</td>
+                            <td>
+                                <input id="txtrepass" name="txtrepass" type="password" class="easyui-textbox" maxlength="25" validtype="equalTo['#txtnewpass']" data-options="required:true,validType:['length[8,25]'],invalidMessage:'两次输入密码不匹配'" style="width: 50%" /></td>
+                        </tr>
+                    </table>
+                </div>
+                <div region="south" border="false" style="text-align: right; height: 30px; padding-top: 4px;">
+                    <a id="btnEp" class="easyui-linkbutton" icon="icon-ok" href="javascript:void(0)">修改</a>
+                    <a id="btnCancel" class="easyui-linkbutton" icon="icon-cancel" href="javascript:void(0)">取消</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!--帮助窗口-->
+    <div id="mydlgComplex" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,maximizable:true,collapsible:false,resizable:false" style="width: 700px; height: 500px;">
+        @*old help*@
+        <iframe id="myifrcomplex" src="" frameborder="0" scrolling="auto" style="width: 100%; height: 98%;"></iframe>
+        @*<div id="mydivcomplex">
+        </div>*@
+    </div>
+    @* <div id="showsystem" class="easyui-window" style="width: 75%; height: 502px; background: #fafafa; top: 90px; overflow-y: scroll; overflow-x: hidden; text-align: center;"
+        data-options="iconCls:'icon-homepage',closable:true,border:false,collapsible:false,minimizable:false,draggable:true,
+        maximizable:true,closed:true,style:{borderWidth:1}"
+        title=" ">
+        <div id="NavSystem" style="margin-top: 20px; margin-left: 1%; margin-right: 1%">
+        </div>
+    </div>*@
+    <div id="NavSystem">
+    </div>
+
+    <!--5T-->
+    <div id="file_preview" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,maximizable:true,collapsible:false,resizable:false" style="width: 800px; height: 600px;">
+        <iframe id="file_doc" src="" frameborder="0" scrolling="auto" style="width: 100%; height: 98%;"></iframe>
+    </div>
+
+    <!--南昌报警规则-->
+    <div id="ncWarn" class="easyui-window" data-options="modal:false,closed:true,minimizable:false,maximizable:true,collapsible:false,resizable:true" style="width: 900px; height: 600px;">
+        <div class="easyui-layout" fit="true">
+            <div region="center" border="false" style="padding: 5px; background: #fff; border: 1px solid #ccc;">
+                <img src="/Content/images/ncwarn.png" />
+            </div>
+        </div>
+    </div>
+    <input type="text" hidden="hidden" id="usr" />
+</body>
+</html>

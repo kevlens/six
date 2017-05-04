@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://fts.sxsh.com/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://fts.sxsh.com/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">File Transfer Service－FTS.</wsdl:documentation>
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://fts.sxsh.com/">
+      <s:import namespace="http://schemas.xmlsoap.org/soap/encoding/" />
+      <s:import namespace="http://schemas.xmlsoap.org/wsdl/" />
+      <s:complexType name="ArrayOfString">
+        <s:complexContent mixed="false">
+          <s:restriction base="soapenc:Array">
+            <s:attribute wsdl:arrayType="s:string[]" ref="soapenc:arrayType" />
+          </s:restriction>
+        </s:complexContent>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GetDocumentListCountSoapIn" />
+  <wsdl:message name="GetDocumentListCountSoapOut">
+    <wsdl:part name="GetDocumentListCountResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentListSoapIn" />
+  <wsdl:message name="GetDocumentListSoapOut">
+    <wsdl:part name="GetDocumentListResult" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentListCountByNameSoapIn">
+    <wsdl:part name="docName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentListCountByNameSoapOut">
+    <wsdl:part name="GetDocumentListCountByNameResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentListByNameSoapIn">
+    <wsdl:part name="docName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentListByNameSoapOut">
+    <wsdl:part name="GetDocumentListByNameResult" type="tns:ArrayOfString" />
+  </wsdl:message>
+  <wsdl:message name="GetLastDocumentNameSoapIn">
+    <wsdl:part name="docName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetLastDocumentNameSoapOut">
+    <wsdl:part name="GetLastDocumentNameResult" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentLenSoapIn">
+    <wsdl:part name="docName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentLenSoapOut">
+    <wsdl:part name="GetDocumentLenResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSoapIn">
+    <wsdl:part name="docName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="GetDocumentSoapOut">
+    <wsdl:part name="GetDocumentResult" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="SendDocumentSoapIn">
+    <wsdl:part name="docName" type="s:string" />
+    <wsdl:part name="docBuffer" type="s:base64Binary" />
+  </wsdl:message>
+  <wsdl:message name="SendDocumentSoapOut">
+    <wsdl:part name="SendDocumentResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="ThingSend_DsSoapIn">
+    <wsdl:part name="Phones" type="s:string" />
+    <wsdl:part name="Subject" type="s:string" />
+    <wsdl:part name="Desc" type="s:string" />
+    <wsdl:part name="Buff" type="s:base64Binary" />
+    <wsdl:part name="BuffLen" type="s:int" />
+    <wsdl:part name="SendDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="ThingSend_DsSoapOut">
+    <wsdl:part name="ThingSend_DsResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="ThingSendSoapIn">
+    <wsdl:part name="Phones" type="s:string" />
+    <wsdl:part name="Subject" type="s:string" />
+    <wsdl:part name="Desc" type="s:string" />
+    <wsdl:part name="Buff" type="s:base64Binary" />
+    <wsdl:part name="BuffLen" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="ThingSendSoapOut">
+    <wsdl:part name="ThingSendResult" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="SendToInfoSoapIn">
+    <wsdl:part name="Phones" type="s:string" />
+    <wsdl:part name="Desc" type="s:string" />
+    <wsdl:part name="SendTime" type="s:int" />
+  </wsdl:message>
+  <wsdl:message name="SendToInfoSoapOut">
+    <wsdl:part name="SendToInfoResult" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendToInfo_DsSoapIn">
+    <wsdl:part name="Phones" type="s:string" />
+    <wsdl:part name="Desc" type="s:string" />
+    <wsdl:part name="SendTime" type="s:int" />
+    <wsdl:part name="SendDate" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendToInfo_DsSoapOut">
+    <wsdl:part name="SendToInfo_DsResult" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="PingSoapIn" />
+  <wsdl:message name="PingSoapOut">
+    <wsdl:part name="PingResult" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapIn">
+    <wsdl:part name="Phones" type="s:string" />
+    <wsdl:part name="SMS" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="SendSMSSoapOut">
+    <wsdl:part name="SendSMSResult" type="s:boolean" />
+  </wsdl:message>
+  <wsdl:portType name="FtsSoap">
+    <wsdl:operation name="GetDocumentListCount">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：获取服务端所有文件的数量；返回值：文件数量；无文件，返回0。</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentListCountSoapIn" />
+      <wsdl:output message="tns:GetDocumentListCountSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：获取服务器所有文件名列表；返回数据类型：字符串数组；无文件，返回数组为空。</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentListSoapIn" />
+      <wsdl:output message="tns:GetDocumentListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListCountByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：获取服务端指定单位编号的所有文件的数量；参数：docName 单位编号；返回值：文件的数量，无文件，返回0</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentListCountByNameSoapIn" />
+      <wsdl:output message="tns:GetDocumentListCountByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListByName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：获取服务端指定单位编号的所有文件名列表；参数：docName 单位编号；返回值：字符串数组类型文件名列表，无相应文件，返回值为null</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentListByNameSoapIn" />
+      <wsdl:output message="tns:GetDocumentListByNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDocumentName">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：获取服务端指定单位编号所对应的最新文件名；参数：docName 单位编号 ；返回值：返回值为空表示异常或未找到文件</wsdl:documentation>
+      <wsdl:input message="tns:GetLastDocumentNameSoapIn" />
+      <wsdl:output message="tns:GetLastDocumentNameSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentLen">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：获取服务端指定单位编号最新文件长度；参数：docName 单位编号 ；返回值：文件长度；异常、文件不存在、文件长度为0 返回0。</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentLenSoapIn" />
+      <wsdl:output message="tns:GetDocumentLenSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：从服务器提取指定单位编号所对应的最新文件；参数：docName 单位编号 字符串类型；返回值：文件流  Byte[]， 提取失败或文件不存在 返回值 为 null</wsdl:documentation>
+      <wsdl:input message="tns:GetDocumentSoapIn" />
+      <wsdl:output message="tns:GetDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendDocument">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：发送文件；参数：docName 发送单位编号， docBuffer 文件流 Byte[]；返回值：成功 返回实际读写文件长度，失败或文件长度为0 返回0</wsdl:documentation>
+      <wsdl:input message="tns:SendDocumentSoapIn" />
+      <wsdl:output message="tns:SendDocumentSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThingSend_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：讯云图片、消息发送接口；参数：Phones 手机号(多个以逗号分开); Subject 主题,不允许空;Desc 描述或消息内容;Buffer 图片文件流,默认为.jpg格式；BuffLen：流文件长度；SendDate:定时发送时间;返回值：成功 返回实际读写文件长度或消息内容长度，失败、文件长度为0且消息内容为空 返回0</wsdl:documentation>
+      <wsdl:input message="tns:ThingSend_DsSoapIn" />
+      <wsdl:output message="tns:ThingSend_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ThingSend">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：讯云图片、消息发送接口；参数：Phones 手机号(多个以逗号分开); Subject 主题,不允许空;Desc 描述或消息内容;Buffer 图片文件流,默认为.jpg格式；BuffLen：流文件长度；返回值：成功 返回实际读写文件长度或消息内容长度，失败、文件长度为0且消息内容为空 返回0</wsdl:documentation>
+      <wsdl:input message="tns:ThingSendSoapIn" />
+      <wsdl:output message="tns:ThingSendSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendToInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：公司开发智能机消息发送接口；参数：Phones 手机号(多个以逗号分开);Desc 描述或消息内容;SendTime:发送次数;</wsdl:documentation>
+      <wsdl:input message="tns:SendToInfoSoapIn" />
+      <wsdl:output message="tns:SendToInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendToInfo_Ds">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">功能：公司开发智能机消息发送接口；参数：Phones 手机号(多个以逗号分开);Desc 描述或消息内容;SendTime:发送次数;SendDate:定时发送时间</wsdl:documentation>
+      <wsdl:input message="tns:SendToInfo_DsSoapIn" />
+      <wsdl:output message="tns:SendToInfo_DsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MAS：Ping MAS 服务</wsdl:documentation>
+      <wsdl:input message="tns:PingSoapIn" />
+      <wsdl:output message="tns:PingSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">MAS：SMS 信息入库</wsdl:documentation>
+      <wsdl:input message="tns:SendSMSSoapIn" />
+      <wsdl:output message="tns:SendSMSSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="FtsSoap" type="tns:FtsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="GetDocumentListCount">
+      <soap:operation soapAction="http://fts.sxsh.com/GetDocumentListCount" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <soap:operation soapAction="http://fts.sxsh.com/GetDocumentList" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListCountByName">
+      <soap:operation soapAction="http://fts.sxsh.com/GetDocumentListCountByName" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListByName">
+      <soap:operation soapAction="http://fts.sxsh.com/GetDocumentListByName" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDocumentName">
+      <soap:operation soapAction="http://fts.sxsh.com/GetLastDocumentName" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentLen">
+      <soap:operation soapAction="http://fts.sxsh.com/GetDocumentLen" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <soap:operation soapAction="http://fts.sxsh.com/GetDocument" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDocument">
+      <soap:operation soapAction="http://fts.sxsh.com/SendDocument" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThingSend_Ds">
+      <soap:operation soapAction="http://fts.sxsh.com/ThingSend_Ds" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThingSend">
+      <soap:operation soapAction="http://fts.sxsh.com/ThingSend" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendToInfo">
+      <soap:operation soapAction="http://fts.sxsh.com/SendToInfo" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendToInfo_Ds">
+      <soap:operation soapAction="http://fts.sxsh.com/SendToInfo_Ds" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap:operation soapAction="http://fts.sxsh.com/Ping" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap:operation soapAction="http://fts.sxsh.com/SendSMS" style="rpc" />
+      <wsdl:input>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="FtsSoap12" type="tns:FtsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" style="rpc" />
+    <wsdl:operation name="GetDocumentListCount">
+      <soap12:operation soapAction="http://fts.sxsh.com/GetDocumentListCount" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentList">
+      <soap12:operation soapAction="http://fts.sxsh.com/GetDocumentList" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListCountByName">
+      <soap12:operation soapAction="http://fts.sxsh.com/GetDocumentListCountByName" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentListByName">
+      <soap12:operation soapAction="http://fts.sxsh.com/GetDocumentListByName" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLastDocumentName">
+      <soap12:operation soapAction="http://fts.sxsh.com/GetLastDocumentName" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocumentLen">
+      <soap12:operation soapAction="http://fts.sxsh.com/GetDocumentLen" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDocument">
+      <soap12:operation soapAction="http://fts.sxsh.com/GetDocument" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendDocument">
+      <soap12:operation soapAction="http://fts.sxsh.com/SendDocument" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThingSend_Ds">
+      <soap12:operation soapAction="http://fts.sxsh.com/ThingSend_Ds" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ThingSend">
+      <soap12:operation soapAction="http://fts.sxsh.com/ThingSend" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendToInfo">
+      <soap12:operation soapAction="http://fts.sxsh.com/SendToInfo" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendToInfo_Ds">
+      <soap12:operation soapAction="http://fts.sxsh.com/SendToInfo_Ds" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Ping">
+      <soap12:operation soapAction="http://fts.sxsh.com/Ping" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendSMS">
+      <soap12:operation soapAction="http://fts.sxsh.com/SendSMS" style="rpc" />
+      <wsdl:input>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="encoded" namespace="http://fts.sxsh.com/" encodingStyle="http://www.w3.org/2003/05/soap-encoding" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Fts">
+    <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">File Transfer Service－FTS.</wsdl:documentation>
+    <wsdl:port name="FtsSoap" binding="tns:FtsSoap">
+      <soap:address location="http://221.204.213.61/mas/Fts.asmx" />
+    </wsdl:port>
+    <wsdl:port name="FtsSoap12" binding="tns:FtsSoap12">
+      <soap12:address location="http://221.204.213.61/mas/Fts.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,1246 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>@ViewBag.Title</title>
+    <script src="~/jquery-easyui-1.4/jquery.min.js" type="text/javascript"></script>
+    <script src="~/jquery-easyui-1.4/jquery.easyui.min.js" type="text/javascript"></script>
+    <link href="~/jquery-easyui-1.4/themes/default/easyui.css" rel="stylesheet" type="text/css" id="swicthstyle" />
+    <link href="~/jquery-easyui-1.4/themes/icon.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Css/icon/icon.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/unslider/css/unslider.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/Css/SYGWLogin.css" rel="stylesheet" />
+
+    <script src="~/jquery-easyui-1.4/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <script src="~/Content/JS/jquery.easyui.patch.js"></script>
+    <script src="~/Content/JS/lightbox.js" type="text/javascript"></script>    
+    <script src="~/Content/JS/highcharts.js" type="text/javascript" ></script>    
+    <script src="~/Content/RULE/js/highcharts-3d.js" type="text/javascript"></script>
+    <script src="~/Content/JS/exporting.js" type="text/javascript"></script>
+    <script src="~/Content/unslider/js/unslider-min.js" type="text/javascript"></script>
+
+    <script src="~/Content/ViewModel/json2.js"></script>
+    <script src="~/Content/JS/utils.js"></script>
+    <script src="~/Content/JS/ValidateJs.js"></script>
+    <script src="~/Content/JS/processingajaxmsg.js"></script>
+
+    <script type="text/javascript">
+        var _lineEquData, _bridgeData, _jobPlanData;
+        var _chartType = 'line', _chartData, _lineChartData, _bridgeChartData, _planChartData;
+        var sortFlag = false, sortFlag2 = false, sortFlag3 = false;
+
+        $.extend($.fn.datagrid.methods, {
+            autoMergeCells: function (jq, fields) {
+                return jq.each(function () {
+                    var target = $(this);
+                    if (!fields) {
+                        fields = target.datagrid("getColumnFields");
+                    }
+                    var rows = target.datagrid("getRows");
+                    var i = 0,
+                    j = 0,
+                    temp = {};
+                    for (i; i < rows.length; i++) {
+                        var row = rows[i];
+                        j = 0;
+                        for (j; j < fields.length; j++) {
+                            var field = fields[j];
+                            var tf = temp[field];
+                            if (!tf) {
+                                tf = temp[field] = {};
+                                tf[row[field]] = [i];
+                            } else {
+                                var tfv = tf[row[field]];
+                                if (tfv) {
+                                    tfv.push(i);
+                                } else {
+                                    tfv = tf[row[field]] = [i];
+                                }
+                            }
+                        }
+                    }
+                    $.each(temp, function (field, colunm) {
+                        $.each(colunm, function () {
+                            var group = this;
+
+                            if (group.length > 1) {
+                                var before,
+                                after,
+                                megerIndex = group[0];
+                                for (var i = 0; i < group.length; i++) {
+                                    before = group[i];
+                                    after = group[i + 1];
+                                    if (after && (after - before) == 1) {
+                                        continue;
+                                    }
+                                    var rowspan = before - megerIndex + 1;
+                                    if (rowspan > 1) {
+                                        target.datagrid('mergeCells', {
+                                            index: megerIndex,
+                                            field: field,
+                                            rowspan: rowspan
+                                        });
+                                    }
+                                    if (after && (after - before) != 1) {
+                                        megerIndex = after;
+                                    }
+                                }
+                            }
+                        });
+                    });
+                });
+            }
+        });
+
+
+        $(function () {
+            //Highcharts.getOptions().plotOptions.pie.colors = (function () {
+            //    var colors = [], base = Highcharts.getOptions().colors[0],  i;
+            //    for (i = 0; i < 10; i += 1) {
+            //        colors.push(Highcharts.Color(base).brighten((i - 3) / 7).get());
+            //    }
+            //    return colors;
+            //}());
+            //Highcharts.getOptions().colors = Highcharts.map(Highcharts.getOptions().colors, function (color) {
+            //    return {
+            //        radialGradient: {
+            //            cx: 0.5,
+            //            cy: 0.3,
+            //            r: 0.7
+            //        },
+            //        stops: [
+            //            [0, color],
+            //            [1, Highcharts.Color(color).brighten(-0.3).get('rgb')] 
+            //        ]
+            //    };
+            //});
+
+            var flowroleid;
+            document.oncontextmenu = function (e) {
+                return false; 
+            }
+            $('#checkcode').bind('keypress', function (event) {
+                if (event.keyCode == "13") {
+                    $("#loginBut").trigger("click");
+                }
+            });
+            loadGridLineEqu();
+            loadGridBridgeEqu();
+            loadGridPlan();
+            $('.banner').unslider({
+                animation: 'fade',
+                delay: 5000,
+                //dots: true,
+                autoplay: true,
+                arrows: false,
+                nav: false
+            });
+
+            loadChartData();
+        });
+
+        function showLogin() {
+            $('#dlgLogin').window('open').window('setTitle', '系统登录');
+            $("#dlgLogin").panel("move", { top: $(document).scrollTop() + ($(window).height() - 200) * 0.5 });
+        }
+        function cancelLogin() {
+            $('#dlgLogin').window('close');
+        }
+
+        function menuClick() {
+            $.alertMsg('请登录系统！', '系统信息', 'info');
+            return false;
+        }
+        function saveUser() {
+            $('#loginBut').linkbutton('disable');//禁用
+            //$('#loginBut').linkbutton({
+            //    iconCls: 'icon-ok',
+            //    text: "登录中"
+            //});
+
+            var pasword = $('#password').val();
+            var iseasyPasword = 'N';
+            if (pasword == '123456') {
+                iseasyPasword = 'Y';
+            }
+
+            $('#form-body').form('submit', {
+                url: '/Home/LoginIn/' + iseasyPasword,
+                cache: false,
+                onSubmit: function () {
+                    $('#checkcode').val('zzzzz');
+                    if ($(this).form('validate')) {
+                        return true;
+                    } else {
+                        $('#loginBut').linkbutton('enable');
+                        $('#loginBut').linkbutton({
+                            iconCls: 'icon-ok',
+                            text: "登 录"
+                        });
+                        return false;
+                    }
+                },
+                success: function (result) {
+                    $('#loginBut').linkbutton('enable');
+                    $('#loginBut').linkbutton({
+                        iconCls: 'icon-ok',
+                        text: "登 录"
+                    });
+                    var result = $.parseJSON(result);
+                    $.procAjaxMsg(result, function () {
+                        window.location.href = result.BackUrl;
+                    }, function () {
+                        $.alertMsg(result.Msg, '登录失败', null);
+                    })
+                }
+            });
+        }
+
+        //图表
+        function loadChartData() {
+            $.ajax({
+                url: "/Home/HomeChartData",
+                type: "post",
+                dataType: "json",
+                data: {},
+                success: function (data) {
+                    _chartData = data;
+                    _lineChartData = data.line;
+                    _bridgeChartData = data.bridge;
+                    _planChartData = data.plan;
+                    loadHighCharts('chartLineEqu', _lineChartData, _chartType, '线路设备', '正线');
+                    loadHighCharts('chartTrackEqu', _lineChartData, _chartType, '线路设备', '站线');
+                    loadHighCharts('chartTurnoutEqu', _lineChartData, _chartType, '线路设备', '道岔');
+                    loadHighCharts('chartBridgeEqu', _bridgeChartData, _chartType, '桥隧设备', '桥梁');
+                    loadHighCharts('chartTunnelEqu', _bridgeChartData, _chartType, '桥隧设备', '隧道');
+                    loadHighCharts('chartCulvertEqu', _bridgeChartData, _chartType, '桥隧设备', '涵渠');
+                    loadHighCharts('chartPlan', _planChartData, _chartType, '作业计划', '日计划');
+                }
+            });
+        }
+
+        function loadHighCharts(chartContainer, chartData, chartCat, equCat, equSubCat) {
+            var chartX = $("#" + chartContainer);
+            chartX.html("");
+            if (chartData != null && chartData.length > 0) {
+                chartLine(chartContainer, chartData, chartCat, equCat, equSubCat);
+            }
+        }
+        
+        function reloadHighCharts() {
+            if (_chartData != null ) {
+                if (_chartType == "line")
+                    _chartType = "column";
+                else if (_chartType == "column")
+                    _chartType = "line";
+
+                loadHighCharts('chartLineEqu', _lineChartData, _chartType, '线路设备', '正线');
+                loadHighCharts('chartTrackEqu', _lineChartData, _chartType, '线路设备', '站线');
+                loadHighCharts('chartTurnoutEqu', _lineChartData, _chartType, '线路设备', '道岔');
+                loadHighCharts('chartBridgeEqu', _bridgeChartData, _chartType, '桥隧设备', '桥梁');
+                loadHighCharts('chartTunnelEqu', _bridgeChartData, _chartType, '桥隧设备', '隧道');
+                loadHighCharts('chartCulvertEqu', _bridgeChartData, _chartType, '桥隧设备', '涵渠');
+                loadHighCharts('chartPlan', _planChartData, _chartType, '作业计划', '日计划');
+            }
+        }
+
+        function chartLine(chartContainer, chartData, chartCat, equCat, equSubCat) {
+            var charTitle = equSubCat + '设备质量';
+
+            var xAxisCat = new Array();
+            for (var i = 0; i < chartData.length; i++) {
+                if (chartData[i].EQU_CAT == equSubCat || chartData[i].PLAN_CAT == equSubCat)
+                    xAxisCat.push(chartData[i].DEPT_NAME.replace('工务段', ''));
+            }
+            var xData = new Array();
+            if (equCat == "线路设备") {
+                xData = ['数量', 'Ⅰ级设备', 'Ⅱ级设备', 'Ⅲ级设备', 'Ⅳ级设备'];
+            }
+            else {
+                if (equCat == "桥隧设备") {
+                    xData = ['数量', '合格设备', '失格设备', '扣分设备', '签发保养通知书', '签收保养通知书'];
+                }
+                else {
+                    if (equCat == "作业计划") {
+                        charTitle = equCat;
+                        xData = ['总数', '待批', '已批', '驳回', '销记归档', '作业人次', '维修天窗', '施工天窗', '天窗点外'];
+                    }
+                    else {
+                    }
+                }
+            }
+
+
+            var yData = new Array();
+            for (var i = 0; i < xData.length; i++) {
+                yData[i] = new Array();
+                for (var j = 0; j < xAxisCat.length; j++) {
+                    for (var k = 0; k < chartData.length; k++) {
+                        if (equCat == '线路设备' || equCat == '桥隧设备') {
+                            if (chartData[k].EQU_CAT == equSubCat && chartData[k].DEPT_NAME == xAxisCat[j] + '工务段') {
+                                if (equCat == "线路设备") {
+                                    if (xData[i] == '数量') {
+                                        yData[i].push(chartData[k].EQU_TOTAL);
+                                    }
+                                    if (xData[i] == 'Ⅰ级设备') {
+                                        yData[i].push(chartData[k].EQU_LEV1);
+                                    }
+                                    if (xData[i] == 'Ⅱ级设备') {
+                                        yData[i].push(chartData[k].EQU_LEV2);
+                                    }
+                                    if (xData[i] == 'Ⅲ级设备') {
+                                        yData[i].push(chartData[k].EQU_LEV3);
+                                    }
+                                    if (xData[i] == 'Ⅳ级设备') {
+                                        yData[i].push(chartData[k].EQU_LEV4);
+                                    }
+                                }
+                                if (equCat == "桥隧设备") {
+                                    if (xData[i] == '数量') {
+                                        yData[i].push(chartData[k].EQU_TOTAL);
+                                    }
+                                    if (xData[i] == '合格设备') {
+                                        yData[i].push(chartData[k].EQU_PASS);
+                                    }
+                                    if (xData[i] == '失格设备') {
+                                        yData[i].push(chartData[k].EQU_DISPASS);
+                                    }
+                                    if (xData[i] == '扣分设备') {
+                                        yData[i].push(chartData[k].EQU_SCORE);
+                                    }
+                                    if (xData[i] == '签发保养通知书') {
+                                        yData[i].push(chartData[k].NOTICE_ISSUE);
+                                    }
+                                    if (xData[i] == '签收保养通知书') {
+                                        yData[i].push(chartData[k].NOTICE_SIGN);
+                                    }
+                                }
+                            }
+                        }
+                        else {
+                            if (equCat == "作业计划") {
+                                if (chartData[k].PLAN_CAT == equSubCat && chartData[k].DEPT_NAME == xAxisCat[j] + '工务段') {
+                                    if (xData[i] == '总数') {
+                                        yData[i].push(chartData[k].PLAN_TOTAL);
+                                    }
+                                    if (xData[i] == '待批') {
+                                        yData[i].push(chartData[k].PLAN_AUDIT);
+                                    }
+                                    if (xData[i] == '已批') {
+                                        yData[i].push(chartData[k].PLAN_PASS);
+                                    }
+                                    if (xData[i] == '驳回') {
+                                        yData[i].push(chartData[k].PLAN_REJECT);
+                                    }
+                                    if (xData[i] == '销记归档') {
+                                        yData[i].push(chartData[k].PLAN_ARCHIVING);
+                                    }
+                                    if (xData[i] == '作业人次') {
+                                        yData[i].push(chartData[k].PLAN_LABOUR);
+                                    }
+                                    if (xData[i] == '维修天窗') {
+                                        yData[i].push(chartData[k].PLAN_WINDOW_REPAIR);
+                                    }
+                                    if (xData[i] == '施工天窗') {
+                                        yData[i].push(chartData[k].PLAN_WINDOW_CONSTRUCT);
+                                    }
+                                    if (xData[i] == '天窗点外') {
+                                        yData[i].push(chartData[k].PLAN_WINDOW_OTHER);
+                                    }
+                                }
+                            }
+                            else {
+                            }
+                        }
+
+
+                    }
+                }
+            }
+
+            var optionsX = {
+                chart: {
+                    renderTo: chartContainer,
+                    type: chartCat
+                },
+                title: {
+                    useHTML: true,
+                    align: 'center',
+                    style: { 'font-family':"微软雅黑",'font-size': '16px','fontWeight': 'bold', 'color': '#CC0000' },
+                    text: charTitle
+                    //,x: -20 # A60000
+                },
+                credits: { enabled: false },
+                subtitle: {
+                    //text: ''
+                },
+                xAxis: {
+                    gridLineWidth: 1
+                },
+                yAxis: {
+                    min: 0,
+                    allowDecimals: false,
+                    title: {
+                        text: '数量'
+                    },
+                    stackLabels:
+                        { enabled: true, style: { fontWeight: 'bold', color: (Highcharts.theme && Highcharts.theme.textColor) || 'gray' } },
+                    plotLines: [{
+                        value: 0,
+                        width: 1,
+                        color: '#808080'
+                    }]
+                },
+                tooltip: {
+                    headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                    pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                        '<td style="padding:0"><b>{point.y}</b></td></tr>',
+                    footerFormat: '</table>',
+                    shared: true,
+                    useHTML: true
+                },
+                legend: {
+                    layout: 'vertical',
+                    align: 'right',
+                    verticalAlign: 'top',//middle
+                    borderWidth: 0,
+                    enabled: true,
+                    draggable: true,
+                    floating: true,
+                    itemStyle: { 'font-family': "微软雅黑", 'fontSize': '9px' }
+                },
+                plotOptions: {
+                    series: {
+                        cursor: 'pointer',
+                        events: {
+                            click: function (e) {
+                                showClickPointChart(chartCat, this.name, e.point.category, equCat, equSubCat);
+                            }
+                        }
+                    }
+                },
+                exporting: {
+                    url: "/Content/RULE/aspx/Export.aspx"
+                }
+            };
+
+
+
+            optionsX.series = new Array();
+            optionsX.xAxis.categories = xAxisCat;
+            for (var k = 0; k < xData.length; k++) {
+                optionsX.series[k] = new Object;
+                optionsX.series[k].name = xData[k];
+                optionsX.series[k].data = yData[k];
+                //optionsX.series[k].dataLabels={
+                //    enabled: true,
+                //    style: { fontSize: '9px', fontFamily: 'Verdana, sans-serif' }
+                //};
+                
+            }
+            var chartX = new Highcharts.Chart(optionsX);
+        }
+
+        function chartPie(chartData, equCat) {
+            var equSubCat = '';
+            var charTitle = '';
+            var chartP = $("#chartPanel");
+            chartP.html("");
+
+            var pData = new Array();
+            if (chartData != null) {
+                if (equCat == "线路设备") {
+                    equSubCat = chartData.EQU_CAT;
+                    charTitle = chartData.DEPT_NAME + equSubCat + '设备质量统计图';
+                    var aname = ['Ⅰ级设备', 'Ⅱ级设备', 'Ⅲ级设备', 'Ⅳ级设备'];
+                    var ay = new Array();
+                    ay.push(chartData.EQU_LEV1); 
+                    ay.push(chartData.EQU_LEV2);
+                    ay.push(chartData.EQU_LEV3);
+                    ay.push(chartData.EQU_LEV4);
+                    for (var i = 0; i < 4; i++) {
+                        var obj = new Object;
+                        obj.name = aname[i];
+                        obj.y = ay[i];
+                        if (i == 0) {
+                            obj.sliced = true;
+                            obj.selected = true;
+                        }
+                        pData.push(obj);
+                    }
+
+                }
+                else {
+                    if (equCat == "桥隧设备") {
+                        equSubCat = chartData.EQU_CAT;
+                        charTitle = chartData.DEPT_NAME + equSubCat + '设备质量统计图';
+
+                        //aname = ['数量', '合格设备', '失格设备', '扣分设备', '签发保养通知书', '签收保养通知书'];
+                        var aname = ['合格设备', '失格设备', '扣分设备'];
+                        var ay = new Array();
+                        ay.push(chartData.EQU_PASS);
+                        ay.push(chartData.EQU_DISPASS);
+                        ay.push(chartData.EQU_SCORE);
+                        for (var i = 0; i < 3; i++) {
+                            var obj = new Object;
+                            obj.name = aname[i];
+                            obj.y = ay[i];
+                            if (i == 0) {
+                                obj.sliced = true;
+                                obj.selected = true;
+                            }
+                            pData.push(obj);
+                        }
+                    }
+                    else {
+                        if (equCat == "作业计划") {
+                            equSubCat = chartData.PLAN_CAT;
+                            charTitle = chartData.DEPT_NAME + chartData.PLAN_DATE + '作业统计图';
+                            //aname = ['总数', '待批', '已批', '驳回', '销记归档', '作业人次', '维修天窗', '施工天窗', '天窗点外'];
+                            var aname = ['维修天窗', '施工天窗', '天窗点外'];
+                            var ay = new Array();
+                            ay.push(chartData.PLAN_WINDOW_REPAIR);
+                            ay.push(chartData.PLAN_WINDOW_CONSTRUCT);
+                            ay.push(chartData.PLAN_WINDOW_OTHER);
+                            for (var i = 0; i < 3; i++) {
+                                var obj = new Object;
+                                obj.name = aname[i];
+                                obj.y = ay[i];
+                                if (i == 0) {
+                                    obj.sliced = true;
+                                    obj.selected = true;
+                                }
+                                pData.push(obj);
+                            }
+                        }
+                        else {
+                        }
+                    }
+                }
+
+                var optionsP = {
+                    chart: {
+                        plotBackgroundColor: null, plotBorderWidth: null, plotShadow: false,
+                        renderTo: 'chartPanel',
+                        type: 'pie',
+                        options3d: {
+                            enabled: false,
+                            alpha: 45,
+                            beta: 0
+                        }
+                    },
+                    title: {
+                        useHTML: true,
+                        align: 'center',
+                        style: { 'font-family':"微软雅黑",'font-size': '16px','fontWeight': 'bold', 'color': '#CC0000' },
+                        text: charTitle
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    tooltip: {
+                        //pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        pointFormat: '{series.name}: <b>{point.y}</b>'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'left',
+                        verticalAlign: 'top',
+                        x: 50,
+                        y: 50,
+                        borderWidth: 0,
+                        labelFormatter: function () {
+                            return this.name + '数量';
+                        },
+                        borderRadius: 10,
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        useHTML: true
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            depth: '35',
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                //format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                format: '<b>{point.name}</b>: {point.y}',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    //color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'red'
+                                    //color: '#000000', fontSize: '13', fontFamily: 'SimSun'
+                                }                                
+                                //connectorColor: 'silver'
+                            } ,
+                            showInLegend: false
+                        }
+                    },
+                    exporting: { url: "/Content/RULE/aspx/Export.aspx", enabled: true },
+                    ////credits: {
+                    ////    enabled: true, href: "", style: {
+                    ////        cursor: 'pointer',
+                    ////        color: '#909090',
+                    ////        fontSize: '15px'
+                    ////    },
+                    ////    text: ''
+                    ////},
+                    series: [
+                        {
+                            name: '数量',
+                            data: pData
+                        }]
+                };
+                var piechart = new Highcharts.Chart(optionsP);
+            }
+
+            $('#dlgCharts').window('open').window('setTitle', charTitle);
+            $("#dlgCharts").panel("move", { top: $(document).scrollTop() + ($(window).height() - 640) * 0.5 });
+        }
+
+        function showClickPointChart(chartCat, chartItem, deptName, equCat, equSubCat) {
+            var chartP = $("#chartPanel");
+            chartP.html("");
+            var charTitle = '';
+
+            var pData = new Array();
+            var ay = new Array();
+            if (_chartData != null) {
+                if (equCat == "线路设备") {
+                    charTitle = equCat + '（' + equSubCat + '）' + chartItem + '统计图';
+                    var aname = new Array();
+                    if (_lineChartData != null && _lineChartData.length > 0) {
+                        for (var i = 0; i < _lineChartData.length; i++) {
+                            if (_lineChartData[i].EQU_CAT == equSubCat) {
+                                aname.push(_lineChartData[i].DEPT_NAME);
+
+                                var obj = new Object;
+                                obj.name = _lineChartData[i].DEPT_NAME;
+                                switch (chartItem) {
+                                    case '数量':
+                                        //obj.name = _lineChartData[i].DEPT_NAME;
+                                        obj.y = _lineChartData[i].EQU_TOTAL;
+                                        break;
+                                    case 'Ⅰ级设备':
+                                        obj.y = _lineChartData[i].EQU_LEV1;
+                                        break;
+                                    case 'Ⅱ级设备':
+                                        obj.y = _lineChartData[i].EQU_LEV2;
+                                        break;
+                                    case 'Ⅲ级设备':
+                                        obj.y = _lineChartData[i].EQU_LEV3;
+                                        break;
+                                    case 'Ⅳ级设备':
+                                        obj.y = _lineChartData[i].EQU_LEV4;
+                                        break;
+                                    default:
+                                        obj.name = i;
+                                        obj.y = i;
+                                        break;
+                                }
+                                if (i == 0) {
+                                    obj.sliced = true;
+                                    obj.selected = true;
+                                }
+                                pData.push(obj);
+                            }
+                        }
+                    }
+
+                }
+                else {
+                    if (equCat == "桥隧设备") {
+                        charTitle = equCat + '（' + equSubCat + '）' + chartItem + '统计图';
+                        var aname = new Array();
+                        if (_bridgeChartData != null && _bridgeChartData.length > 0) {
+                            for (var i = 0; i < _bridgeChartData.length; i++) {
+                                if (_bridgeChartData[i].EQU_CAT == equSubCat) {
+                                    aname.push(_bridgeChartData[i].DEPT_NAME);
+
+                                    var obj = new Object;
+                                    obj.name = _bridgeChartData[i].DEPT_NAME;
+                                    switch (chartItem) {
+                                        case '数量':
+                                            //obj.name = _bridgeChartData[i].DEPT_NAME;
+                                            obj.y = _bridgeChartData[i].EQU_TOTAL;
+                                            break;
+                                        case '合格设备':
+                                            obj.y = _bridgeChartData[i].EQU_PASS;
+                                            break;
+                                        case '失格设备':
+                                            obj.y = _bridgeChartData[i].EQU_DISPASS;
+                                            break;
+                                        case '扣分设备':
+                                            obj.y = _bridgeChartData[i].EQU_SCORE;
+                                            break;
+                                        case '签发保养通知书':
+                                            obj.y = _bridgeChartData[i].NOTICE_ISSUE;
+                                            break;
+                                        case '签收保养通知书':
+                                            obj.y = _bridgeChartData[i].NOTICE_SIGN;
+                                            break;
+                                        default:
+                                            obj.name = i;
+                                            obj.y = i;
+                                            break;
+                                    }
+                                    if (i == 0) {
+                                        obj.sliced = true;
+                                        obj.selected = true;
+                                    }
+                                    pData.push(obj);
+                                }
+                            }
+                        }
+                    }
+                    else {
+                        if (equCat == "作业计划") {
+                            //charTitle = equCat + '（' + equSubCat + '）' + chartItem + '统计图';
+                            var plandate = '';
+                            var aname = new Array();
+                            if (_planChartData != null && _planChartData.length > 0) {
+                                for (var i = 0; i < _planChartData.length; i++) {
+                                    if (_planChartData[i].PLAN_CAT == equSubCat) {
+                                        aname.push(_planChartData[i].DEPT_NAME);
+
+                                        var obj = new Object;
+                                        obj.name = _planChartData[i].DEPT_NAME;
+                                        switch (chartItem) {
+                                            case '总数':
+                                                //obj.name = _planChartData[i].DEPT_NAME;
+                                                obj.y = _planChartData[i].PLAN_TOTAL;
+                                                break;
+                                            case '已批':
+                                                obj.y = _planChartData[i].PLAN_PASS;
+                                                break;
+                                            case '待批':
+                                                obj.y = _planChartData[i].PLAN_AUDIT;
+                                                break;
+                                            case '驳回':
+                                                obj.y = _planChartData[i].PLAN_REJECT;
+                                                break;
+                                            case '销记归档':
+                                                obj.y = _planChartData[i].PLAN_ARCHIVING;
+                                                break;
+                                            case '作业人次':
+                                                obj.y = _planChartData[i].PLAN_LABOUR;
+                                                break;
+                                            case '维修天窗':
+                                                obj.y = _planChartData[i].PLAN_WINDOW_REPAIR;
+                                                break;
+                                            case '施工天窗':
+                                                obj.y = _planChartData[i].PLAN_WINDOW_CONSTRUCT;
+                                                break;
+                                            case '天窗点外':
+                                                obj.y = _planChartData[i].PLAN_WINDOW_OTHER;
+                                                break;
+                                            default:
+                                                obj.name = i;
+                                                obj.y = i;
+                                                break;
+                                        }
+                                        if (i == 0) {
+                                            obj.sliced = true;
+                                            obj.selected = true;
+
+                                            plandate = _planChartData[i].PLAN_DATE;
+                                        }
+                                        pData.push(obj);
+                                    }
+                                }
+                            }
+                            charTitle = plandate + ' ' + equCat + '（' + chartItem + '）' + '统计图';
+                        }
+                    }
+                }
+
+                var optionsP = {
+                    chart: {
+                        plotBackgroundColor: null, plotBorderWidth: null, plotShadow: false,
+                        renderTo: 'chartPanel',
+                        type: 'pie',
+                        options3d: {
+                            enabled: false,
+                            alpha: 45,
+                            beta: 0
+                        }
+                    },
+                    title: {
+                        useHTML: true,
+                        align: 'center',
+                        style: { 'font-family': "微软雅黑", 'font-size': '16px', 'fontWeight': 'bold', 'color': '#CC0000' },
+                        text: charTitle
+                    },
+                    subtitle: {
+                        text: ''
+                    },
+                    tooltip: {
+                        //pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        pointFormat: '{series.name}: <b>{point.y}</b>'
+                    },
+                    legend: {
+                        layout: 'vertical',
+                        align: 'left',
+                        verticalAlign: 'top',
+                        x: 50,
+                        y: 50,
+                        borderWidth: 0,
+                        labelFormatter: function () {
+                            return this.name + '数量';
+                        },
+                        borderRadius: 10,
+                        borderColor: 'red',
+                        borderWidth: 2,
+                        useHTML: true
+                    },
+                    plotOptions: {
+                        pie: {
+                            allowPointSelect: true,
+                            depth: '35',
+                            cursor: 'pointer',
+                            dataLabels: {
+                                enabled: true,
+                                //format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                format: '<b>{point.name}</b>: {point.y}',
+                                style: {
+                                    color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                                    //color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'red'
+                                    //color: '#000000', fontSize: '13', fontFamily: 'SimSun'
+                                }
+                                //connectorColor: 'silver'
+                            },
+                            showInLegend: false
+                        }
+                    },
+                    exporting: { url: "/Content/RULE/aspx/Export.aspx", enabled: true },
+                    series: [
+                        {
+                            name: '数量',
+                            data: pData
+                        }]
+                };
+                var piechart = new Highcharts.Chart(optionsP);
+
+                //=============================
+                
+                $('#dlgCharts').window('open').window('setTitle', charTitle);
+                $("#dlgCharts").panel("move", { top: $(document).scrollTop() + ($(window).height() - 640) * 0.5 });
+            }
+
+
+
+        }
+        //==================================================
+        function loadGridLineEqu() {
+            $('#gridLineEqu').datagrid({
+                url: '/Home/LineEquList',
+                fitColumns: false,
+                fit: true,
+                nowrap: true,
+                striped: true,
+                idField: 'REPORT_ID',
+                //sortName: 'REPORT_ID',
+                //sortOrder: 'desc',
+                remoteSort: true,
+                checkOnSelect: false,
+                selectOnCheck: true,
+                singleSelect: true,
+                selectRow: false,
+                rownumbers: true,
+                pagination: true,
+                pageNumber: 1,
+                pageSize: 15,
+                pageList: [15, 20, 30],
+                border: 0,
+                toolbar: [],
+                //toolbar: '#mytool',
+                loadMsg: '正在加载数据...',
+                frozenColumns: [[
+                ]],
+                columns: [[
+                    { field: 'REPORT_ID', title: 'REPORT_ID', width: 10, align: 'center', sortable: true, hidden: true },
+                    { field: 'DEPT_CODE', title: 'DEPT_CODE', width: 10, align: 'center', sortable: true, hidden: true },
+                    //{
+                    //    field: 'Detail', title: '明细', width: 60, align: 'center', sortable: false,
+                    //    formatter: function (value, row, index) {
+                    //        return "<a href='#' style='color:#ffffff;' onclick='showdetail(" + row.REPORT_ID + ");return false;'>明细</a>";
+                    //    }, styler: function (value, row, index) {
+                    //        return 'background-color:#59B8F2;color:white';
+                    //    }
+                    //},
+                    { field: 'DEPT_NAME', title: '工务段', width: 100, align: 'center', sortable: true },
+                    { field: 'EQU_CAT', title: '设备类别', width: 70, align: 'center', sortable: true },
+                    { field: 'EQU_TOTAL', title: '设备数量', width: 70, align: 'center', sortable: true },
+                    { field: 'EQU_LEV1', title: 'Ⅰ级设备', width: 70, align: 'center', sortable: true },
+                    { field: 'PERCENT_LEV1', title: '百分比(%)', width: 80, align: 'center' },
+                    { field: 'EQU_LEV2', title: 'Ⅱ级设备', width: 70, align: 'center', sortable: true },
+                    { field: 'PERCENT_LEV2', title: '百分比(%)', width: 80, align: 'center' },
+                    { field: 'EQU_LEV3', title: 'Ⅲ级设备', width: 80, align: 'center', sortable: true },
+                    { field: 'PERCENT_LEV3', title: '百分比(%)', width: 100, align: 'center' },
+                    { field: 'EQU_LEV4', title: 'Ⅳ级设备', width: 80, align: 'center', sortable: true },
+                    { field: 'PERCENT_LEV4', title: '百分比(%)', width: 80, align: 'center' },
+                    { field: 'MEMO', title: '备注', width: 80, align: 'center', sortable: true }
+                ]],
+                rowStyler: function (index, row) {
+                },
+                onSortColumn: function (sort, order) {
+                    sortFlag = true;
+                    if ('DEPT_NAME' == sort) {
+                        $(this).datagrid('autoMergeCells', [sort]);
+                    } else {
+                        $(this).datagrid('autoMergeCells', ['DEPT_NAME']);
+                    }
+                },
+                onLoadSuccess: function (data) {
+                    //_lineEquData = $('#gridLineEqu').datagrid('getData');
+                    if (!sortFlag) $(this).datagrid('autoMergeCells',['DEPT_NAME']);
+                },
+                onClickRow: function (index, row) {
+                    chartPie(row, '线路设备');
+                },
+                onDblClickCell: function (index, field, value) {
+                }
+            });
+        }
+
+        function loadGridBridgeEqu() {
+            $('#gridBridgeEqu').datagrid({
+                url: '/Home/BridgeEquList',
+                fit: true,
+                fitColumns: false,
+                nowrap: true,
+                striped: true,
+                idField: 'REPORT_ID',
+                //sortName: 'REPORT_ID',
+                //sortOrder: 'desc',
+                remoteSort: true,
+                checkOnSelect: false,
+                selectOnCheck: true,
+                singleSelect: true,
+                selectRow: false,
+                rownumbers: true,
+                pagination: true,
+                pageNumber: 1,
+                pageSize: 20,
+                pageList: [20, 30, 50],
+                border: 1,
+                toolbar: [],
+                //toolbar: '#mytool',
+                loadMsg: '正在加载数据...',
+                columns: [
+                  [
+                    { field: 'REPORT_ID', title: 'REPORT_ID', width: 10, align: 'center', hidden: true },
+                    { field: 'DEPT_CODE', title: 'DEPT_CODE', width: 10, align: 'center', hidden: true },
+                    { title: '工务段', field: 'DEPT_NAME', width: 100, align: 'center' },
+                    { title: '设备类别', field: 'EQU_CAT', width: 80, align: 'center' },
+                    { title: '设备总数', field: 'EQU_TOTAL', width: 70, align: 'center' },
+                    { title: '扣分设备', field: 'EQU_SCORE', width: 70, align: 'center' },
+                    { title: '百分比(%)', field: 'PERCENT_SCORE', width: 70, align: 'center' },
+                    { title: '合格设备', field: 'EQU_PASS', width: 70, align: 'center' },
+                    { title: '百分比(%)', field: 'PERCENT_PASS', width: 70, align: 'center' },
+                    { title: '失格设备', field: 'EQU_DISPASS', width: 70, align: 'center' },
+                    { title: '百分比(%)', field: 'PERCENT_DISPASS', width: 70, align: 'center' },
+                    { title: '签发保养通知书', field: 'NOTICE_ISSUE', width: 80, align: 'center' },
+                    { title: '签收保养通知书', field: 'NOTICE_SIGN', width: 80, align: 'center' },
+                    { field: 'MEMO', title: '备注', width: 80, align: 'center' }
+                  ]
+                ],
+                onSortColumn: function (sort, order) {
+                    sortFlag2 = true;
+                    if ('DEPT_NAME' == sort) {
+                        $(this).datagrid('autoMergeCells', [sort]);
+                    } else {
+                        $(this).datagrid('autoMergeCells', ['DEPT_NAME']);
+                    }
+                },
+                onLoadSuccess: function (data) {
+                    if (!sortFlag2) $(this).datagrid('autoMergeCells', ['DEPT_NAME']);
+                },
+                onClickRow: function (index, row) {
+                    chartPie(row, '桥隧设备');
+                }
+            });
+
+        }
+
+        function loadGridPlan() {
+            $('#gridplan').datagrid({
+                url: '/Home/JobPlanList',
+                fitColumns: false,
+                fit: true,
+                nowrap: true,
+                striped: true,
+                idField: 'PLAN_ID',
+                remoteSort: true,
+                checkOnSelect: false,
+                selectOnCheck: true,
+                singleSelect: true,
+                selectRow: false,
+                rownumbers: true,
+                pagination: true,
+                pageNumber: 1,
+                pageSize: 15,
+                pageList: [15, 20, 30],
+                pagination: true,
+                toolbar: [],
+                loadMsg: '正在加载数据...',
+                columns: [[
+                    { field: 'PLAN_ID', title: 'PLAN_ID', width: 10, align: 'center', hidden: true },
+                    { field: 'DEPT_CODE', title: '代码', width: 10, align: 'center', hidden: true },
+                    { field: 'DEPT_NAME', title: '工务段', width: 80, align: 'center', sortable: true },
+                    { field: 'PLAN_DATE', title: '日期', width: 100, align: 'center', sortable: true },
+                    //{ field: 'PLAN_CAT', title: '计划类别', width: 10, align: 'center', hidden: true },
+                    //{ field: 'PLAN_ORDER', title: '排序号', width: 80, align: 'center', sortable: true },
+                    { field: 'PLAN_TOTAL', title: '总数', width: 100, align: 'center', sortable: true },
+                    { field: 'PLAN_AUDIT', title: '待批', width: 60, align: 'center' },
+                    { field: 'PLAN_PASS', title: '已批', width: 60, align: 'center', sortable: true, hidden: true },
+                    { field: 'PLAN_REJECT', title: '驳回', width: 60, align: 'center', sortable: true },
+                    { field: 'PLAN_ARCHIVING', title: '销记归档', width: 80, align: 'center', sortable: true },
+                    { field: 'PLAN_LABOUR', title: '作业人次', width: 80, align: 'center', sortable: true },
+                    { field: 'PLAN_WINDOW_REPAIR', title: '维修天窗', width: 80, align: 'center', sortable: true },
+                    { field: 'PLAN_WINDOW_CONSTRUCT', title: '施工天窗', width: 80, align: 'center', sortable: true },
+                    { field: 'PLAN_WINDOW_OTHER', title: '天窗点外', width: 80, align: 'center', sortable: true },
+                    { field: 'MEMO', title: '备注', width: 100, align: 'center' }
+                ]],
+                rowStyler: function (index, row) {
+                },
+                //onSortColumn: function (sort, order) {
+                //    sortFlag3 = true;
+                //    if ('DEPT_NAME' == sort) {
+                //        $(this).datagrid('autoMergeCells', [sort]);
+                //    } else {
+                //        $(this).datagrid('autoMergeCells', ['DEPT_NAME']);
+                //    }
+                //},
+                //onLoadSuccess: function (data) {
+                //    if (!sortFlag3) $(this).datagrid('autoMergeCells', ['DEPT_NAME']);
+                //},
+                onClickRow: function (index, row) {
+                    chartPie(row, '作业计划');
+                }
+            });
+        }
+
+        //==================================================
+    </script>
+</head>
+
+<body >
+    <div class="head">
+      <div class="logo"><a class="link f_l" href="/">
+            <img src='../Content/Images/sygwlogo/logo.gif' width='700' height='80' /> </a>
+      </div>
+      <div class="time mt20">
+          <script type="text/javascript">
+              var datelocalweek = new Array("星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六");
+              var datelocalnow = new Date();
+              var datelocalyear = datelocalnow.getFullYear();
+              var datelocalmonth = (datelocalmonth = "0" + (datelocalnow.getMonth() + 1)).substr(datelocalmonth.length - 2, 2);
+              var datelocalday = (datelocalday = "0" + datelocalnow.getDate()).substr(datelocalday.length - 2, 2);
+              var datelocalweekday = datelocalweek[datelocalnow.getDay()];
+              document.write(datelocalyear + "年" + datelocalmonth + "月" + datelocalday + "日");
+            </script>
+        </div>
+        <div class="fav">
+            @*<a href="javascript:void(0)" class="easyui-linkbutton" iconcls="icon-key" plain="true" onclick="showLogin();">系统登录</a>*@
+            
+            <form method="post" id="form-body">
+                <label>账号</label>
+                <input type="text" id="username" name="username"  class="easyui-validatebox account form-textbox" value="" maxlength="15" data-options="required:true,validType:['length[3,15]']" />
+                
+                <label>密码</label>
+                <input type="password" id="password" name="password" class="easyui-validatebox  password form-textbox" value="" maxlength="15" data-options="required:true,validType:['length[3,15]']" />
+                <a href="javascript:void(0)" id="loginBut" class="easyui-linkbutton" iconcls="icon-key" plain="false" onclick="saveUser();">登录</a>
+                <input type="text" id="checkcode" name="checkcode" class="easyui-validatebox checkcode form-textbox" value="" maxlength="5" data-options="required:true,validType:['length[5,5]'],invalidMessage:'验证码长度必须是5位'" 
+                    style="width:10px;visibility:hidden;"/>
+            </form>
+        </div>
+    </div>
+
+
+    <div class="nav">
+        <ul id="nav">
+            <li> <a href="javascript:void(0);" target="">首页</a> </li>
+            <li> <a href="javascript:void(0);" target="" onclick="return menuClick();">设备管理</a> </li>
+            <li> <a href="javascript:void(0);" target="" onclick="return menuClick();">生产管理</a> </li> 
+            <li> <a href="javascript:void(0);" target="" onclick="return menuClick();">安全管理</a> </li>
+            <li> <a href="javascript:void(0);" target="" onclick="return menuClick();">技术管理</a> </li>
+            <li> <a href="javascript:void(0);" target="" onclick="return menuClick();">资产管理</a> </li>
+            <li> <a href="javascript:void(0);" target="" onclick="return menuClick();">人力资源管理</a> </li>
+            <li> <a href="javascript:void(0);" target="" onclick="return menuClick();">过程控制管理</a> </li>
+        </ul>
+    </div>
+
+    <style>
+	    /*.f_yj{behavior:url(iecss3.htc);}*/
+    </style>
+
+    <div class="banner" id="banner" > 
+        <ul>
+          <li><img src="~/Content/Images/sygwlogo/p2.jpg" alt=""></li> 
+          <li><img src="~/Content/Images/sygwlogo/p3.jpg" alt=""></li>
+          <li><img src="~/Content/Images/sygwlogo/p4.jpg" alt=""></li> 
+          <li><img src="~/Content/Images/sygwlogo/p5.jpg" alt=""></li> 
+        </ul>
+    </div>
+
+    @*<div style="background:#25498d;">*@
+
+    <div class="wrap" style="background:#fff;">
+        <div class="botn fl mt10 bar1">
+            <a href="#" class="fl"></a>
+        </div>
+        <div class="botn fl mt10 bar2">
+            @*<a href="#" style="color:#fff;font-size:14px;">科学组织</a>
+            <a href="#" style="color:#fff;font-size:14px;">精细施工</a>
+            <a href="#" style="color:#fff;font-size:14px;">严把质量</a>
+            <a href="#" style="color:#fff;font-size:14px;">安全高效</a>*@
+        </div>
+        <div class="botn fl mt10 bar3">
+            <a href="#"></a>
+        </div>
+        <div class="botn fl mt10 bar4" >
+            <a href="#"></a>
+        </div>
+
+        @*<div class="equtab fl mt10 mb10">*@
+        <div class="equtab fl ">
+            <div class="tit"><a href="#" class="more"></a></div>
+            @*<div class="con">
+                <div class="clearboth"></div>
+            </div>*@
+            <div class="clearboth"></div>
+
+            <div class="easyui-layout" style="height:200px;" data-options="fit:false,border:false">
+                <div data-options="region:'center',border:false" style="border-top: 1px solid #8db2e3">
+                    <table id="gridLineEqu"></table>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="btnChartSwitch" class="easyui-linkbutton" iconcls="icon-chart_pie" plain="true" onclick="reloadHighCharts()" title="图表切换">图表切换</a>
+        <div class="chart fl mb01"> 
+                <div id="chartLineEqu" style="width:1000px;height:250px; position:relative; overflow: hidden">
+                </div>          
+            @*<div class="con" id="chartPanelLineEqu">
+            </div>*@
+        </div>        
+        <div class="chart fl mb01">
+                <div id="chartTrackEqu" style="width:1000px;height:250px; position:relative; overflow: hidden">
+                </div>           
+            @*<div class="con">
+            </div>*@
+        </div>        
+        <div class="chart fl mb01"> 
+                <div id="chartTurnoutEqu" style="width:1000px;height:250px; position:relative; overflow: hidden">
+                </div>          
+            @*<div class="con">
+            </div>*@
+        </div>
+        
+        <div class="eqtab fl mr05 mb30">
+            <div class="tit"><a href="#" class="more"></a></div>
+            <div class="clearboth"></div>
+            <div class="easyui-layout" style="height:660px;" data-options="fit:false,border:false">
+                <div data-options="region:'center',border:false" style="border-top: 1px solid #8db2e3">
+                    <table id="gridBridgeEqu"></table>
+                </div>
+            </div>
+        </div>
+        <div class="chart chart_small fl mb01">
+            @*<div class="tit cap1"><a href="#"></a></div>*@
+            <div class="clearboth"></div>
+            <div class="con" id="chartPanelBridge">
+                <div id="chartBridgeEqu" style="height:230px;position: relative; overflow-x: hidden;overflow-y: hidden">
+                </div>
+            </div>
+        </div>
+        <div class="chart chart_small fl">
+            <div class="con">
+                <div id="chartTunnelEqu" style="height:230px;position: relative; overflow-x: hidden;overflow-y: hidden">
+                </div>
+            </div>
+        </div>
+        <div class="chart chart_small fl">
+            <div class="con">
+                <div id="chartCulvertEqu" style="height:230px;position: relative; overflow-x: hidden;overflow-y: hidden">
+                    涵渠
+                </div>
+            </div>
+        </div>
+
+
+        <div class="equtab plantab fl mt30  mb01">
+            <div class="tit"><a href="#" class="more"></a></div>
+            <div class="clearboth"></div>
+            <div class="easyui-layout" style="height:220px;" data-options="fit:false,border:false">
+                <div data-options="region:'center',border:false" style="border-top: 1px solid #8db2e3">
+                    <table id="gridplan"></table>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart fl mb20">
+                <div id="chartPlan" style="width:1000px;height:250px; position:relative; overflow: hidden">
+                </div>           
+            @*<div class="con">
+            </div>*@
+        </div>
+        
+        <div class="link fl mt20 mb30">
+            <div class="tit"></div>
+            <div class="list_link"> 
+                <ul>
+                    @*<li><a href="http://10.49.224.10/aqkanquanke/" target="_blank" title="沈阳铁路局">沈阳铁路局</a></li>*@
+                    <li><a href="http://10.49.224.10">长春工务段</a></li>
+                    <li><a href="http://10.49.224.10">四平工务段</a></li>
+                    <li><a href="http://10.49.224.10">白城工务段</a></li>
+                    <li><a href="http://10.49.224.10">沈阳工务段</a></li>
+                    <li><a href="http://10.49.224.10">辽阳工务段</a></li>
+                    <li><a href="http://10.49.224.10">丹东工务段</a></li>
+                    <li><a href="http://10.49.224.10">大连工务段</a></li>
+                    <li><a href="http://10.49.224.10">锦州工务段</a></li>
+                    <li><a href="http://10.49.224.10">山海关工务段</a></li>
+                    <li><a href="http://10.49.224.10">阜新工务段</a></li>
+                    <li><a href="http://10.49.224.10">通化工务段</a></li>
+                    <li><a href="http://10.49.224.10">通辽工务段</a></li>
+                    <li><a href="http://10.49.224.10">赤峰工务段</a></li>
+                    <li><a href="http://10.49.224.10">吉林工务段</a></li>
+                    <li><a href="http://10.49.224.10">图们工务段</a></li>
+                    <li><a href="http://222.33.32.94/OAapp/WebObjects/OAapp.woa" target="_blank">沈阳高铁工务段</a></li>
+                    <li><a href="http://10.49.224.10" target="_blank">沈阳工务机械段</a></li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="clearboth"></div>
+    
+    </div>
+    
+    @*</div>*@
+        
+    <div class="footer">
+    <div class="copyright">
+            系统建议显示分辨率：1280*768 或以上<br />
+            系统推荐使用:
+            <a href="~/Content/UpLoad/Browser/Chrome.rar">谷歌浏览器</a>
+            <a href="~/Content/UpLoad/Browser/Firefox.rar">火狐浏览器</a><br />
+            沈阳铁路局工务处<br />
+            Copyright &copy; 2006  <a href="http://www.sxsh.com.cn/" target="_blank">山西世恒铁路技术有限公司</a>, All rights reserved.            
+    </div>
+
+    </div>
+
+    <div id="dlgCharts" class="easyui-window" data-options="modal:true,closed:true,iconCls:'icon-chart_pie',minimizable:false,maximizable:false,maximized:false,collapsible:false,resizable:false,title:'图表'" style="width: 1000px; height: 640px;">
+        <div id="chartPanel" style="min-width: 950px; height: 544px;">
+        </div>
+    </div>
+</body>
+</html>
+
+

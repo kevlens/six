@@ -1,0 +1,271 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <!--<1>.引用Jquery的Js文件-->
+    <script src="~/jquery-easyui-1.4/jquery.min.js" type="text/javascript"></script>
+    @*    <script src="~/Scripts/jquery-1.8.0.min.js" type="text/javascript"></script>*@
+    <!--<2>.引用Easy UI的Js文件-->
+    <script src="~/jquery-easyui-1.4/jquery.easyui.min.js" type="text/javascript"></script>
+    <!--<3>.导入Easy UI的主题Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/default/easyui.css" rel="stylesheet" type="text/css"
+        id="swicthstyle" />
+    <!--<4>.导入Easy UI的图标Css文件-->
+    <link href="~/jquery-easyui-1.4/themes/icon.css" rel="stylesheet" type="text/css" />
+    <!--<5>.引用Easy UI的国际化文件         以下为让它显示中文-->
+    <script src="~/jquery-easyui-1.4/locale/easyui-lang-zh_CN.js" type="text/javascript"></script>
+    <!--<6>.页面上加上UTF-8编码       防止jquery.easyui.min.js  内容乱码-->
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <!--<7>.easyui1.4BUG插件，防止查询为空是重复请求-->
+    <script src="~/Content/JS/jquery.easyui.patch.js"></script>
+
+    <script src="~/Content/JS/utils.js"></script>
+    <script src="~/Content/JS/ValidateJs.js"></script>
+    <script src="~/Content/JS/processingajaxmsg.js"></script>
+    <!--Json常量定义-->
+    <script src="~/Content/JS/Constant.js"></script>
+    <link href="~/Content/Css/base.css" rel="stylesheet" />
+    <link href="~/Content/Css/icon/icon.css" rel="stylesheet" />
+    <link href="~/Content/Css/page/index.css" rel="stylesheet" />
+    <title>新增模块首页</title>
+    <script type="text/javascript">
+        //function doAddSystem() {
+        //    $('#NewSystem').form('submit', {
+        //        url: '/SYS/SYS_MENU/checkNewSystem',
+        //        cache: false,
+        //        success: function (result) {
+
+        //            var result = $.parseJSON(result);
+        //            console.info(result);
+        //            $.procAjaxMsg(result, function () {
+        //                AppendGridRow();
+        //            }, function () {
+        //                $.alertMsg(result.Msg, '操作提示', null);
+        //            });
+        //        }
+        //    });
+        //}
+        //function AppendGridRow() {
+        //    $('#ShowAddMenu').datagrid('appendRow', {
+        //        id: $('#NewSystem').find('[name=SysMenuID]').val(),
+        //        name: $('#NewSystem').find('[name=SysMenuName]').val(),
+        //        icon: $('#NewSystem').find('[name=NavLogo]').val(),
+        //        area: $('#NewSystem').find('[name=SysMenuArea]').val(),
+        //        order: $('#NewSystem').find('[name=SysMenuOrder]').val()
+        //    });
+        //}
+        //function doSubmit() {
+        //    alert('doSubmit');
+        //}
+        //function doAddMenu() {
+
+        //}
+        function doAddMenuOPT() {
+            if ($('#NewMENUOPT').form('validate')) {
+                var hasList = false;
+                var hasOpt = false;
+                if ($('input[name=LIST]').is(':checked') == true) {
+                    hasList = true;
+                }
+                if ($('input[name=OPT]').is(':checked') == true) {
+                    hasOpt = true;
+                }
+                if (hasList || hasOpt) {
+                    $.ajax({
+                        url: '/SYS/SYS_MENU/MenuOPT/' + $('#NewMENUOPT').find('[name=MenuID]').val()
+                            + '?List=' + hasList + '&Opt=' + hasOpt,
+                        type: 'post',
+                        success: function (result) {
+                            var result = $.parseJSON(result);
+                            $.procAjaxMsg(result, function () { $.alertMsg(result.Msg, '操作提示', null); }, function () { $.alertMsg(result.Msg, '操作提示', null); });
+                        }
+                    });
+                }
+            }
+        }
+        //function addListOPT() {
+        //    if ($('input[name=LIST]').is(':checked') == true) {
+        //        if ($('#NewMENUOPT').form('validate')) {
+        //            $.ajax({
+        //                url: '/SYS/SYS_MENU/GetMenuOPTList/' + $('#NewMENUOPT').find('[name=MenuID]').val(),
+        //                type: 'get',
+        //                success: function (result) {
+        //                    var result = $.parseJSON(result);
+                            
+        //                }
+        //            });
+        //        }
+        //    }
+        //    if ($('input[name=OPT]').is(':checked') == true) {
+        //        if ($('#NewMENUOPT').form('validate')) {
+
+        //        }
+        //    }
+        //}
+        $(function () {
+            $.ajax({
+                url: '/SYS/SYS_MENU/GetMyMenuListTree',
+                cache: false,
+                dataType: 'JSON',
+                type: 'get',
+                success: function (MenuData) {
+                    $('#MenuID').combotree({
+                        data: MenuData,
+                        valueField: 'id',
+                        textField: 'text',
+                        onBeforeSelect: function (node) {
+                            if (node.id.length != '6') {
+                                return false;
+                            }
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="easyui-layout" fit="true" border="false">
+        <div border="false" style="float: left; overflow: hidden;" collapsible="fasle" data-options="region:'center',split:true,title:'说明'">
+            <p style="color: red; padding-left: 5px;">
+                所有添加动作请在查找，并正确添加SYS_MENU数据后（尤其注意需要注意PARENT_ID，MENU_LEVEL，MENU_ORDER，GIS_ORDER的正确性），明确规则后进行;
+            </p>
+            <p>
+                1. 系统Logo路径"..\Web\Content\images\logo"，命名规则logo_{SYS_MENU中MENU_ID};
+            </p>
+           @* <p>
+                2. 系统导航页系统图标路径"..\Web\Content\Css\icon\systemLogo"，命名规则sys_{SYS_MENU中MENU_ID}，规格200*130，同时保持与SYS_MENU中C_ICO字段一致;
+            </p>*@
+            <p>
+                2. SYS_MENU中C_ICO字段参考"..\Web\Content\Css\icon"下icon.css;
+            </p>
+            <p>
+                3. 新增系统时，系统编号注意 不能 为‘01’(平台自带平台管理用)，‘02’(google地图)，‘03’(Geoserver地图);
+            </p>
+            <p>
+                4. GIS监控部分需手动在Constant.cs中添加GIS系统以及GIS下一级菜单的menuID;
+            </p>
+            <hr />
+            <h3>SYS_MENUOPT 添加工具</h3>
+            <form id="NewMENUOPT" method="post">
+                <table>
+                    <tr>
+                        <td>二级菜单
+                        <input id="MenuID" name="MenuID" class="easyui-combotree" style="width: 300PX" data-options="required:true" />
+                        </td>
+                       @* <td>AREA
+                        <input name="AREA" class="easyui-textbox" style="width: 100PX" data-options="required:true" />
+                        </td>
+                        <td>CONTROLLER
+                        <input name="CONTROLLER" class="easyui-textbox" style="width: 100PX" data-options="required:true" />
+                        </td>
+                        <td>NAME
+                        <input name="NAME" class="easyui-textbox" style="width: 100PX" data-options="required:true" />
+                        </td>*@
+                        <td>
+                            <input name="LIST" type="checkbox"/>
+                            LIST
+                        </td>
+                        <td>
+                            <input name="OPT" type="checkbox"/>
+                            OPT
+                        </td>
+                        <td>&nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="doAddMenuOPT();">提交</a>
+                        </td>
+                    </tr>
+                </table>
+            </form>
+              @*<table class="easyui-datagrid" id="ShowAdd">
+                <thead>
+                    <tr>
+                        <th data-options="field:'optid'" style="width: 150px">MENUOPT_ID</th>
+                        <th data-options="field:'name'" style="width: 150px">MENUOPT_NAME</th>
+                        <th data-options="field:'menuid'" style="width: 150px">三级菜单MENU_ID</th>
+                        <th data-options="field:'ico'" style="width: 150px">C_ICO</th>
+                        <th data-options="field:'control'" style="width: 150px">CONTROLLER</th>
+                        <th data-options="field:'action'" style="width: 150px">ACTION</th>
+                        <th data-options="field:'note'" style="width: 150px">NOTE</th>
+                    </tr>
+                </thead>
+            </table>*@
+        </div>
+
+        @*<div region="center" border="false">
+            <div style="padding: 10px;">
+                <h3>新增系统</h3>
+                <form id="NewSystem" method="post">
+                    <table>
+                        <tr>
+                            <td>系统编号
+                        <input name="SysMenuID" class="easyui-textbox" style="width: 50PX" data-options="required:true,validType:['length[0,2]']" maxlength="2" value="01" />
+                            </td>
+                            <td>系统名称
+                        <input name="SysMenuName" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,10]']" maxlength="10" value="XXX" />
+                            </td>
+                            <td>导航页图标
+                        <input name="NavLogo" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,10]']" maxlength="10" value="sys_01" />
+                            </td>
+                            <td>区域名称
+                        <input name="SysMenuArea" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,10]']" maxlength="10" value="SYS" />
+                            </td>
+                            <td>导航页排序
+                        <input name="SysMenuOrder" class="easyui-textbox" style="width: 50PX" data-options="required:true,validType:['length[0,2]']" maxlength="2" value="6" />
+                                &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="doAddSystem();">新增</a>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <hr />
+            <div style="padding: 10px;">
+                <h3>新增caidan</h3>
+                <form id="NewMenu" method="post">
+                    <table>
+                        <tr>
+                            <td>系统编号
+                        <input name="SysMenuID" class="easyui-textbox" style="width: 50PX" data-options="required:true,validType:['length[0,2]']" maxlength="2" value="01" />
+                            </td>
+                            <td>caidanbianhao
+                        <input name="MenuID" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,4]']" maxlength="4" value="0101" />
+                            </td>
+                            <td>caidanmingcheng
+                        <input name="MenuName" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,10]']" maxlength="10" value="XXX" />
+                            </td>
+                            <td>图标
+                        <input name="MenuIcon" class="easyui-textbox" style="width: 100PX" data-options="required:true" value="icon-world_orbit" />
+                            </td>
+                            <td>区域名称
+                        <input name="MenuArea" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,10]']" maxlength="10" value="SYS" />
+                            </td>
+                            <td>konghziqi
+                        <input name="MenuController" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,10]']" maxlength="10" value="DEMO" />
+                            </td>
+                            <td>action
+                        <input name="MenuAction" class="easyui-textbox" style="width: 100PX" data-options="required:true,validType:['length[0,10]']" maxlength="10" value="Index" />
+                            </td>
+                            <td>排序
+                        <input name="SysMenuOrder" class="easyui-textbox" style="width: 50PX" data-options="required:true,validType:['length[0,2]']" maxlength="2" value="6" />
+                                &nbsp;&nbsp;&nbsp;<a href="javascript:void(0);" class="easyui-linkbutton" data-options="iconCls:'icon-add'" onclick="doAddMenu();">新增</a>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+            <a id="a_submit" href="javascript:void(0);" plain="true" class="easyui-linkbutton" icon="icon-ok" title="Submit" onclick="doSubmit();">Submit</a>
+
+            <table class="easyui-datagrid" id="ShowAddMenu">
+                <thead>
+                    <tr>
+                        <th data-options="field:'id'" style="width: 50px">编号</th>
+                        <th data-options="field:'name'" style="width: 100px">名称</th>
+                        <th data-options="field:'icon'" style="width: 100px">图标</th>
+                        <th data-options="field:'area'" style="width: 100px">区域</th>
+                        <th data-options="field:'order'" style="width: 50px">排序</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>*@
+    </div>
+</body>
+</html>

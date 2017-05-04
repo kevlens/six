@@ -1,0 +1,78 @@
+﻿
+body, html {
+    margin: 0;
+    padding: 0;
+    background: url(/Content/images/jzcld_big_back.png) repeat-x scroll 0 0;
+    font-family: Georgia, Arial, Helvetica, "Nimbus Sans L", sans-serif;
+}
+
+#ddbg {
+    width: 741px;
+    height: 521px;
+    background: url(/Content/images/jzcld_backDtsxzyjk.jpg);
+    margin:auto;
+}
+#ddform {
+    width:330px;
+    height:120px;
+    background: rgba(0, 0, 0, 0) linear-gradient(to bottom, #73A3E9 0px, #D7E4F9 80%) repeat-x scroll 0 0;
+}
+#form-body {
+    text-align: center;
+}
+.window {
+    border-style:none;
+}
+.window .window-body {
+    border-width: 0px;
+}
+    #form-body .account {
+        background-image: url(/Content/images/user_male.png);
+        background-repeat: no-repeat;
+        background-position: 2px 4px;
+        padding-left: 18px;
+        width: 160px;
+    }
+
+    #form-body .password {
+        background-image: url(/Content/images/lock_key.png);
+        background-repeat: no-repeat;
+        background-position: 2px 4px;
+        padding-left: 18px;
+        width: 160px;
+    }
+
+    #form-body .checkcode {
+        background-repeat: no-repeat;
+        background-position: 2px 4px;
+        padding-left: 18px;
+        width: 95px;
+    }
+
+    #form-body ul {
+        padding: 0;
+        list-style: none;
+    }
+
+        #form-body ul li {
+            margin-top: 20px;
+        }
+
+
+.form-textbox, .form-textarea, .form-dropdown, .form-radio-other-input, .form-captcha input, .form-list {
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    -moz-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.75);
+    -webkit-box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.75);
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.2) inset, 0 1px 0 rgba(255, 255, 255, 0.75);
+    background-color: #FFFFFF;
+    border: 1px solid #999;
+    padding: 3px 6px;
+}
+
+#dlg-buttons {
+    display: none;
+    font-size: small;
+    text-align: left;
+}

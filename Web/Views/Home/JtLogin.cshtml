@@ -1,0 +1,206 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <link rel="stylesheet" type="text/css" href="~/jquery-easyui-1.4/themes/default/easyui.css"  id="swicthstyle" />
+    <link rel="stylesheet" type="text/css" href="~/jquery-easyui-1.4/themes/icon.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/Css/page/Login.css" />
+
+    <script type="text/javascript" src="~/jquery-easyui-1.4/jquery.min.js"></script>
+    <script type="text/javascript" src="~/jquery-easyui-1.4/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="~/jquery-easyui-1.4/locale/easyui-lang-zh_CN.js"></script>
+
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+    <script src="~/Content/JS/processingajaxmsg.js"></script>
+
+
+    <script type="text/javascript">
+        $(function () {
+            $('#checkcode').bind('keypress', function (event) {
+                if (event.keyCode == "13") {
+                    $("#loginBut").trigger("click");
+                }
+            });
+        });
+
+        function saveUser() {
+            $('#loginBut').linkbutton('disable');//禁用
+            $('#loginBut').linkbutton({
+                iconCls: 'icon-ok',
+                text: "登录中"
+            });
+            //判断密码强度
+            var pasword = $('#password').val();
+            var iseasyPasword = 'N';
+            if (pasword == '123456') {
+                iseasyPasword = 'Y';
+            }
+
+            $('#form-body').form('submit', {
+                url: '/Home/LoginIn/' + iseasyPasword,
+                cache: false,
+                onSubmit: function () {
+                    if ($(this).form('validate')) {
+                        return true;
+                    } else {
+                        $('#loginBut').linkbutton('enable');
+                        $('#loginBut').linkbutton({
+                            iconCls: 'icon-ok',
+                            text: "登 录"
+                        });
+                        return false;
+                    }
+                },
+                success: function (result) {
+                    $('#loginBut').linkbutton('enable');
+                    $('#loginBut').linkbutton({
+                        iconCls: 'icon-ok',
+                        text: "登 录"
+                    });
+                    var result = $.parseJSON(result);
+                    //console.info(result);
+                    $.procAjaxMsg(result, function () {
+                        window.location.href = result.BackUrl;
+                    }, function () {
+                        $.alertMsg(result.Msg, '登录失败', null);
+                    })
+                }
+            });
+        }
+
+
+        //单击重新改变验证码
+        function ClickRemoveChangeCode() {
+            //获取到验证码的路径
+            var code = $("#imgCode").attr("src");
+            //然后重新给验证码的路径赋值
+            $("#imgCode").attr("src", code + "1");
+        }
+
+    </script>
+
+    <style type="text/css">
+        *{margin:0; padding:0;}
+        html,body{ width:100%; height:100%;padding:0;}
+        #top{position:relative;float:right;width:100%;text-align:center;background-color:#ffd800;}
+        #floater{height:50%;margin-bottom:-334px;position:relative;}
+        #content{clear:both;height:668px;position:relative;margin:0 auto;background-color:#E6E6E6;width:60%;padding: 0px;text-align:center;}
+        .after{text-align:center;padding-right:20px;font-size:0.85em;}
+    </style>
+    <title>工务安全生产管理信息系统</title>
+</head>
+<body >
+    @*<div id="dd" class="easyui-dialog" title="My Dialog" style="width:500px;height:300px;"   
+        data-options="noheader: true,buttons: $('#dlg-buttons')">   
+        <div style="line-height:80px;background-color:#ffffff; height:80px;text-align:center;">
+                <h1>@ViewBag.title</h1>
+            </div>
+        <form method="post" id="form-body">
+                <ul>
+                    <li>
+                        <label>账&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                        <input class="easyui-validatebox account form-textbox" type="text" name="username" maxlength="15" value="" data-options="required:true,validType:['length[3,15]']"></li>
+                    <li>
+                        <label>密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                        <input class="easyui-validatebox  password form-textbox" type="password" id="password" name="password" value="" maxlength="15" data-options="required:true,validType:['length[3,15]']"></li>
+                    <li>
+                        <table style="width: 486px; height: 30px; border-collapse: collapse;">
+                            <tr>
+                                <td style="width: 172px; text-align: right;">
+                                    验&nbsp;证&nbsp;码</td>
+                                <td style="width: 60px; text-align: center;">
+                                    <img src="/Home/CheckCode/1" id="imgCode" alt="单击可刷新" title="看不清,单击换一张" onclick="ClickRemoveChangeCode()" style="cursor: pointer;" /></td>
+                                <td style="text-align: left;">
+                                    <input class="easyui-validatebox checkcode form-textbox" id="checkcode" type="text" name="checkcode" value="" maxlength="5" data-options="required:true,validType:['length[5,5]'],invalidMessage:'验证码长度必须是5位'"></td>
+                            </tr>
+                        </table>
+                    </li>
+                </ul>
+        </form>
+    </div> 
+    <div id="dlg-buttons" style="height:26px;">
+       <div style="float:left;margin-top:5px;">推荐使用:
+        <a href="~/Content/UpLoad/Browser/Firefox.rar">火狐浏览器</a>
+        <a href="~/Content/UpLoad/Browser/Chrome.rar">谷歌浏览器</a>&nbsp;&nbsp;&nbsp;&nbsp;相关插件：
+        <a href="~/Content/UpLoad/Browser/AdbeRdr11000_zh_CN11.rar">AdobePDFReader</a>
+       </div>
+        <div style="float:right;"><a href="javascript:void(0)" id="loginBut" class="easyui-linkbutton" iconcls="icon-ok" onclick="saveUser()">登 录</a></div>
+    </div>*@
+
+
+    <div id="top">
+    </div>
+    <div id="floater">
+    </div>
+    <div id="content">
+    <center>
+        <table width="961" height="668" border="0" cellpadding="0" cellspacing="0" align="center">
+	        <tr>
+		        <td colspan="3">
+			        <img src="~/content/task/images/login_01.png" width="961" height="199" alt=""></td>
+	        </tr>
+	        <tr>
+		        <td colspan="3">
+			        <img src="~/content/task/images/login_02.png" width="961" height="1" alt=""></td>
+	        </tr>
+	        <tr>
+		        <td colspan="3">
+			        <img src="~/content/task/images/login_03.png" width="961" height="8" alt=""></td>
+	        </tr>
+	        <tr>
+		        <td>
+			        <img src="~/content/task/images/login_04.png" width="481" height="325" alt="">
+                    @*<img src="~/content/task/images/login_04_blank.png" width="481" height="325" alt="">*@
+		        </td>
+		        <td>
+			        <img src="~/content/task/images/login_05.png" width="1" height="325" alt=""></td>
+		        <td>
+                    <div style="z-index: 100; position: relative; top: 0px; left: 0px; margin:0 auto; width:479px;height:325px;background-image: url('/content/task/images/login_06.png')">
+                            <form method="post" id="form-body">
+                                     <ul>
+                                        <li>
+                                            <label>账&nbsp;&nbsp;&nbsp;&nbsp;号</label>
+                                            <input class="easyui-validatebox account form-textbox" type="text" name="username" maxlength="15" value="" data-options="required:true,validType:['length[1,15]']"></li>
+                                        <li>
+                                            <label>密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
+                                            <input class="easyui-validatebox  password form-textbox" type="password" id="password" name="password" value="" maxlength="15" data-options="required:true,validType:['length[3,15]']">
+                                            <input class="easyui-validatebox checkcode form-textbox" style="display:none" id="checkcode" type="text" name="checkcode" value="zzzzz" maxlength="5" data-options="required:true,validType:['length[5,5]'],invalidMessage:'验证码长度必须是5位'">
+                                        </li>      
+                                         <li>
+                       <a href="javascript:void(0)" id="loginBut" class="easyui-linkbutton" iconcls="icon-ok" onclick="saveUser();" style="width:130px;">登 录</a>
+                                        </li>
+                                                                                                                          <li >
+                                            <b>推荐使用：</b>
+                                            <a href="~/Content/UpLoad/Browser/Firefox.rar" style="color:#003399;">火狐浏览器</a> &nbsp; &nbsp;
+                                            <a href="~/Content/UpLoad/Browser/Chrome.rar" style="color:#003399;">谷歌浏览器</a>
+                                            <br/>
+                                        </li>                                    
+                                    </ul>
+                            </form>
+                    </div>
+                </td>
+	        </tr>
+	        <tr>
+		        <td colspan="3">
+			        <img src="~/content/task/images/login_07.png" width="961" height="1" alt=""></td>
+	        </tr>
+	        <tr>
+		        <td colspan="3">
+			        <img src="~/content/task/images/login_08.png" width="961" height="134" alt=""></td>
+	        </tr>
+        </table>
+    </center>
+
+    </div>
+
+    @*<div class="after">        
+        <p class="after">Copyright &copy; 2014 山西世恒铁路技术有限公司 All Rights Reserved. Welcome to <a href="http://www.sxsh.com.cn/">www.sxsh.com.cn</a> </p>
+    </div> *@
+
+</body>
+</html>

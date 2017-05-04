@@ -1,0 +1,348 @@
+﻿@{
+    ViewBag.Title = "角色管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function loadExt(viewModel, funcName) {
+        if (funcName == "afterLoad") {
+            loadGrid(viewModel.urls.list());
+            loadMenu(viewModel);
+        }
+        /*
+        if (funcName == "afterEdit") {
+            var menu = viewModel.addForm.MenuId();
+            var lookopt = viewModel.addForm.MenuOptId();
+            var nolookopt = viewModel.addForm.NoShowlistOptId();
+            $("input:radio").attr("disabled", true);
+            for (i = 0; i < document.getElementsByName("menu").length; i++) {
+                var menuid = document.getElementsByName("menu")[i].value;
+                if (menu != null && menu.indexOf(menuid) > -1) {
+                    document.getElementsByName("menu")[i].checked = true;
+                    if (nolookopt.indexOf(menuid) == -1) {
+                        showMenuAndOpt(menuid, lookopt);
+                    }
+                }
+            }
+        }
+        if (funcName == "beforeAdd") {
+            clearMenuAndOpt();
+        }*/
+        if (funcName == "afterEdit") {
+            clearTextCheck();
+            var menu = viewModel.addForm.MenuId();
+            var lookopt = viewModel.addForm.MenuOptId();
+            //console.info(lookopt);
+            //$("input:radio").attr("disabled", true);
+            for (i = 0; i < document.getElementsByName("menu").length; i++) {
+                document.getElementsByName("menu")[i].checked = false;
+                var menuid = document.getElementsByName("menu")[i].value;
+                if (lookopt != null && lookopt.indexOf(menuid) > -1) {
+                    document.getElementsByName("menu")[i].checked = true;
+                    //showMenuAndOpt(menuid, lookopt);
+                }
+            }
+        }
+
+        if (funcName == "beforeAdd") {
+            clearTextCheck();
+        }
+    }
+
+    //function clearMenuAndOpt() {
+    //    console.info(document.getElementsByName("menu").length);
+    //    for (i = 0; i < document.getElementsByName("menu").length; i++) {
+    //        var menuid = document.getElementsByName("menu")[i].value;
+    //        if (document.getElementById("menu" + menuid).checked) {
+    //            document.getElementById("menu" + menuid).checked = false;
+    //            if (menuid.length == 6) {
+    //                document.getElementById("look" + menuid).checked = false;
+    //                document.getElementById("opt" + menuid).checked = false;
+    //            }
+    //        }
+    //    }
+    //}
+
+    function loadGrid(listurl) {
+        $('#data_grid').datagrid({
+            url: listurl,
+            pagination: true,
+            pageSize: 10,
+            pageList: [10, 20, 30, 40, 50],
+            fit: true,
+            fitColumns: false,
+            nowrap: false,
+            rownumbers: true,
+            singleSelect: true,
+            border: 0,
+            idField: 'ROLE_ID',
+
+            //sortName: 'roleid',
+            //sortOrder: 'desc',
+            columns: [[{
+                title: '角色名称',
+                field: 'name',
+                width: 150,
+                //sortable: true,
+                align: 'center'
+            }, {
+                title: '描述',
+                field: 'note',
+                width: 400,
+                //sortable: true,
+                halign: 'center',
+                align: 'left'
+            }
+            ]]
+        });
+
+    }
+
+    function loadMenu(viewModel) {
+
+        $('#data_treegrid').treegrid({
+            url: viewModel.urls.menuTree(),
+            rownumbers: false,
+            singleSelect: true,
+            idField: 'id',
+            treeField: 'text',
+            fit: true,
+            fitColumns: true,
+
+            columns: [[
+         {
+             title: '菜单名称',
+             field: 'text',
+             width: 240,
+             //sortable: true,
+             align: 'left',
+             formatter: function (value, row, index) {
+                 return utils.formatString('<input type="checkbox" style="width:15px;" name="text" id="text{0}" value="{0}" onchange="selectMenu(this.value)" />{1}', row.id, value);
+             }
+         },
+          {
+              title: '操作权限',
+              field: 'id',
+              width: 460,
+              //sortable: true,
+              align: 'center',
+              formatter: function (value, row, index) {
+                  if (row.attributes.menulevel == 3 || row.gisorder != "") {
+                      var str = '<ul style="list-style-type:none;width:500px; margin:0px; padding:0px; text-align:left;">';
+                      for (var i = 0; i < viewModel.extForm.extA().length; i++) {
+                          if (viewModel.extForm.extA()[i].id().split('-')[0]==value) {
+                              str += utils.formatString('<li style="width:80px;float:left;"><input type="checkbox" style="width:15px;" name="menu" id="menu{0}" value="{0}" />{1}</li>', viewModel.extForm.extA()[i].id(), viewModel.extForm.extA()[i].text());
+                          }
+                      }
+                      str += '</ul>';
+                      return str;
+                  } else {
+                      return "";
+                  }
+              }
+          }
+          /*
+          {
+              title: '启用菜单',
+              field: 'state',
+              width: 100,
+              //sortable: true,
+              align: 'center',
+              formatter: function (value, row, index) {
+                  if (row.attributes.menulevel == 2 || row.gisorder != '') {
+                      return utils.formatString('<input type="checkbox" name="menu" id="menu{0}" value="{0}" onchange="showMenu(this.value)" />', row.id);
+                  } else {
+                      return "";
+                  }
+              }
+          },
+          {
+              title: '查看',
+              field: 'id',
+              width: 100,
+              //sortable: true,
+              align: 'center',
+              formatter: function (value, row, index) {
+                  if (row.attributes.menulevel == 2) {
+                      return utils.formatString('<input type="radio" name="look{0}" id="look{0}"  value="look{0}" disabled="true" />', value);
+                  } else {
+                      return "";
+                  }
+              }
+          },
+          {
+              title: '操作',
+              field: 'iconCls',
+              width: 100,
+              //sortable: true,
+              align: 'center',
+              formatter: function (value, row, index) {
+                  if (row.attributes.menulevel == 2) {
+                      return utils.formatString('<input type="radio" name="look{0}" id="opt{0}"  value="opt{0}" disabled="true" />', row.id);
+                  } else {
+                      return "";
+                  }
+              }
+          }*/
+            ]]
+        });
+    }
+
+    function selectMenu(menuid) {
+        if (document.getElementById("text" + menuid).checked) {
+            //document.getElementById("text" + menuid + "01").checked = true;
+            //document.getElementById("menu" + menuid + "-002").checked = true;
+
+            for (i = 0; i < document.getElementsByName("text").length; i++) {
+                var texttext = document.getElementsByName("text")[i].value;
+                if (texttext != null && texttext.indexOf(menuid) == 0) {
+                    document.getElementsByName("text")[i].checked = true;
+                }
+            }
+            for (i = 0; i < document.getElementsByName("menu").length; i++) {
+                var menutext = document.getElementsByName("menu")[i].value;
+                if (menutext != null && menutext.indexOf(menuid) == 0) {
+                    document.getElementsByName("menu")[i].checked = true;
+                }
+            }
+
+        } else {
+            //document.getElementById("text" + menuid + "01").checked = false;
+            //document.getElementById("menu" + menuid + "-002").checked = false;
+            for (i = 0; i < document.getElementsByName("text").length; i++) {
+                var texttext = document.getElementsByName("text")[i].value;
+                if (texttext != null && texttext.indexOf(menuid) == 0) {
+                    document.getElementsByName("text")[i].checked = false;
+                }
+            }
+            for (i = 0; i < document.getElementsByName("menu").length; i++) {
+                var menutext = document.getElementsByName("menu")[i].value;
+                if (menutext != null && menutext.indexOf(menuid) == 0) {
+                    document.getElementsByName("menu")[i].checked = false;
+                }
+            }
+        }
+    }
+    function clearTextCheck() {
+
+        for (i = 0; i < document.getElementsByName("text").length; i++) {
+                document.getElementsByName("text")[i].checked = false;
+        }
+        for (i = 0; i < document.getElementsByName("menu").length; i++) {
+                document.getElementsByName("menu")[i].checked = false;
+        }
+    }
+    /*
+    function showMenu(menuid) {
+        if (document.getElementById("menu" + menuid).checked) {
+            $("input:radio[name='look" + menuid + "']").attr("disabled", false);
+            document.getElementById("look" + menuid).checked = true;
+        } else {
+            document.getElementById("look" + menuid).checked = false;
+            document.getElementById("opt" + menuid).checked = false;
+            $("input:radio[name='look" + menuid + "']").attr("disabled", true);
+        }
+    }
+
+    function showMenuAndOpt(menuid, optlist) {
+        if (document.getElementById("menu" + menuid).checked) {
+            $("input:radio[name='look" + menuid + "']").attr("disabled", false);
+            document.getElementById("look" + menuid).checked = true;
+            if (optlist != null && optlist.indexOf(menuid) > -1) {
+                document.getElementById("opt" + menuid).checked = true;
+            }
+        }
+    }
+    */
+    //提交
+    function doSave() {
+        $('#saveButT').linkbutton('disable');//禁用
+        $('#saveButT').linkbutton({
+            iconCls: 'icon-ok',
+            text: "保存中"
+        });
+        $('#DataForm').form('submit', {
+            url: '/SYS/SYS_ROLE/Save',
+            cache: false,
+            dataType: 'JSON',
+            onSubmit: function () {
+                if ($(this).form('validate')) {
+                    return true;
+                } else {
+                    $('#saveButT').linkbutton('enable');
+                    $('#saveButT').linkbutton({
+                        iconCls: 'icon-ok',
+                        text: "保 存"
+                    });
+                    return false;
+                }
+            },
+            success: function (result) {
+                $('#saveButT').linkbutton('enable');
+                $('#saveButT').linkbutton({
+                    iconCls: 'icon-ok',
+                    text: "保 存"
+                });
+                var result = $.parseJSON(result);
+                $.procAjaxMsg(result, function () {
+                    $('#data_grid').datagrid('reload');
+                    $('#data_add').dialog('close');
+                    $.alertMsg(result.Msg, '操作提示', null);
+                }, function () {
+                    $.alertMsg(result.Msg, '操作提示', null);
+                });
+
+            }
+        });
+    }
+</script>
+
+    <div class="easyui-layout" data-options="fit:true,border:false">
+        <div data-options="region:'north',border:false" style="float: left; overflow: hidden; padding: 3px;">
+                <table class="z-selectbar">
+                    <tr>
+                        <td>角色名称&nbsp;<input style="width:200px" data-bind="textboxValue: searchForm.NAME" />                          
+                            <span id="s-toolbar"></span>
+                            </td>
+                    </tr>
+                </table>
+            <div id="z-toolbar" class="z-toolbar"></div>
+        </div>
+
+        <div  data-options="region:'center',border:false" style="border-top: 1px solid #8db2e3">
+            <table id="data_grid"></table>
+        </div>
+    </div>
+
+    <div id="data_add" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,maximizable:true,collapsible:false,resizable:true,title:'角色管理'" style="width: 700px; height: 520px;">
+            <div class="easyui-layout" data-options="fit:true">
+        <form id="DataForm"  method="post">
+                <div data-options="region:'center',border:false" style="padding: 10px;">
+                       <div class="easyui-layout" data-options="fit:true">
+                           <div data-options="region:'north'" style="height:118px;border-left :1px solid #8db2e3;border-right:1px solid #8db2e3;border-top:1px solid #8db2e3;" border="false">
+                                <table class="nrgl_down_tab" style="margin-bottom: 0px;">
+                                   <tr>
+                                        <th style="height:40px;width:80px;border-top:0px;border-left:0px;">角色名称</th>
+                                        <td style="border-top:0px;border-right:0px;"><input  name="name" style="width:145px;" data-bind="textboxValue: addForm.NAME, easyuiOptions: { required: true, validType: ['length[2,15]'] }" />
+                                            <input  name="upid" data-bind="value: addForm.ROLE_ID" type="hidden" /></td>
+                                   </tr>
+                                    <tr>
+                                        <th>角色描述</th>
+                                        <td style="height:70px;border-right:0px;">
+                                            <input  name="note" style="width:200px;height:60px;" data-bind="textboxValue: addForm.NOTE, easyuiOptions: { validType: ['length[0,100]'] }" multiline="true" aria-multiline="True" />
+                                           </td>
+                                    </tr>
+                                </table> 
+                           </div> 
+                       <div region="center"  border="false"  style="border-left :1px solid #8db2e3;border-right:1px solid #8db2e3;border-bottom:1px solid #8db2e3;">
+                        <table id="data_treegrid"  border="false" ></table>
+                        </div>
+                    </div>
+                </div>
+            <div region="south" border="false" style="text-align: right; height: 35px; padding:4px;padding-right:10px;  border-top: 1px solid #ccc;">
+                <a id="saveButT" href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="doSave()">保 存</a>
+                <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel" onclick="javascript:$('#data_add').window('close')">取 消</a>
+            </div>
+            </form>
+        </div>
+    </div>
+

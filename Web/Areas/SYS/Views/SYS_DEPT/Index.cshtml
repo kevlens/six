@@ -1,0 +1,126 @@
+﻿@{
+    ViewBag.Title = "部门管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function loadExt(viewModel, funcName) {
+        if (funcName == "afterLoad") {
+            loadGrid(viewModel.urls.list());
+        }
+        if (funcName == "afterSave" || funcName == "afterDel") {
+            $.ajax({
+                url: '/api/SYS/SYS_DEPT/GetMyORGNoGQTree',
+                type: 'post',
+                success: function (result, textStatus) {
+                    viewModel.extA("");//先置空再填充，否则修改时ID不变则不更新
+                    viewModel.extA(result);
+                }
+            });
+        }
+        
+        if (funcName == "beforeAdd") {
+            viewModel.addForm.DEPT_FLAG("0");//默认单位
+        }
+        //if (funcName == "beforeEdit" || funcName == "beforeDel") {
+        //    var row = $('#data_grid').datagrid('getSelected');
+        //    console.info(row);
+        //    if (row.DEPT_CODE == '01') {
+        //        return false;
+        //    }
+        //}
+        
+    }
+    function loadGrid(listurl) {
+        $('#data_grid').treegrid({
+            url: listurl,
+            rownumbers: true,
+            idField: 'DEPT_CODE',
+            treeField: 'deptname',
+            fit: true,
+            fitColumns: true,
+            border:0,
+            columns: [[
+         {
+             title: '部门编码',
+             field: 'DEPT_CODE',
+             width: 100,
+             //sortable: true,
+             align: 'left',
+             formatter: function (value, row, index) {
+                 if (value) {
+                     return utils.formatString('{0}<span class="{1}" style="display:inline-block;vertical-align:middle;width:16px;height:16px;"></span>{2}', utils.replaceString(row.DEPT_CODE), row.iconCls, value);
+                 }
+             }
+         },
+         {
+             title: '部门名称',
+             field: 'deptname',
+             width: 150,
+             //sortable: true,
+             align: 'left'
+         },
+          {
+              title: '部门描述',
+              field: 'deptnote',
+              width: 300,
+              //sortable: true,
+              align: 'left'
+          }
+            ]],
+            onSelect: function (selectdata) {
+                if (selectdata.DEPT_CODE.length == 2) {
+                    $('#data_grid').datagrid('unselectAll');
+                    $.alertMsg("最高级数据不可修改，删除！", '操作提示', null);
+                }
+            }
+        });
+    }
+</script>
+
+    <div class="easyui-layout" data-options="fit:true,border:false">
+        <div data-options="region:'north',border:false" style="float: left; overflow: hidden; padding: 3px;">
+                <table class="z-selectbar">
+                    <tr>
+                        <td>部门&nbsp;<input style="width:320px" data-bind="combotreeSource:extA,combotreeValue:searchForm.PARENT_CODE" />    
+                             <span id="s-toolbar" ></span>
+                            </td>
+                    </tr>
+                </table>
+            <div id="z-toolbar" class="z-toolbar"></div>
+        </div>
+
+        <div  data-options="region:'center',border:false" style="border-top: 1px solid #8db2e3">
+            <table id="data_grid"></table>
+        </div>
+    </div>
+
+    <div id="data_add" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,maximizable:false,collapsible:false,resizable:false,title:'部门管理'" style="width: 600px; height: 350px;">
+        <div class="easyui-layout" data-options="fit:true">
+        <form id="DataForm"  method="post">
+                <div data-options="region:'center',border:false" style="padding: 10px;">
+                    <table class="nrgl_down_tab">
+                        <tr>
+                            <th style="width:80px">隶属部门</th>
+                            <td>
+                                <input style="width:320px" data-bind="combotreeSource:extA,combotreeValue:addForm.PARENT_CODE,easyuiOptions:{required: true}" /></td>
+                        </tr>
+                       <tr>
+                            <th>部门名称</th>
+                            <td><span data-bind="visible: false"><input id="deptflag" style="width: 70px" data-bind="comboboxSource: extB, comboboxValue: addForm.DEPT_FLAG, easyuiOptions: { required: true,valueField:'id',textField:'text',panelHeight:60,editable:false,onChange: function (newValue, oldValue) {console.info( newValue+':'+ oldValue)} }" /></span>
+                                <input  style="width:145px;" data-bind="textboxValue:addForm.DEPT_NAME,easyuiOptions:{required:true,validType:['length[2,15]'],onChange: function (newValue) {console.info( newValue)}}" />
+                                <input data-bind="value:addForm.DEPT_CODE" type="hidden" /></td>
+                       </tr>
+                        <tr>
+                            <th>部门备注</th>
+                            <td style="height:70px;">
+                                <input  style="width:300px;height:60px;" data-bind="textboxValue:addForm.NOTE,easyuiOptions:{validType:['length[0,100]']}" multiline="true" aria-multiline="True" />
+                               </td>
+                        </tr>
+                    </table>
+                </div>
+                <div  id="v-toolbar" data-options="region:'south',border:false" style="text-align: right; height: 35px; padding: 4px; padding-right: 10px; border-top: 1px solid #ccc;">
+                    </div>
+            </form>
+        </div>
+    </div>
+

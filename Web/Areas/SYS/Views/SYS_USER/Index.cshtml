@@ -1,0 +1,195 @@
+﻿@{
+    ViewBag.Title = "用户管理";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<script type="text/javascript">
+    function loadExt(viewModel, funcName) {
+        //console.info(funcName);
+        switch (funcName) {
+            case "afterLoad":
+                //viewModel.viewSettings={required:false,disabled:true};
+                //console.info(viewModel.viewSettings);
+                //viewModel.addForm.SHOW_FLAG(true);
+                //console.info(viewModel.addForm.SHOW_FLAG());
+                loadGrid(viewModel.urls.list());
+                break;
+            case "beforeAdd":
+                $('#username').textbox('setText', "");
+                $('#password').textbox('setText', "");
+                $('#username').textbox('readonly', false);
+                $('#password').textbox({
+                    required: true,
+                    validType: ['length[8,25]','isRegisterPassWord']
+                });
+                $('#ismmts').hide();
+                viewModel.extC([]);
+                break;
+            case "afterEdit":
+                $('#username').textbox('setText', viewModel.addForm.USER_NAME());
+                $('#password').textbox('setText', "");
+                $('#username').textbox('readonly', true);
+                $('#password').textbox({
+                    required: false,
+                    validType: ['length[8,25]','isRegisterPassWord']
+                });
+                $('#ismmts').show();
+                viewModel.extC(viewModel.addForm.ROLE_EXT());
+                break;
+            case "beforeSave":
+                viewModel.addForm.ROLE_EXT(viewModel.extC());
+                viewModel.addForm.PASSWORD($('#password').textbox('getText'));
+                viewModel.addForm.USER_NAME($('#username').textbox('getText'));
+                break; 
+            //case "beforeSubmit":禁止提交
+            //    if ($('#password').textbox('getText') == "123") {
+            //        $('#issubmit').textbox({
+            //            required: true,
+            //        });
+            //        $.alertMsg('提交失败，原因如下222: ', '操作提示22', null);
+            //    } else {
+            //        $('#issubmit').textbox({
+            //            required: false,
+            //        });
+            //    }
+                break;
+        }
+    }
+    function loadGrid(listurl) {
+        $('#data_grid').datagrid({
+            url: listurl,
+            pagination: true,
+            pageSize: 20,
+            pageList: [10, 20, 30, 40, 50],
+            fit: true,
+            fitColumns: true,
+            nowrap: false,
+            rownumbers: true,
+            singleSelect: true,
+            border: 0,
+            idField: 'USER_NAME',
+            sortName: 'deptcode',
+            sortOrder: 'desc',
+            columns: [[
+         {
+             title: '权限部门',
+             field: 'deptname',
+             width: 150,
+             //sortable: true,
+             align: 'left',
+             formatter: function (value, row, index) {
+                 if (value) {
+                     return utils.formatString('{0}<span class="{1}" style="display:inline-block;vertical-align:middle;width:16px;height:16px;"></span>{2}', utils.replaceString(row.deptcode), row.depticon, value);
+                 }
+             }
+         }, {
+             title: '用户名',
+             field: 'USER_NAME',
+             width: 100,
+             //sortable: true,
+             align: 'center'
+         }, {
+             title: '用户姓名',
+             field: 'ZSNAME',
+             width: 100,
+             //sortable: true,
+             align: 'center'
+         }, {
+             title: '角色名称',
+             field: 'rolename',
+             width: 150,
+             //sortable: true,
+             align: 'center'
+         }, {
+             title: '操作时间',
+             field: 'uptime',
+             width: 150,
+             //sortable: true,
+             align: 'center',
+             formatter: function (str) {
+                 if (str) {
+                     return str.replace('T', ' ');
+                 }
+             }
+         }, {
+             title: '操作员',
+             field: 'upuser',
+             width: 60,
+             //sortable: true,
+             align: 'center'
+         }
+            ]]
+        });
+    }
+</script>
+
+    <div class="easyui-layout" data-options="fit:true,border:false">
+        <div data-options="region:'north',border:false" style="float: left; overflow: hidden; padding: 3px;">
+                <table class="z-selectbar">
+                    <tr>
+                        <td>部门&nbsp;<input style="width:320px" data-bind="combotreeSource:extA,combotreeValue:searchForm.DEPT_CODE" />    
+                            <span id="s-toolbar" ></span>
+                            </td>
+                    </tr>
+                </table>
+            <div id="z-toolbar" class="z-toolbar"></div>
+        </div>
+
+        <div  data-options="region:'center',border:false" style="border-top: 1px solid #8db2e3">
+            <table id="data_grid"></table>
+        </div>
+    </div>
+
+    <div id="data_add" class="easyui-window" data-options="modal:true,closed:true,minimizable:false,maximizable:false,collapsible:false,resizable:false,title:'用户管理'" style="width: 600px; height: 400px;">
+        <div class="easyui-layout" data-options="fit:true">
+        <form id="DataForm"  method="post">
+                <div data-options="region:'center',border:false" style="padding: 10px;">
+                    <table class="nrgl_down_tab">
+                        <tr>
+                            <th style="width:80px">权限部门</th>
+                            <td>
+                                <input style="width:320px" data-bind="combotreeSource:extA,combotreeValue:addForm.DEPT_CODE,easyuiOptions:{required:true}" /></td>
+                        </tr>
+                        <tr data-bind="visible: false">
+                            <th style="width:80px">所在部门</th>
+                            <td>
+                                <input style="width:320px" data-bind="combotreeSource:extD,combotreeValue:addForm.MANAGE_DEPT_CODE,easyuiOptions:{required:false}" /></td>
+                        </tr>
+                       <tr>
+                            <th>登录帐号</th>
+                            <td><input name="username" id="username" class="easyui-textbox" data-options="required:true,validType:['englishsymbolCheckSub','length[3,15]']" maxlength="15">
+                                <input data-bind="value:addForm.ISUP_FLAG_EXT" type="hidden" />
+                            </td>
+                       </tr>
+                        <tr>
+                            <th>登录密码</th>
+                            <td><input id="password" name="password" type="password" class="easyui-textbox"   maxlength="25"  data-options="required:true,validType:['length[8,25]','isRegisterPassWord']"/><label id="ismmts" style="display:none;color:#FF0000"">&nbsp;&nbsp;密码不填写则不修改</label></td>
+                        </tr>
+                        <tr>
+                            <th>用户姓名</th>
+                            <td>
+                                <input style="width: 145px;" data-bind="textboxValue: addForm.ZSNAME, easyuiOptions: {validType: ['length[2,15]'] }" /></td>
+                        </tr>
+                        <tr>
+                            <th>用户备注</th>
+                            <td style="height:70px;">
+                                <input  style="width:300px;height:60px;" data-bind="textboxValue:addForm.NOTE,easyuiOptions:{validType:['length[0,100]']}" multiline="true" aria-multiline="True" />
+                               </td>
+                        </tr>
+                       <tr >
+                            <th>用户角色</th>
+                            <td>
+                                <ul data-bind="foreach:extB" style="list-style-type:none;width:405px; margin:0px; padding:0px; text-align:left;">
+                                     <li style="width:80px;float:left;">
+                                         <input type="checkbox" data-bind="checked:$root.extC,checkedValue:ROLE_ID"><span data-bind="text:NAME"></span>
+                                     </li>
+                                </ul>
+                            </td>
+                       </tr>
+                    </table>
+                </div>
+                <div  id="v-toolbar" data-options="region:'south',border:false" style="text-align: right; height: 35px; padding: 4px; padding-right: 10px; border-top: 1px solid #ccc;">
+                    </div>
+            </form>
+        </div>
+    </div>
+
